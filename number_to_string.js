@@ -59,7 +59,18 @@ const tables = {
   },
 }
 
-const part_to_string = ([value, weight]) => tables[weight][value]
+const part_to_string = ([value, weight], i, parts) => {
+  let prev = parts[i+1]
+  let next = parts[i-1]
+  if (weight == 1 && next && next[1] == 10 && next[0] == 1 ) {
+    return ''
+  } else if ( weight == 10 && value == 1 ) {
+    return tables[weight][value][prev[0]]
+  } else {
+    return tables[weight][value]
+  }
+}
+
 const parts_to_string = (parts) => {
   return parts.map(part_to_string).join(' ').trim()
 }
