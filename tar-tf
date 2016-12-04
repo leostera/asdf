@@ -1,0 +1,6 @@
+overlays λ tar -tf markI.tar.gz
+etc/
+etc/apk/
+etc/init.d/
+etc/init.d/ssh_keys
+etc/apk/world
