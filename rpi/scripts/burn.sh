@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 
 readonly DISK_N=$(
   diskutil list \
@@ -15,11 +15,15 @@ readonly SIZE=$(
     | cut -f 1
 )
 
+echo "Cleaning up disk..."
 diskutil mountDisk ${DISK}
 diskutil eraseDisk fat32 ${VOLUME_NAME} MBR ${DISK}
+echo "Copying..."
   pv \
     --progress \
     --size ${SIZE}k \
     ${FILE} \
   | tar zxf - -C ${VOLUME_PATH}
+echo "DONE!"
+echo "Ejecting..."
 diskutil eject ${DISK}

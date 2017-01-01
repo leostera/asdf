@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 
 readonly OVERLAYS=$(
   find ./alpine-${MARK}/overlays \
@@ -8,6 +8,9 @@ readonly OVERLAYS=$(
 
 for overlay in $OVERLAYS; do
   pushd $overlay
-    tar -zcf ../${MARK}.tar.gz ./*
+    SIZE=$( du -s . | cut -f 1)
+    tar -zcf - ./* \
+      | pv -s ${SIZE}k \
+      > ../${MARK}.tar.gz
   popd
 done
