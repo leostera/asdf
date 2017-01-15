@@ -19,10 +19,7 @@ echo "Cleaning up disk..."
 diskutil mountDisk ${DISK}
 diskutil eraseDisk fat32 ${VOLUME_NAME} MBR ${DISK}
 echo "Copying..."
-  pv \
-    --progress \
-    --size ${SIZE}k \
-    ${FILE} \
+  pv -s ${SIZE}k ${FILE} \
   | tar zxf - -C ${VOLUME_PATH}
 echo "DONE!"
 echo "Ejecting..."
