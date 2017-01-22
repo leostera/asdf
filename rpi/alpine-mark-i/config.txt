@@ -1,0 +1,18 @@
+disable_splash=1
+boot_delay=0
+gpu_mem=256
+gpu_mem_256=64
+[pi0]
+kernel=boot/vmlinuz-rpi
+initramfs boot/initramfs-rpi 0x08000000
+[pi1]
+kernel=boot/vmlinuz-rpi
+initramfs boot/initramfs-rpi 0x08000000
+[pi2]
+kernel=boot/vmlinuz-rpi2
+initramfs boot/initramfs-rpi2 0x08000000
+[pi3]
+kernel=boot/vmlinuz-rpi2
+initramfs boot/initramfs-rpi2 0x08000000
+[all]
+include usercfg.txt

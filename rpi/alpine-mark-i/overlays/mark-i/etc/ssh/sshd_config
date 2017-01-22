@@ -1,0 +1,31 @@
+# Listening Options
+# Port 22
+# ListenAddress ::
+# ListenAddress 0.0.0.0
+
+# Base Settings
+Protocol 2
+# @todo: setup host keys
+# HostKey /etc/ssh/ssh_host_rsa_key
+# HostKey /etc/ssh/ssh_host_dsa_key
+# HostKey /etc/ssh/ssh_host_ecdsa_key
+UsePrivilegeSeparation yes
+
+# Logging Settings
+SyslogFacility AUTH
+LogLevel INFO
+
+# Authentication Settings
+LoginGraceTime 120
+StrictModes yes
+
+PermitRootLogin no
+PermitEmptyPasswords no
+
+PubkeyAuthentication yes
+AuthorizedKeysFile %h/.ssh/authorized_keys
+PasswordAuthentication no
+
+# Other Settings
+TCPKeepAlive yes
+X11Forwarding no

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+readonly USERNAME=jarvis
+readonly GRANTS="ostera xaviervia nunyvega"
+
+readonly USER_HOME=/home/${USERNAME}
+readonly SSH=${USER_HOME}/.ssh
+readonly KEYS=${SSH}/authorized_keys
+
+adduser -s /bin/bash -D ${USERNAME}
+passwd -u ${USERNAME}
+sed -i "/${USERNAME}/d" /etc/shadow
+
+mkdir -p ${SSH}
+touch ${KEYS}
+
+for grant in ${GRANTS}; do
+  curl -sk https://github.com/${grant}.keys >> ${KEYS}
+done
+
+chmod go-w ${USER_HOME}
+
+chown -R ${USERNAME}: ${USER_HOME}
+chmod 700 ${SSH}
+chmod 600 ${KEYS}

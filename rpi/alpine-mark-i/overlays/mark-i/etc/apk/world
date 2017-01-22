@@ -1,0 +1,10 @@
+alpine-base
+ca-certificates
+openssh
+openntpd
+bash
+curl
+sudo
+tmux
+vim
+docker

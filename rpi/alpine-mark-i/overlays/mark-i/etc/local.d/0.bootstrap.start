@@ -1,0 +1,9 @@
+#!/bin/sh
+
+apk update
+apk add
+
+update-ca-certificates
+ntpd -s
+
+chown -R root:root /etc
