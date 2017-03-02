@@ -10,7 +10,9 @@ id : a -> a
 id x = x
 
 ||| Apply a function two times
-twice : (a -> a) -> a -> a
+||| @f The function to apply
+||| @x The argument to supply
+twice : (f : a -> a) -> (x : a) -> a
 twice f x = f (f x)
 
 Shape : Type
