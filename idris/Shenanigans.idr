@@ -1,6 +1,6 @@
 module Shenanigans
 
-double : Int -> Int
+double : Num a => a -> a
 double x = x + x
 
 add : Int -> Int -> Int
