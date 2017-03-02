@@ -9,6 +9,7 @@ add x y = x+y
 id : a -> a
 id x = x
 
+||| Apply a function two times
 twice : (a -> a) -> a -> a
 twice f x = f (f x)
 
