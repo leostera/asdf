@@ -16,3 +16,8 @@ badLengthWithList xs = []
 
 badLengthWithVect : Vect n String -> Vect n Nat
 badLengthWithVect xs = ?replace_with_empty_list_for_type_checking_error
+
+anotherLengths : Vect length String -> Vect length Nat
+anotherLengths [] = ?anotherLengths_rhs_1
+anotherLengths (x :: xs) = ?anotherLengths_rhs_2
+
