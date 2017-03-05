@@ -7,12 +7,11 @@ fourInts = [0,1,2,3]
 eightInts : Vect 8 Int
 eightInts = fourInts ++ fourInts
 
-allLengths : Vect len String -> Vect len Nat
-allLengths [] = []
+total allLengths : Vect len String -> Vect len Nat
 allLengths (word :: words) = length word :: allLengths words
 
 badLengthWithList : List String -> List Nat
 badLengthWithList xs = []
 
 badLengthWithVect : Vect n String -> Vect n Nat
-badLengthWithVect xs = []
+badLengthWithVect xs = ?replace_with_empty_list_for_type_checking_error
