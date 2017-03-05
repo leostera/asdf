@@ -10,3 +10,7 @@ total insSort : Ord type => Vect length type -> Vect length type
 insSort [] = []
 insSort (x :: xs) = let xsSorted = insSort xs in
                               insert x xsSorted
+
+total len : List a -> Nat
+len [] = 0
+len (x :: xs) = 1 + len xs
