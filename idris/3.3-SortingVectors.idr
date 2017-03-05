@@ -18,3 +18,7 @@ len (x :: xs) = 1 + len xs
 total rev : List a -> List a
 rev [] = []
 rev (x :: xs) = rev xs ++ [x]
+
+total map' : (a -> b) -> List a -> List b
+map' f [] = []
+map' f (x :: xs) = f x :: map' f xs
