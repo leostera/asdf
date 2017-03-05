@@ -13,3 +13,6 @@ allLengths (word :: words) = length word :: allLengths words
 
 badLengthWithList : List String -> List Nat
 badLengthWithList xs = []
+
+badLengthWithVect : Vect n String -> Vect n Nat
+badLengthWithVect xs = []
