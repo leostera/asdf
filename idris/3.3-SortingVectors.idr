@@ -22,3 +22,7 @@ rev (x :: xs) = rev xs ++ [x]
 total map' : (a -> b) -> List a -> List b
 map' f [] = []
 map' f (x :: xs) = f x :: map' f xs
+
+total map'' : (a -> b) -> Vect n a -> Vect n b
+map'' f [] = []
+map'' f (x :: xs) = f x :: map'' f xs
