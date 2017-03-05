@@ -14,3 +14,7 @@ insSort (x :: xs) = let xsSorted = insSort xs in
 total len : List a -> Nat
 len [] = 0
 len (x :: xs) = 1 + len xs
+
+total rev : List a -> List a
+rev [] = []
+rev (x :: xs) = rev xs ++ [x]
