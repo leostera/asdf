@@ -1,13 +1,12 @@
 import Data.Vect
 
-insert : Ord type => (x : type) -> (xsSorted : Vect len type) -> Vect (S len) type
+total insert : Ord type => (x : type) -> (xsSorted : Vect len type) -> Vect (S len) type
 insert x [] = [x]
 insert x (y :: xs) = case x < y of
                           False => y :: insert x xs
                           True => x :: y :: xs
 
-insSort : Ord type => Vect length type -> Vect length type
+total insSort : Ord type => Vect length type -> Vect length type
 insSort [] = []
 insSort (x :: xs) = let xsSorted = insSort xs in
                               insert x xsSorted
-
