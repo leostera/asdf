@@ -2,8 +2,9 @@ import Data.Vect
 
 insert : Ord type => (x : type) -> (xsSorted : Vect len type) -> Vect (S len) type
 insert x [] = [x]
-insert x (y :: xs) = if x < y then x :: y :: xs
-                              else y :: insert x xs
+insert x (y :: xs) = case x < y of
+                          False => y :: insert x xs
+                          True => x :: y :: xs
 
 insSort : Ord type => Vect length type -> Vect length type
 insSort [] = []
