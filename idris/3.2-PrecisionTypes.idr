@@ -8,6 +8,7 @@ eightInts : Vect 8 Int
 eightInts = fourInts ++ fourInts
 
 total allLengths : Vect len String -> Vect len Nat
+allLengths [] = []
 allLengths (word :: words) = length word :: allLengths words
 
 badLengthWithList : List String -> List Nat
