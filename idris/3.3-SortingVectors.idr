@@ -33,4 +33,4 @@ map1 f (x :: xs) = ?map1_rhs_2
 
 total rev1 : Vect n a -> Vect n a
 rev1 [] = []
-rev1 (x :: xs) = ( rev1 xs ) :: [ x ]
+rev1 (x :: xs) = ( rev1 xs ) :: x :: []
