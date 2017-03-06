@@ -26,3 +26,6 @@ map' f (x :: xs) = f x :: map' f xs
 total map'' : (a -> b) -> Vect n a -> Vect n b
 map'' f [] = []
 map'' f (x :: xs) = f x :: map'' f xs
+
+map1 : (a -> b) -> Vect n a -> Vect n b
+map1 f xs = ?map1_rhs
