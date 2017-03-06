@@ -32,4 +32,5 @@ map1 f [] = []
 map1 f (x :: xs) = ?map1_rhs_2
 
 rev1 : List a -> List a
-rev1 xs = ?rev1_rhs
+rev1 [] = ?rev1_rhs_1
+rev1 (x :: xs) = ?rev1_rhs_2
