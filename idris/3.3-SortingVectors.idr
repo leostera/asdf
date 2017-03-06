@@ -31,6 +31,6 @@ map1 : (a -> b) -> Vect n a -> Vect n b
 map1 f [] = []
 map1 f (x :: xs) = ?map1_rhs_2
 
-rev1 : List a -> List a
+rev1 : Vect n a -> Vect n a
 rev1 [] = []
-rev1 (x :: xs) = xs
+rev1 (x :: xs) = ?hole
