@@ -29,4 +29,6 @@ map'' f (x :: xs) = f x :: map'' f xs
 
 map1 : (a -> b) -> Vect n a -> Vect n b
 map1 f [] = []
-map1 f (x :: xs) = f x :: map1 f xs
+map1 f (x :: xs) = ?map1_rhs_2
+
+rev1 : List a -> List a
