@@ -30,6 +30,8 @@ data Shape' : Type where
   Rectangle' : Double -> Double -> Shape'
   Circle' : Double -> Shape'
 
+data Nat = Z | S Nat
+
 data Picture = Primitive Shape
              | Combine Picture Picture
              | Rotate Double Picture
