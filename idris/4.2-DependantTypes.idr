@@ -29,5 +29,5 @@ integerToFin' : Integer -> (n : Nat) -> Maybe (Fin n)
 integerToFin' x Z = Nothing
 integerToFin' x n  = case compare (cast x) n of
                           GT => Nothing
-                          EQ => Just (the Fin n x)
-                          LT => Just (the Fin n x)
+                          EQ => Just (the (Fin n) x)
+                          LT => Just (the (Fin n) x)
