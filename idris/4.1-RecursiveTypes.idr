@@ -10,7 +10,10 @@ data Picture = Primitive Shape
 %name Picture pic1, pic2
 
 area : Picture -> Double
-area x = ?area_rhs
+area (Primitive shape1) = ?area_rhs_1
+area (Combine pic1 pic2) = ?area_rhs_2
+area (Rotate x pic1) = ?area_rhs_3
+area (Translate x y pic1) = ?area_rhs_4
 
 rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
