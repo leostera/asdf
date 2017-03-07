@@ -6,6 +6,6 @@ safeDiv x y = Some (x/y)
 
 data Result a b = Ok a | Error b
 
-run : (f : (a -> c)) -> (g : (b -> c)) -> Result a b -> c
-run f g (Ok x) = ?run_rhs_2
-run f g (Error x) = ?run_rhs_3
+total run : (f : (a -> c)) -> (g : (b -> c)) -> Result a b -> c
+run f g (Ok x) = f x
+run f g (Error x) = g x
