@@ -17,5 +17,3 @@ refuel : Vehicle Petrol -> Vehicle Petrol
 refuel (Car fuel) = Car 100
 refuel (Bus fuel) = Car 200
 refuel Bycicle impossible
-
-integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
