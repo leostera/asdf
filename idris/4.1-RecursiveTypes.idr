@@ -19,4 +19,4 @@ triangle = Primitive (Triangle 10 10)
 testPicture : Picture
 testPicture = Combine (Translate 5 5 rectangle)
                       (Combine (Translate 35 5 circle)
-                               (Translate 15 25 triangle))
+                               (Rotate 5 (Translate 15 25 triangle)))
