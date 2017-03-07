@@ -9,3 +9,7 @@ data Result a b = Ok a | Error b
 total run : (f : (a -> c)) -> (g : (b -> c)) -> Result a b -> c
 run f g (Ok x) = f x
 run f g (Error x) = g x
+
+data Tree elem = Empty
+               | Node (Tree elem) elem (Tree elem)
+%name Tree tree, tree1
