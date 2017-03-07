@@ -22,4 +22,4 @@ integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
 integerToFin x y = case compare x y  of
                         GT => Nothing
                         EQ => Just(Fin y)
-                        LT => Just(Fin y)
+                        LT => Just(Fin x)
