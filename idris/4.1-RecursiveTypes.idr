@@ -25,7 +25,7 @@ data Picture = ||| A primitive shape
 %name Picture pic1, pic2
 
 --- %name directives are _awesome_
-total area : Picture -> Double
+total pictureArea : Picture -> Double
 pictureArea (Primitive shape1) = ?area_rhs_1
 pictureArea (Combine pic1 pic2) = ?area_rhs_2
 pictureArea (Rotate x pic1) = ?area_rhs_3
