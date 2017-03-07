@@ -28,7 +28,7 @@ data BSTree : Type -> Type where
                      (right : BStree elem) ->
                      BSTree elem
 
-insert' : elem -> Tree elem -> Tree elem
+insert' : elem -> BSTree elem -> BSTree elem
 insert' x Empty = Node Empty x Empty
 insert' x orig@(Node left val right) = case compare x val of
                                       LT => Node (insert' x left) val right
