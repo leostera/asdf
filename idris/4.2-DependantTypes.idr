@@ -1,3 +1,5 @@
+import Data.Fin
+
 data PowerSource = Petrol | Pedal
 
 ||| Vehicle here is a function from PowerSource to a type
