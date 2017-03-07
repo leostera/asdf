@@ -8,6 +8,7 @@ data Picture = Primitive Shape
              | Translate Double Double Picture
 
 area : Picture -> Double
+area x = ?area_rhs
 
 rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
