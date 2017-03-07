@@ -10,3 +10,5 @@ wheels : Vehicle power -> Nat
 wheels Bycicle = 2
 wheels (Car fuel) = 4
 wheels (Bus fuel) = 4
+
+refuel : Vehicle Petrol -> Vehicle Petrol
