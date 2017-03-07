@@ -7,4 +7,6 @@ data Vehicle : PowerSource -> Type where
   Bus : (wheels : Nat) -> (fuel : Nat) -> Vehicle Petrol
 
 wheels : Vehicle power -> Nat
-wheels x = ?wheels_rhs
+wheels (Bycicle wheels) = ?wheels_rhs_1
+wheels (Car wheels fuel) = ?wheels_rhs_2
+wheels (Bus wheels fuel) = ?wheels_rhs_3
