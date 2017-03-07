@@ -11,7 +11,7 @@ run f g (Ok x) = f x
 run f g (Error x) = g x
 
 data BSTree : Type -> Type where
-  Empty : Ord elem => BStree elem
+  Empty : Ord elem => BSTree elem
   Node : Ord elem => (left : BSTree elem) ->
                      (val : elem) ->
                      (right : BStree elem) ->
