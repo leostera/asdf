@@ -28,7 +28,7 @@ data Picture = ||| A primitive shape
 pictureArea : Picture -> Double
 pictureArea (Primitive shape) = area shape
 pictureArea (Combine pic pic1) = pictureArea pic + pictureArea pic1
-pictureArea (Rotate x pic) = ?pictureArea_rhs_3
+pictureArea (Rotate x pic) = pictureArea pic
 pictureArea (Translate x y pic) = ?pictureArea_rhs_4
 
 rectangle : Picture
