@@ -7,7 +7,9 @@ data Picture = Primite Shape
              | Rotate Double Picture
              | Translate Double Double Picture
 
+rectangle : Picture
+
 testPicture : Picture
-testPicture = Combine (Translate 5 5 ?rectangle)
+testPicture = Combine (Translate 5 5 rectangle)
                 ( Combine (Translate 35 5 ?circle)
                   (Translate 15 25 ?triangle) )
