@@ -15,4 +15,4 @@ data Tree elem = Empty
 %name Tree tree, tree1
 
 insert : Ord elem => elem -> Tree elem -> Tree elem
-insert x tree = ?insert_rhs
+insert x tree = ?insert_rhs_1
