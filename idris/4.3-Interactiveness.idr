@@ -7,7 +7,7 @@ data Store : t -> Type where
            (elems : Vect size t) ->
            Store
 
-size : Store -> Nat
+size : Store t -> Nat
 
 main : IO ()
 main = ?main_rhs
