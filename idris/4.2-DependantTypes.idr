@@ -1,3 +1,5 @@
+import Data.Fin
+
 data PowerSource = Petrol | Pedal
 
 ||| Vehicle here is a function from PowerSource to a type
@@ -15,3 +17,8 @@ refuel : Vehicle Petrol -> Vehicle Petrol
 refuel (Car fuel) = Car 100
 refuel (Bus fuel) = Car 200
 refuel Bycicle impossible
+
+integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
+integerToFin x y = case x > y of
+                        True => Nothing
+                        False => Just x
