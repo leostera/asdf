@@ -7,6 +7,8 @@ data Picture = Primitive Shape
              | Rotate Double Picture
              | Translate Double Double Picture
 
+area : Picture -> Double
+
 rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
 
