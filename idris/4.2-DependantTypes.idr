@@ -19,5 +19,5 @@ refuel (Bus fuel) = Car 200
 refuel Bycicle impossible
 
 integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
-integerToFin x Z = ?integerToFin_rhs_2
+integerToFin x Z = Nothing
 integerToFin x (S k) = ?integerToFin_rhs_3
