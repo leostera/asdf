@@ -13,3 +13,5 @@ run f g (Error x) = g x
 data Tree elem = Empty
                | Node (Tree elem) elem (Tree elem)
 %name Tree tree, tree1
+
+insert : Ord elem => elem -> Tree elem -> Tree elem
