@@ -21,5 +21,5 @@ refuel Bycicle impossible
 integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
 integerToFin x y = case compare x y of
                         GT => Nothing
-                        EQ => ?equal
-                        LT => ?less_than
+                        EQ => Just(?equal)
+                        LT => Just(?less_than)
