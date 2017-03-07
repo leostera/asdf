@@ -26,6 +26,7 @@ data Picture = ||| A primitive shape
 
 --- %name directives are _awesome_
 pictureArea : Picture -> Double
+pictureArea pic = ?pictureArea_rhs
 
 rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
