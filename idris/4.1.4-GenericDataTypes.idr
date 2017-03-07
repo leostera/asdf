@@ -16,4 +16,4 @@ data Tree elem = Empty
 
 insert : Ord elem => elem -> Tree elem -> Tree elem
 insert x Empty = Node Empty x Empty
-insert x (Node left val right) = ?insert_rhs_3
+insert x (Node left val right) = compare x val
