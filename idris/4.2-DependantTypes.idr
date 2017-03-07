@@ -18,6 +18,9 @@ refuel (Car fuel) = Car 100
 refuel (Bus fuel) = Car 200
 refuel Bycicle impossible
 
+||| After looking into the definition of `integerToFin` in
+||| https://github.com/idris-lang/Idris-dev/blob/master/libs/base/Data/Fin.idr
+||| it seems that my original approach was wrong.
 integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
 integerToFin x Z = Nothing
 integerToFin x n = if x >= 0 then natToFin (cast x) n else Nothing
