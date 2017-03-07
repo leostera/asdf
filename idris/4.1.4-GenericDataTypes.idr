@@ -15,5 +15,5 @@ data Tree elem = Empty
 %name Tree tree, tree1
 
 insert : Ord elem => elem -> Tree elem -> Tree elem
-insert x Empty = Node (Empty) x (Empty)
-insert x (Node tree y tree1) = ?insert_rhs_3
+insert x Empty = Node Empty x Empty
+insert x (Node left val right) = ?insert_rhs_3
