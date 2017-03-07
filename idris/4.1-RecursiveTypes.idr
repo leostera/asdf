@@ -1,13 +1,13 @@
-%name Shape shape1, shape2
 data Shape = Triangle Double Double
            | Rectangle Double Double
            | Circle Double
+%name Shape shape1, shape2
 
-%name Picture pic1, pic2
 data Picture = Primitive Shape
              | Combine Picture Picture
              | Rotate Double Picture
              | Translate Double Double Picture
+%name Picture pic1, pic2
 
 area : Picture -> Double
 area x = ?area_rhs
