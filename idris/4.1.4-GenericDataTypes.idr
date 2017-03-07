@@ -1,3 +1,3 @@
-data Maybe a = Nothing | Just a
+data Option a = None | Some a
 
-safeDiv : Double -> Double -> Maybe Double
+safeDiv : Double -> Double -> Option Double
