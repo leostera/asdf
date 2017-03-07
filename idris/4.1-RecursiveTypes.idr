@@ -10,7 +10,9 @@ data Picture = Primitive Shape
 rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
 
+circle : Picture
+
 testPicture : Picture
 testPicture = Combine (Translate 5 5 rectangle)
-                ( Combine (Translate 35 5 ?circle)
+                ( Combine (Translate 35 5 circle)
                   (Translate 15 25 ?triangle) )
