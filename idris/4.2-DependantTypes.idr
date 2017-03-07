@@ -20,4 +20,4 @@ refuel Bycicle impossible
 
 integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
 integerToFin x Z = Nothing
-integerToFin x (S k) = if x >= 0 then natToFin (cast x) n else Nothing
+integerToFin x n = if x >= 0 then natToFin (cast x) n else Nothing
