@@ -9,6 +9,7 @@ data Picture = Primitive Shape
              | Translate Double Double Picture
 %name Picture pic1, pic2
 
+--- %name directives are _awesome_
 area : Picture -> Double
 area (Primitive shape1) = ?area_rhs_1
 area (Combine pic1 pic2) = ?area_rhs_2
