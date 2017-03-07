@@ -31,6 +31,6 @@ data BSTree : Type -> Type where
 insert' : elem -> Tree elem -> Tree elem
 insert' x Empty = Node Empty x Empty
 insert' x orig@(Node left val right) = case compare x val of
-                                      LT => Node (insert x left) val right
+                                      LT => Node (insert' x left) val right
                                       EQ => orig
-                                      GT => Node left val (insert x right)
+                                      GT => Node left val (insert' x right)
