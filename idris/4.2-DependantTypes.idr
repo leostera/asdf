@@ -26,4 +26,8 @@ integerToFin x Z = Nothing
 integerToFin x n = if x >= 0 then natToFin (cast x) n else Nothing
 
 integerToFin' : Integer -> (n : Nat) -> Maybe (Fin n)
-integerToFin' x n = ?integerToFin'_rhs_1
+integerToFin' x Z = Nothing
+integerToFin' x n  = case compare (cast x) n of
+                          GT => Nothing
+                          EQ => Just (cast x)
+                          LT => Just (cast x)
