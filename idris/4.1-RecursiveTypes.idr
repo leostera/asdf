@@ -8,4 +8,6 @@ data Picture = Primite Shape
              | Tranlate Double Double Picture
 
 testPicture : Picture
-testPicture = Combine ?pic1 ( Combine ?pic2 ?pic3 )
+testPicture = Combine (Translate 5 5 ?rectangle)
+                ( Combine (Translate 35 5 ?circle)
+                  (Translate 15 25 ?triangle) )
