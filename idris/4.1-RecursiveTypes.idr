@@ -29,7 +29,7 @@ pictureArea : Picture -> Double
 pictureArea (Primitive shape) = area shape
 pictureArea (Combine pic pic1) = pictureArea pic + pictureArea pic1
 pictureArea (Rotate x pic) = pictureArea pic
-pictureArea (Translate x y pic) = ?pictureArea_rhs_4
+pictureArea (Translate x y pic) = pictureArea pic
 
 rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
