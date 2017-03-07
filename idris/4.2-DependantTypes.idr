@@ -12,3 +12,4 @@ wheels (Car fuel) = 4
 wheels (Bus fuel) = 4
 
 refuel : Vehicle Petrol -> Vehicle Petrol
+refuel x = ?refuel_rhs
