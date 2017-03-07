@@ -14,6 +14,13 @@ data Tree elem = Empty
                | Node (Tree elem) elem (Tree elem)
 %name Tree tree, tree1
 
+data BSTree : Type -> Type where
+  Empty : Ord elem => BStree elem
+  Node : Ord elem => (Left : BSTree elem) ->
+                     (val : elem) ->
+                     (right : BStree elem) ->
+                     BSTree elem
+
 insert : Ord elem => elem -> Tree elem -> Tree elem
 insert x Empty = Node Empty x Empty
 insert x orig@(Node left val right) = case compare x val of
