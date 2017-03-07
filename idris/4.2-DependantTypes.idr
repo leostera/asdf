@@ -30,4 +30,4 @@ integerToFin' x Z = Nothing
 integerToFin' x n  = case compare (cast x) n of
                           GT => Nothing
                           EQ => Nothing
-                          LT => Just (the (Fin n) (cast ?what))
+                          LT => Just (the (Fin n) (cast x))
