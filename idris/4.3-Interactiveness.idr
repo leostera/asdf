@@ -8,6 +8,7 @@ data Store : t -> Type where
            Store t
 
 size : Store t -> Nat
+size x = ?size_rhs
 
 main : IO ()
 main = ?main_rhs
