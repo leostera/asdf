@@ -6,7 +6,7 @@ data Shape = ||| A triangle
            | ||| A circle
              Circle Double
 
-%name Shape shape1, shape2
+%name Shape shape, shape1, shape2
 
 total area : Shape -> Double
 area (Triangle x y) = 0.5 * x * y
@@ -22,14 +22,10 @@ data Picture = ||| A primitive shape
              | ||| A translated picture
                Translate Double Double Picture
 
-%name Picture pic1, pic2
+%name Picture pic, pic1, pic2
 
 --- %name directives are _awesome_
 total pictureArea : Picture -> Double
-pictureArea (Primitive shape1) = ?area_rhs_1
-pictureArea (Combine pic1 pic2) = ?area_rhs_2
-pictureArea (Rotate x pic1) = ?area_rhs_3
-pictureArea (Translate x y pic1) = ?area_rhs_4
 
 rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
