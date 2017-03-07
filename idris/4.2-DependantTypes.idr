@@ -19,6 +19,7 @@ refuel (Bus fuel) = Car 200
 refuel Bycicle impossible
 
 integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
-integerToFin x y = case x > y of
-                        True => Nothing
-                        False => Just x
+integerToFin x y = case compare x (toIntegerNat y) of
+                        GT => Nothing
+                        EQ => Just(x)
+                        LT => Just(x)
