@@ -5,6 +5,7 @@ data Shape = ||| A triangle
              Rectangle Double Double
            | ||| A circle
              Circle Double
+
 %name Shape shape1, shape2
 
 total area : Shape -> Double
