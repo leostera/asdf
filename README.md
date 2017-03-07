@@ -1,2 +1,2 @@
-# asdf
-Random code snippets 
+# :bug: `asdf`
+> Random code snippets
