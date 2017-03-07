@@ -16,7 +16,7 @@ data Tree elem = Empty
 
 data BSTree : Type -> Type where
   Empty : Ord elem => BStree elem
-  Node : Ord elem => (Left : BSTree elem) ->
+  Node : Ord elem => (left : BSTree elem) ->
                      (val : elem) ->
                      (right : BStree elem) ->
                      BSTree elem
