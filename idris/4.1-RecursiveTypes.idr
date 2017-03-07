@@ -11,8 +11,12 @@ rectangle : Picture
 rectangle = Primitive (Rectangle 20 10)
 
 circle : Picture
+circle = Primitive (Circle 5)
+
+triangle : Picture
+triangle = Primitive (Triangle 10 10)
 
 testPicture : Picture
 testPicture = Combine (Translate 5 5 rectangle)
                 ( Combine (Translate 35 5 circle)
-                  (Translate 15 25 ?triangle) )
+                  (Translate 15 25 triangle) )
