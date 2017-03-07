@@ -8,6 +8,7 @@ data Picture = Primite Shape
              | Translate Double Double Picture
 
 rectangle : Picture
+rectangle = Primitive (Rectangle 20 10)
 
 testPicture : Picture
 testPicture = Combine (Translate 5 5 rectangle)
