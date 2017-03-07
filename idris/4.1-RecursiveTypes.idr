@@ -1,12 +1,26 @@
-data Shape = Triangle Double Double
-           | Rectangle Double Double
-           | Circle Double
+||| A Shape
+data Shape = ||| A triangle
+             Triangle Double Double
+           | ||| A rectangle
+             Rectangle Double Double
+           | ||| A circle
+             Circle Double
 %name Shape shape1, shape2
 
-data Picture = Primitive Shape
-             | Combine Picture Picture
-             | Rotate Double Picture
-             | Translate Double Double Picture
+total area : Shape -> Double
+area (Triangle x y) = 0.5 * x * y
+area (Rectangle x y) = x * y
+area (Circle x) = pi * x * x
+
+data Picture = ||| A primitive shape
+               Primitive Shape
+             | ||| A combination of pictures
+               Combine Picture Picture
+             | ||| A rotated picture
+               Rotate Double Picture
+             | ||| A translated picture
+               Translate Double Double Picture
+
 %name Picture pic1, pic2
 
 --- %name directives are _awesome_
