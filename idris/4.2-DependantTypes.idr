@@ -20,4 +20,4 @@ refuel Bycicle impossible
 
 integerToFin : Integer -> (n : Nat) -> Maybe (Fin n)
 integerToFin x Z = Nothing
-integerToFin x (S k) = ?integerToFin_rhs_3
+integerToFin x (S k) = Just (S k)
