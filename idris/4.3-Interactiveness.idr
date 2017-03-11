@@ -10,7 +10,7 @@ data Store : t -> Type where
 size : Store t -> Nat
 size (Create size' elems') = size'
 
-items : 
+items : Store t -> Vect size t 
 
 main : IO ()
 main = ?main_rhs
