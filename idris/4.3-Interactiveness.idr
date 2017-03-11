@@ -10,5 +10,7 @@ data Store : t -> Type where
 size : Store t -> Nat
 size (Create size' elems') = size'
 
+items : 
+
 main : IO ()
 main = ?main_rhs
