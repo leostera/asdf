@@ -11,7 +11,7 @@ size : Store t -> Nat
 size (Create size' elems') = size'
 
 items : Store t -> Vect size t
-items x = ?items_rhs
+items (Create size elems) = ?items_rhs_1
 
 main : IO ()
 main = ?main_rhs
