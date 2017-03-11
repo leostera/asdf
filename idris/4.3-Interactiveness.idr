@@ -13,7 +13,7 @@ size (Create size' elems') = size'
 items : Store t -> Vect size t
 items (Create size' elems') = elems'
 
-addToStore : Store t -> t -> Store t
+addToStore : Store t -> Store t
 
 main : IO ()
 main = ?main_rhs
