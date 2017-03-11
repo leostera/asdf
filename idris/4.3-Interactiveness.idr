@@ -10,7 +10,7 @@ data Store : t -> Type where
 size : Store t -> Nat
 size (Create size' elems') = size'
 
-items : Store t -> Vect size t
+items : (store : Store t) -> Vect (size store) t
 items (Create size' elems') = elems'
 
 main : IO ()
