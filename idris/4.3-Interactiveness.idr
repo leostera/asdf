@@ -44,9 +44,7 @@ formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
     resultToString r = (indexInStore r) ++ ": " ++ show r ++ "\n"
 
     indexInStore : String -> String
-    indexInStore r = case elemIndex r (items store) of
-                          Just i => ?what_to_return
-                          Nothing => "?"
+    indexInStore r = elemIndex r (items store)
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
