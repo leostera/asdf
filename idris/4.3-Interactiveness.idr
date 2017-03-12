@@ -29,7 +29,7 @@ cleanInputs : String -> (String, String)
 cleanInputs input = case span (/= ' ') input of
                          (cmd, args) => (cmd, ltrim args)
 
-parseCommand : (cmd : String) -> (args : String) -> Maybe Command
+parseCommand : (cmd : Strin, args : String) -> Maybe Command
 
 
 parse : (input : String) -> Maybe Command
