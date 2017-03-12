@@ -43,7 +43,7 @@ parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
-processInput : (t : String) => Store t -> String -> Maybe (String, Store t)
+processInput : String t => Store t -> String -> Maybe (String, Store t)
 processInput store input = case parse input of
                                 Nothing => Just ("Invalid command\n", store)
                                 Just (Add item) =>
