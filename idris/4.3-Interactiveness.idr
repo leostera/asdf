@@ -37,8 +37,8 @@ search : (store : Store) -> (query : String) -> (n : Nat ** Vect n String)
 search store query = filter (isInfixOf query) (items store)
 
 formatMatches : (store : Store) -> (results : (n : Nat ** Vect n String)) -> String
-formatMatches (_ ** []) = "No matches\n"
-formatMatches (n ** rs) = foldr (++) "" (map resultToString rs)
+formatMatches store (_ ** []) = "No matches\n"
+formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
   where
     resultToString r = indexInStore r ++ show r ++ "\n"
     indexInStore r = "#" ++ (find store r) ++ " "
