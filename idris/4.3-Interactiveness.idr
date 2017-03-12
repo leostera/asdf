@@ -49,6 +49,7 @@ processInput store input
        Just (Add item) => Just ("ID" ++ show(size store) ++ "\n", add store item)
        Just (Get pos) => ?get_by_index
        Just Quit => Nothing
+       Nothing => Just ("Invalid command\n", store)
 
 partial main : IO ()
 main = replWith (Create _ []) "Command: " processInput
