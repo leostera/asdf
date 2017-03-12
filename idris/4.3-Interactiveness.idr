@@ -42,7 +42,7 @@ run store (Search query) = let
                            in
                               case length results > 0 of
                                    False => Just ("No matches\n", store)
-                                   True => Just (?format_results, store)
+                                   True => Just ("There's matches!", store)
 run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item)
 run store (Get pos) = Just ("Result: " ++ show (getByIndex store pos) ++ "\n", store)
 run store Size = Just (show (size store) ++ " item(s)\n", store)
