@@ -34,7 +34,7 @@ getByIndex store pos = case integerToFin pos (size store) of
                             Just pos' => index pos' (items store)
 
 search : (store : Store) -> (query : String) -> Vect n String
-search store query = ?search
+search store query = filter (isInfixOf query) (items store)
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let
