@@ -51,7 +51,7 @@ processInput { t = String } store input = case parse input of
                                                   ++ "\n", add store item)
                                 Just (Get pos) => ?get_by_index
                                 Just Quit => Nothing
-processInput _ _ = Just("Currently only working with strings")
+processInput store _ = Just("Currently only working with strings", store)
 
 partial main : IO ()
 main = replWith (Create _ []) "Command: " processInput
