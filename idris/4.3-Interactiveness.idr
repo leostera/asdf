@@ -33,7 +33,7 @@ parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 parseCommand "Add" value = Just (Add value)
 parseCommand "Get" index = Just (Get index)
 parseCommand "Quit" _    = Just Quit
-parseCommand _ = Nothing
+parseCommand _  _ = Nothing
 
 
 parse : (input : String) -> Maybe Command
