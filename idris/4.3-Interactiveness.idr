@@ -43,10 +43,10 @@ parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
-getByIndex : (pos : Integer) -> (store : Store) -> Maybe String
+getByIndex : (pos : Integer) -> (store : Store) -> String
 getByIndex pos store = case integerToFin pos (size store) of
-                            Nothing => Just "Out of Range"
-                            Just pos' => Just (index pos' (items store))
+                            Nothing => "Out of Range"
+                            Just pos' => index pos' (items store)
 
 
 processInput : Store -> String -> Maybe (String, Store)
