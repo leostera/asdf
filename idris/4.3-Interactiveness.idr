@@ -44,10 +44,9 @@ parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
 getByIndex : (pos : Integer) -> (store : Store) -> Maybe String
-getByIndex pos store = let
-                          items' = items store
-                        in
-                          ?getByIndex_rhs_1
+getByIndex pos store = case integerToFin pos (size store) of
+                            Nothing => Just "Out of Range"
+                            Just index => 
 
 
 processInput : Store -> String -> Maybe (String, Store)
