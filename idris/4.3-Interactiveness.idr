@@ -43,11 +43,13 @@ parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
+getByIndex : (pos : Integer) -> (store : Store) -> Maybe (String, Store)
+
 processInput : Store -> String -> Maybe (String, Store)
 processInput store input
 = case parse input of
        Just (Add item) => Just ("ID: " ++ show(size store) ++ "\n", add store item)
-       Just (Get pos) => ?get_by_index
+       Just (Get pos) => getByIndex pos store
        Just Quit => Nothing
        Nothing => Just ("Invalid command\n", store)
 
