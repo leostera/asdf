@@ -46,7 +46,7 @@ parse input = case cleanInputs input of
 getByIndex : (pos : Integer) -> (store : Store) -> Maybe String
 getByIndex pos store = case integerToFin pos (size store) of
                             Nothing => Just "Out of Range"
-                            Just pos' => index pos' (items store)
+                            Just pos' => Just (index pos' (items store))
 
 
 processInput : Store -> String -> Maybe (String, Store)
