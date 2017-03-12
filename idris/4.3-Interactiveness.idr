@@ -38,7 +38,6 @@ search store query = filter (isInfixOf query) (items store)
 
 formatMatches : (results : (n : Nat ** Vect n String)) -> String
 formatMatches (x ** pf) = ?formatMatches_rhs_2
-formatMatches (x ** pf) = ?formatMatches_rhs_3
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
