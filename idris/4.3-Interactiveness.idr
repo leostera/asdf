@@ -14,7 +14,7 @@ items : (store : Store t) -> Vect (size store) t
 items (Create size' elems') = elems'
 
 add : (store : Store t) -> t -> Store t
-add (Create size elems) newElem = Create (S size) (elems ++ [newElem])
+add (Create size elems) newElem = Create _ (elems ++ [newElem])
 
 main : IO ()
 main = ?main_rhs
