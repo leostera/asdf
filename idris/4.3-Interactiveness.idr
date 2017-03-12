@@ -7,15 +7,15 @@ import Data.Vect
 data Store : t -> Type where
   Create : (size : Nat) ->
            (elems : Vect size t) ->
-           Store t
+           Store
 
-size : Store t -> Nat
+size : Store -> Nat
 size (Create size' elems') = size'
 
-items : (store : Store t) -> Vect (size store) t
+items : (store : Store) -> Vect (size store) t
 items (Create size' elems') = elems'
 
-add : (store : Store t) -> t -> Store t
+add : (store : Store) -> t -> Store
 add (Create size elems) newElem = Create _ (elems ++ [newElem])
 
 {-
@@ -43,13 +43,12 @@ parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
-processInput : Store t -> String -> Maybe (String, Store t)
+processInput : Store -> String -> Maybe (String, Store)
 processInput store input
 = case parse input of
-       Just (Add item) => Just ("ID" ++ show(size store) ++ "\n", add store (cast item))
+       Just (Add item) => Just ("ID" ++ show(size store) ++ "\n", add store item)
        Just (Get pos) => ?get_by_index
        Just Quit => Nothing
-       Nothing => Just ("Invalid command\n", store)
 
 partial main : IO ()
 main = replWith (Create _ []) "Command: " processInput
