@@ -36,11 +36,11 @@ getByIndex store pos = case integerToFin pos (size store) of
 search : (store : Store) -> (query : String) -> (n : Nat ** Vect n String)
 search store query = filter (isInfixOf query) (items store)
 
-format_matches : (results : (n : Nat ** Vect n String)) -> String
+formatMatches : (results : (n : Nat ** Vect n String)) -> String
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
-                               Just( (format_matches store query results) results, store )
+                               Just( (formatMatches store query results) results, store )
 run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item)
 run store (Get pos) = Just ("Result: " ++ show (getByIndex store pos) ++ "\n", store)
 run store Size = Just (show (size store) ++ " item(s)\n", store)
