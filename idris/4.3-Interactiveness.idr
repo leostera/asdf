@@ -38,7 +38,6 @@ getIndexByElement store x = case elemIndex r (items store) of
                                  Just i => ?what_to_return
                                  Nothing => "?"
 
-
 search : (store : Store) -> (query : String) -> (n : Nat ** Vect n String)
 search store query = filter (isInfixOf query) (items store)
 
@@ -47,7 +46,7 @@ formatMatches store (_ ** []) = "No matches\n"
 formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
   where
     resultToString : String -> String
-    resultToString r = ": " ++ r ++ "\n"
+    resultToString r = (getIndexByElement store r) ++ ": " ++ r ++ "\n"
 
 
 run : Store -> Command -> Maybe (String, Store)
