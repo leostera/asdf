@@ -26,7 +26,7 @@ data Command = Add String
              | Quit
 
 cleanInputs : String -> (String, String)
-cleanInputs input = case span (/= ' ') input of
+cleanInputs input = case (span (/= ' ') input) of
                          (cmd, args) => (cmd, ltrim args)
 
 parse : (input : String) -> Maybe Command
