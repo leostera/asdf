@@ -27,12 +27,14 @@ data Command = Add String
 
 cleanInputs : String -> (String, String)
 cleanInputs input = case (span (/= ' ') input) of
-                         (cmd, args) => (cmd, ltrim args)
+                         (cmd, args) => (toLower cmd, ltrim args)
 
 parseCommand : (cmd : String) -> (args : String) -> Maybe Command
-parseCommand "Add" value = Just (Add value)
-parseCommand "Get" index = Just (Get index)
-parseCommand "Quit" _    = Just Quit
+parseCommand "add" value = Just (Add value)
+parseCommand "get" index = case all isDigit (unpack index) of
+                                False => Nothing
+                                True => Just (Get (cast val))
+parseCommand "quit" ""    = Just Quit
 parseCommand _  _ = Nothing
 
 
