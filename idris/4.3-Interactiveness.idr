@@ -25,6 +25,10 @@ data Command = Add String
              | Get Integer
              | Quit
 
+cleanInputs : String -> (String, String)
+cleanInputs input = case span (/= ' ') input of
+                         (cmd, args) => (cmd, ltrim args)
+
 parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 
 
