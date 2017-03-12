@@ -43,5 +43,8 @@ parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
+processInput : Store t -> String -> Maybe (String, Store t)
+
+
 partial main : IO ()
-main = replWith (Create _ []) "Command: " ?processInput
+main = replWith (Create _ []) "Command: " processInput
