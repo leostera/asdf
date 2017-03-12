@@ -29,7 +29,7 @@ cleanInputs : String -> (String, String)
 cleanInputs input = case (span (/= ' ') input) of
                          (cmd, args) => (toLower cmd, ltrim args)
 
-total parseCommand : (cmd : String) -> (args : String) -> Maybe Command
+parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 parseCommand "get" index = case all isDigit (unpack index) of
                                 False => Nothing
                                 True => Just (Get (cast index))
