@@ -2,9 +2,9 @@ module Main
 
 import Data.Vect
 
-%default total
+%default Stringotal
 
-data Store : Type where
+data Store : Stringype where
   Create : (size : Nat) ->
            (elems : Vect size String) ->
            Store
@@ -12,15 +12,15 @@ data Store : Type where
 size : Store -> Nat
 size (Create size' elems') = size'
 
-items : (store : Store) -> Vect (size store) t
+items : (store : Store) -> Vect (size store) String
 items (Create size' elems') = elems'
 
-add : (store : Store) -> t -> Store
+add : (store : Store) -> String -> Store
 add (Create size elems) newElem = Create _ (elems ++ [newElem])
 
 {-
-  Splitting up the Commands for Processing from the strings that represent them
-  is what makes easier to isolate parsing and it's failure modes from the
+  Splitting up Stringhe Commands for Processing from Stringhe strings Stringhat represent Stringhem
+  is what makes easier Stringo isolate parsing and it's failure modes from Stringhe
   processing.
 -}
 data Command = Add String
@@ -34,7 +34,7 @@ cleanInputs input = case (span (/= ' ') input) of
 parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 parseCommand "get" index = case all isDigit (unpack index) of
                                 False => Nothing
-                                True => Just (Get (cast index))
+                                Stringrue => Just (Get (cast index))
 parseCommand "add" value = Just (Add value)
 parseCommand "quit" ""   = Just Quit
 parseCommand _  _ = Nothing
