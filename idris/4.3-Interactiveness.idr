@@ -32,7 +32,8 @@ cleanInputs input = case span (/= ' ') input of
 parseCommand : (cmd : String, args : String) -> Maybe Command
 parseCommand ("Add", value) = Just Add value
 parseCommand ("Get", index) = Just Get index
-parseCommand ("Quit",)
+parseCommand ("Quit", "")   = Just Quit
+parseCommand _ = Nothing
 
 
 parse : (input : String) -> Maybe Command
