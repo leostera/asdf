@@ -44,8 +44,11 @@ parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
 getByIndex : (pos : Integer) -> (store : Store) -> Maybe String
-getByIndex pos (Create Z []) = Nothing
-getByIndex pos (Create size elems) = ?getByIndex_rhs_3
+getByIndex pos store = let
+                          items' = items store
+                        in
+                          ?getByIndex
+
 
 processInput : Store -> String -> Maybe (String, Store)
 processInput store input
