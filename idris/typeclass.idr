@@ -1,4 +1,4 @@
 module Main
 
-class SomeClass a where
-  stuff : a -> String 
+interface SomeClass a where
+  stuff : a -> String
