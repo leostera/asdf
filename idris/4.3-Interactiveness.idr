@@ -7,6 +7,11 @@ data Store : t -> Type where
            (elems : Vect size t) ->
            Store t
 
+{-
+  Splitting up the Commands for Processing from the strings that represent them
+  is what makes easier to isolate parsing and it's failure modes from the
+  processing.
+-}
 data Command = Add String
              | Get Integer
              | Quit
