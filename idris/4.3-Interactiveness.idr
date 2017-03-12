@@ -40,7 +40,7 @@ run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let
                               results = search store query
                            in
-                              case length results > 0 of
+                              case (length results) > 0 of
                                    False => Just ("No matches\n", store)
                                    True => Just ("There's matches!", store)
 run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item)
