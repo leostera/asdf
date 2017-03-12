@@ -4,9 +4,9 @@ import Data.Vect
 
 %default total
 
-data Store : t -> Type where
+data Store : Type where
   Create : (size : Nat) ->
-           (elems : Vect size t) ->
+           (elems : Vect size String) ->
            Store
 
 size : Store -> Nat
