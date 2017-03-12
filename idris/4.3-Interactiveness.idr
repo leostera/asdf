@@ -40,8 +40,8 @@ formatMatches : (store : Store) -> (results : (n : Nat ** Vect n String)) -> Str
 formatMatches store (_ ** []) = "No matches\n"
 formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
   where
-    resultToString r = (indexInStore r) ++ ?hole_1 ++ "\n"
-    indexInStore r = "#" ++ (find store r) ++ " "
+    resultToString r = (indexInStore r) ++ r ++ "\n"
+    indexInStore r = "#" ++ (lookup r store) ++ " "
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
