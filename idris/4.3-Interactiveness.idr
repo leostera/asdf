@@ -33,6 +33,8 @@ getByIndex store pos = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
+getIndexByElement : (store : Store) -> String -> String
+
 search : (store : Store) -> (query : String) -> (n : Nat ** Vect n String)
 search store query = filter (isInfixOf query) (items store)
 
@@ -43,10 +45,6 @@ formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
     resultToString : String -> String
     resultToString r = ": " ++ r ++ "\n"
 
-    indexInStore : String -> String
-    indexInStore r = case elemIndex r (items store) of
-                          Just i => ?what_to_return
-                          Nothing => "?"
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
