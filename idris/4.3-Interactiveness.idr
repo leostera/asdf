@@ -1,8 +1,8 @@
-%default total
-
 module Main
 
 import Data.Vect
+%default total
+
 
 data Store : t -> Type where
   Create : (size : Nat) ->
