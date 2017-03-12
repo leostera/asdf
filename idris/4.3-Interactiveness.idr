@@ -47,12 +47,13 @@ parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
-getByIndex : (pos : Integer) -> (store : Store) -> String
-getByIndex pos store = case integerToFin pos (size store) of
+getByIndex : (store : Store) -> (pos : Integer) -> String
+getByIndex store pos = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
 search_with_infix : (store : Store) -> (query : String) -> Maybe (String, Store)
+search_with_infix store query = ?search_with_infix_rhs
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = search_with_infix store query
