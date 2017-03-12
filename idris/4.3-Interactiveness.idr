@@ -52,8 +52,8 @@ getByIndex store pos = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
-sarch : (store : Store) -> (query : String) -> Maybe (String, Store)
-sarch store query = filter (isInfixOf query) store
+search : (store : Store) -> (query : String) -> Maybe (String, Store)
+search store query = filter (isInfixOf query) store
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = search store query
