@@ -52,14 +52,13 @@ getByIndex pos store = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
+run : Store -> Command -> Store
+
 
 processInput : Store -> String -> Maybe (String, Store)
 processInput store input
 = case parse input of
-       Just (Add item) => Just ("ID: " ++ show (size store) ++ "\n", add store item)
-       Just (Get pos) => Just ("Result: " ++ show (getByIndex pos store) ++ "\n", store)
-       Just Size => Just (show (size store) ++ " item(s)\n", store)
-       Just Quit => Nothing
+       Just validCommand => run store validCommand
        Nothing => Just ("Invalid command\n", store)
 
 partial main : IO ()
