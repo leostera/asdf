@@ -38,7 +38,7 @@ search store query = filter (isInfixOf query) (items store)
 
 formatMatches : (results : (n : Nat ** Vect n String)) -> String
 formatMatches (_ ** []) = "No matches\n"
-formatMatches (n ** rs) = (foldr (++) "") . (map (++ "\n"))
+formatMatches (n ** rs) = foldr (++) "" (map (++ "\n") rs)
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
