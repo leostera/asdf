@@ -8,16 +8,6 @@ data Store : Type where
   Create : (size : Nat) ->
            (elems : Vect size String) ->
            Store
-
-size : Store -> Nat
-size (Create size' elems') = size'
-
-items : (store : Store) -> Vect (size store) String
-items (Create size' elems') = elems'
-
-add : (store : Store) -> String -> Store
-add (Create size elems) newElem = Create _ (elems ++ [newElem])
-
 {-
   Splitting up the Commands for Processing from the strings that represent them
   is what makes easier to isolate parsing and it's failure modes from the
@@ -29,23 +19,14 @@ data Command = Add String
              | Size
              | Quit
 
-cleanInputs : String -> (String, String)
-cleanInputs input = case (span (/= ' ') input) of
-                         (cmd, args) => (toLower cmd, ltrim args)
+size : Store -> Nat
+size (Create size' elems') = size'
 
-parseCommand : (cmd : String) -> (args : String) -> Maybe Command
-parseCommand "get" index = case all isDigit (unpack index) of
-                                False => Nothing
-                                True => Just (Get (cast index))
-parseCommand "search" query = Just (Search query)
-parseCommand "add" value = Just (Add value)
-parseCommand "size" ""  = Just Size
-parseCommand "quit" ""  = Just Quit
-parseCommand _  _ = Nothing
+items : (store : Store) -> Vect (size store) String
+items (Create size' elems') = elems'
 
-parse : (input : String) -> Maybe Command
-parse input = case cleanInputs input of
-                   (cmd, args) => parseCommand cmd args
+add : (store : Store) -> String -> Store
+add (Create size elems) newElem = Create _ (elems ++ [newElem])
 
 getByIndex : (store : Store) -> (pos : Integer) -> String
 getByIndex store pos = case integerToFin pos (size store) of
@@ -66,6 +47,24 @@ run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item
 run store (Get pos) = Just ("Result: " ++ show (getByIndex store pos) ++ "\n", store)
 run store Size = Just (show (size store) ++ " item(s)\n", store)
 run store Quit = Nothing
+
+cleanInputs : String -> (String, String)
+cleanInputs input = case (span (/= ' ') input) of
+                         (cmd, args) => (toLower cmd, ltrim args)
+
+parseCommand : (cmd : String) -> (args : String) -> Maybe Command
+parseCommand "get" index = case all isDigit (unpack index) of
+                                False => Nothing
+                                True => Just (Get (cast index))
+parseCommand "search" query = Just (Search query)
+parseCommand "add" value = Just (Add value)
+parseCommand "size" ""  = Just Size
+parseCommand "quit" ""  = Just Quit
+parseCommand _  _ = Nothing
+
+parse : (input : String) -> Maybe Command
+parse input = case cleanInputs input of
+                   (cmd, args) => parseCommand cmd args
 
 processInput : Store -> String -> Maybe (String, Store)
 processInput store input
