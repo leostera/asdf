@@ -53,7 +53,7 @@ getByIndex store pos = case integerToFin pos (size store) of
                             Just pos' => index pos' (items store)
 
 search_with_infix : (store : Store) -> (query : String) -> Maybe (String, Store)
-search_with_infix store query = ?search_with_infix_rhs
+search_with_infix store query = ?search_with_infix_rhs_1
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = search_with_infix store query
