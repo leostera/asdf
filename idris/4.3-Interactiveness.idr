@@ -25,8 +25,10 @@ data Command = Add String
              | Get Integer
              | Quit
 
+parseCommand : (input : String) -> (String, String) -> Maybe Command
+
 parse : (input : String) -> Maybe Command
-parse input = ?parseCommand (span (/= ' ') input)
+parse input = parseCommand input (span (/= ' ') input)
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
