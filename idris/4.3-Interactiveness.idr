@@ -25,11 +25,12 @@ data Command = Add String
              | Get Integer
              | Quit
 
-parseCommand : (cmd : String, args : String) -> Maybe Command
+parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 
 
 parse : (input : String) -> Maybe Command
-parse input = parseCommand (?cleanInputs input)
+parse input = case cleanInputs input of
+                   (cmd, args) => parseCommand cmd args 
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
