@@ -26,7 +26,7 @@ data Command = Add String
              | Quit
 
 parse : (input : String) -> Maybe Command
-parse input = ?parse_rhs
+parse input = ?parse_rhs_1
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
