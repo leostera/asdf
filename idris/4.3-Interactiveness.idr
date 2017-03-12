@@ -8,6 +8,9 @@ data Store : Type where
   Create : (size : Nat) ->
            (elems : Vect size String) ->
            Store
+
+stour : Store
+stour = ?stour_1
 {-
   Splitting up the Commands for Processing from the strings that represent them
   is what makes easier to isolate parsing and it's failure modes from the
