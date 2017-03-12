@@ -32,7 +32,7 @@ cleanInputs input = case (span (/= ' ') input) of
 parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 parseCommand "get" index = case all isDigit (unpack index) of
                                 False => Nothing
-                                True => Just (Get (cast val))
+                                True => Just (Get (cast index))
 parseCommand "add" value = Just (Add value)
 parseCommand "quit" ""   = Just Quit
 parseCommand _  _ = Nothing
