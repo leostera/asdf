@@ -56,7 +56,12 @@ search : (store : Store) -> (query : String) -> Vect _ String
 search store query = filter (isInfixOf query) store
 
 run : Store -> Command -> Maybe (String, Store)
-run store (Search query) = search store query
+run store (Search query) = let
+                              results = search store query
+                           in
+                              case length results of
+                                   0 => Just ("No matches\n", store)
+                                   _ => Just (?format_results, store)
 run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item)
 run store (Get pos) = Just ("Result: " ++ show (getByIndex store pos) ++ "\n", store)
 run store Size = Just (show (size store) ++ " item(s)\n", store)
