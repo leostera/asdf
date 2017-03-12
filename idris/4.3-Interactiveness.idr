@@ -45,6 +45,5 @@ parse input = case cleanInputs input of
 
 processInput : Store t -> String -> Maybe (String, Store t)
 
-
 partial main : IO ()
 main = replWith (Create _ []) "Command: " processInput
