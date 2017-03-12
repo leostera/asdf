@@ -15,7 +15,7 @@ size (Create size' elems') = size'
 items : (store : Store) -> Vect (size store) String
 items (Create size' elems') = elems'
 
-add : (store : Store) -> t -> Store
+add : (store : Store) -> String -> Store
 add (Create size elems) newElem = Create _ (elems ++ [newElem])
 
 {-
