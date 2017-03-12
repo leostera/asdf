@@ -35,7 +35,7 @@ getByIndex store pos = case integerToFin pos (size store) of
 
 getIndexByElement : (store : Store) -> (el : String) -> String
 getIndexByElement store el = case elemIndex el (items store) of
-                                 Just i => finToNat i
+                                 Just i => show (finToNat i)
                                  Nothing => "?"
 
 search : (store : Store) -> (query : String) -> (n : Nat ** Vect n String)
