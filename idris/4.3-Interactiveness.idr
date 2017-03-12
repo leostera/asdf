@@ -25,6 +25,7 @@ add (Create size elems) newElem = Create _ (elems ++ [newElem])
 -}
 data Command = Add String
              | Get Integer
+             | Search String
              | Size
              | Quit
 
