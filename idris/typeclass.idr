@@ -1,3 +1,4 @@
 module Main
 
-class SomeClass where
+class SomeClass a where
+  stuff : a -> String 
