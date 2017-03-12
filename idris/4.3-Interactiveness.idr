@@ -25,6 +25,7 @@ add (Create size elems) newElem = Create _ (elems ++ [newElem])
 -}
 data Command = Add String
              | Get Integer
+             | Size
              | Quit
 
 cleanInputs : String -> (String, String)
@@ -36,7 +37,8 @@ parseCommand "get" index = case all isDigit (unpack index) of
                                 False => Nothing
                                 True => Just (Get (cast index))
 parseCommand "add" value = Just (Add value)
-parseCommand "quit" ""   = Just Quit
+parseCommand "size" ""  = Just Size
+parseCommand "quit" ""  = Just Quit
 parseCommand _  _ = Nothing
 
 parse : (input : String) -> Maybe Command
