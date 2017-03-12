@@ -40,7 +40,7 @@ formatMatches : (store : Store) -> (results : (n : Nat ** Vect n String)) -> Str
 formatMatches store (_ ** []) = "No matches\n"
 formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
   where
-    resultToString r = (indexInStore r) ++ (show r) ++ "\n"
+    resultToString r = (indexInStore r) ++ r ++ "\n"
     indexInStore r = "#" ++ (find store r) ++ " "
 
 run : Store -> Command -> Maybe (String, Store)
