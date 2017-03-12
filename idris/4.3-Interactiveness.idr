@@ -30,8 +30,8 @@ cleanInputs input = case span (/= ' ') input of
                          (cmd, args) => (cmd, ltrim args)
 
 parseCommand : (cmd : String, args : String) -> Maybe Command
-parseCommand ("Add", value) = Just Add value
-parseCommand ("Get", index) = Just Get index
+parseCommand ("Add", value) = Just (Add value
+parseCommand ("Get", index) = Just (Get index
 parseCommand ("Quit", "")   = Just Quit
 parseCommand _ = Nothing
 
