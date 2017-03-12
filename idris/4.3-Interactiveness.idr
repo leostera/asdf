@@ -45,7 +45,7 @@ formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
 
     indexInStore : String -> String
     indexInStore r = case (elemIndex r (items store)) of
-                          Just i => show (finToNat i)
+                          Just i => finToNat i
                           Nothing => "?"
 
 run : Store -> Command -> Maybe (String, Store)
