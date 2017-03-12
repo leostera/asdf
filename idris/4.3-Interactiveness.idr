@@ -41,10 +41,12 @@ formatMatches store (_ ** []) = "No matches\n"
 formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
   where
     resultToString : String -> String
-    resultToString r = (indexInStore r) ++ ": " ++ show r ++ "\n"
+    resultToString r = ": " ++ r ++ "\n"
 
     indexInStore : String -> String
-    indexInStore r = elemIndex r (items store)
+    indexInStore r = case elemIndex r (items store) of
+                          Just i => ?what_to_return
+                          Nothing => "?"
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
