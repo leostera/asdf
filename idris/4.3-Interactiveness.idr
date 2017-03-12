@@ -56,7 +56,7 @@ processInput store input
 = case parse input of
        Just (Add item) => Just ("ID: " ++ show (size store) ++ "\n", add store item)
        Just (Get pos) => Just ("Result: " ++ show (getByIndex pos store) ++ "\n", store)
-       Just Zie => Just (show (size store) ++ "item(s)\n", store)
+       Just Zie => Just (show (size store) ++ " item(s)\n", store)
        Just Quit => Nothing
        Nothing => Just ("Invalid command\n", store)
 
