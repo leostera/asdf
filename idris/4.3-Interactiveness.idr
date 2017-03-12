@@ -33,8 +33,8 @@ getByIndex store pos = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
-getIndexByElement : (store : Store) -> String -> String
-getIndexByElement store x = case elemIndex r (items store) of
+getIndexByElement : (store : Store) -> (el : String) -> String
+getIndexByElement store el = case elemIndex el (items store) of
                                  Just i => ?what_to_return
                                  Nothing => "?"
 
