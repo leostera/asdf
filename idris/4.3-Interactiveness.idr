@@ -52,7 +52,7 @@ getByIndex pos store = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
-run : Store -> Command -> Store
+run : Store -> Command -> Maybe (String, Store)
 run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item)
 run store (Get pos) = Just ("Result: " ++ show (getByIndex pos store) ++ "\n", store)
 run store Size = Just (show (size store) ++ " item(s)\n", store)
