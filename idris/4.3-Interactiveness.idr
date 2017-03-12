@@ -30,13 +30,12 @@ cleanInputs input = case (span (/= ' ') input) of
                          (cmd, args) => (toLower cmd, ltrim args)
 
 parseCommand : (cmd : String) -> (args : String) -> Maybe Command
-parseCommand "add" value = Just (Add value)
 parseCommand "get" index = case all isDigit (unpack index) of
                                 False => Nothing
                                 True => Just (Get (cast val))
-parseCommand "quit" ""    = Just Quit
+parseCommand "add" value = Just (Add value)
+parseCommand "quit" ""   = Just Quit
 parseCommand _  _ = Nothing
-
 
 parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
