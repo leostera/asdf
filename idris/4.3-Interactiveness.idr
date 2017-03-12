@@ -17,6 +17,8 @@ add : (store : Store t) -> t -> Store t
 add (Create size elems) newElem = Create _ (addItem elems newElem)
   where
     addItem : Vect n t -> Vect (S n) t
+    addItem [] new = [new]
+    addItem (item :: items) new = item :: (addItem items new)
 
 main : IO ()
 main = ?main_rhs
