@@ -33,12 +33,12 @@ getByIndex store pos = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
-search : (store : Store) ->
+search : (items : Vect n String) ->
          (query : String) ->
          Vect
-           (Data.Vect.length (Data.Vect.filter (isInfixOf query) (items store)))
+           (Data.Vect.length (Data.Vect.filter (isInfixOf query) items))
            String
-search store query = filter (isInfixOf query) (items store)
+search items query = filter (isInfixOf query) items
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let
