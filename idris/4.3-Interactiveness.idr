@@ -37,8 +37,8 @@ parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 parseCommand "get" index = case all isDigit (unpack index) of
                                 False => Nothing
                                 True => Just (Get (cast index))
-parseCommand "add" value = Just (Add value)
 parseCommand "search" query = Just (Search query)
+parseCommand "add" value = Just (Add value)
 parseCommand "size" ""  = Just Size
 parseCommand "quit" ""  = Just Quit
 parseCommand _  _ = Nothing
