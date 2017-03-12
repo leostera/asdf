@@ -52,8 +52,10 @@ getByIndex pos store = case integerToFin pos (size store) of
                             Nothing => "Out of Range"
                             Just pos' => index pos' (items store)
 
+search_with_infix : (store : Store) -> (query : String) -> Maybe (String, Store)
+
 run : Store -> Command -> Maybe (String, Store)
-run store (Search query) = ?search_with_infix
+run store (Search query) = search_with_infix store query
 run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item)
 run store (Get pos) = Just ("Result: " ++ show (getByIndex pos store) ++ "\n", store)
 run store Size = Just (show (size store) ++ " item(s)\n", store)
