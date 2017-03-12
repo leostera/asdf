@@ -29,7 +29,7 @@ parseCommand : (cmd : String, args : String) -> Maybe Command
 
 
 parse : (input : String) -> Maybe Command
-parse input = parseCommand (span (/= ' ') input)
+parse input = parseCommand (?cleanInputs input)
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
