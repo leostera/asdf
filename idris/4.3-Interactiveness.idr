@@ -36,9 +36,14 @@ getByIndex store pos = case integerToFin pos (size store) of
 search : (store : Store) -> (query : String) -> (n : Nat ** Vect n String)
 search store query = filter (isInfixOf query) (items store)
 
-formatMatches : (results : (n : Nat ** Vect n String)) -> String
+formatMatches : (store : Store) -> (results : (n : Nat ** Vect n String)) -> String
 formatMatches (_ ** []) = "No matches\n"
-formatMatches (n ** rs) = foldr (++) "" (map (++ "\n") rs)
+formatMatches (n ** rs) = foldr (++) "" (resultToString rs)
+  where
+    resultToString [] = ""
+    resulttoString (r :: rs) = indexInStore r ++ show r ++ "\n" 
+
+    indexInStore r = 
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
