@@ -7,6 +7,10 @@ data Store : t -> Type where
            (elems : Vect size t) ->
            Store t
 
+data Command = Add String
+             | Get Integer
+             | Quit
+
 size : Store t -> Nat
 size (Create size' elems') = size'
 
