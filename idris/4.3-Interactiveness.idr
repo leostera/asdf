@@ -53,6 +53,7 @@ getByIndex pos store = case integerToFin pos (size store) of
                             Just pos' => index pos' (items store)
 
 run : Store -> Command -> Maybe (String, Store)
+run x y = ?run_rhs
 
 processInput : Store -> String -> Maybe (String, Store)
 processInput store input
