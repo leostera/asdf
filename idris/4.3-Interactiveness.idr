@@ -37,7 +37,8 @@ parseCommand _ = Nothing
 
 
 parse : (input : String) -> Maybe Command
-parse input = (parseCommand (cleanInputs input))
+parse input = case cleanInputs input of
+                   (cmd, args) => parseCommand (cmd, args)
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
