@@ -44,7 +44,7 @@ formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
     resultToString r = "#" ++  "-" ++ r ++ "\n"
 
     indexInStore : String -> String
-    indexInStore r = case (elemIndex r store) of
+    indexInStore r = case (elemIndex r (items store)) of
                           Just i => show i
                           Nothing => "?"
 
