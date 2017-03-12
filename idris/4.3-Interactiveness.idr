@@ -43,7 +43,7 @@ formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
     resultToString : String -> String
     resultToString r = "#" ++  "-" ++ r ++ "\n"
 
-    indexInStore : String -> String 
+    indexInStore : String -> String
     indexInStore r = case (elemIndex r store) of
                           Just (Fin i) => show i
                           Nothing => "?"
