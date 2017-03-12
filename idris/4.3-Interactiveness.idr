@@ -43,7 +43,7 @@ parse : (input : String) -> Maybe Command
 parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
-getByIndex : (pos : Integer) -> (store : Store) -> Maybe (String, Store)
+getByIndex : (pos : Integer) -> (store : Store) -> Maybe String
 getByIndex pos (Create size []) = Nothing
 getByIndex pos (Create size elems) = ?getByIndex_rhs_3
 
