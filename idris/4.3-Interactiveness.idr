@@ -47,7 +47,7 @@ getByIndex : (pos : Integer) -> (store : Store) -> Maybe String
 getByIndex pos store = let
                           items' = items store
                         in
-                          ?getByIndex
+                          ?getByIndex_rhs_1
 
 
 processInput : Store -> String -> Maybe (String, Store)
