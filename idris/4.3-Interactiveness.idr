@@ -45,7 +45,7 @@ parse input = case cleanInputs input of
 
 getByIndex : (pos : Integer) -> (store : Store) -> Maybe String
 getByIndex pos (Create Z []) = Nothing
-getByIndex pos (Create (S len) (x :: xs)) = ?getByIndex_rhs_3
+getByIndex pos (Create size elems) = ?getByIndex_rhs_3
 
 processInput : Store -> String -> Maybe (String, Store)
 processInput store input
