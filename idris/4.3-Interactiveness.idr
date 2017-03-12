@@ -35,7 +35,9 @@ getByIndex store pos = case integerToFin pos (size store) of
 
 search : (store : Store) ->
          (query : String) ->
-         Vect (cast length (search store query)) String
+         Vect
+           (cast (length (filter (isInfixOf query) (items store))))
+           String
 search store query = filter (isInfixOf query) (items store)
 
 run : Store -> Command -> Maybe (String, Store)
