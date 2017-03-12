@@ -41,7 +41,7 @@ formatMatches store (_ ** []) = "No matches\n"
 formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
   where
     resultToString : String -> String
-    resultToString r = "#" ++ (lookup r store) ++ "-" ++ r ++ "\n"
+    --resultToString r = "#" ++ (lookup r store) ++ "-" ++ r ++ "\n"
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
