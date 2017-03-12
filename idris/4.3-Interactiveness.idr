@@ -26,10 +26,11 @@ data Command = Add String
              | Quit
 
 parse : (input : String) -> Maybe Command
-parse input = case inputTuple of
-                   (cmd, args) => ?parseCommand
-              where
+parse input = let
                 inputTuple = span (/= ' ') input
+              in
+              case inputTuple of
+                   (cmd, args) => ?parseCommand
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
