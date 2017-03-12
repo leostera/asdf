@@ -44,6 +44,7 @@ parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
 getByIndex : (pos : Integer) -> (store : Store) -> Maybe (String, Store)
+getByIndex pos store = ?getByIndex_rhs
 
 processInput : Store -> String -> Maybe (String, Store)
 processInput store input
