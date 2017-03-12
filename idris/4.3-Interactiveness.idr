@@ -37,7 +37,7 @@ parseCommand _ = Nothing
 
 
 parse : (input : String) -> Maybe Command
-parse = cleanInputs . parseCommand
+parse input = parseCommand (cleanInputs input)
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
