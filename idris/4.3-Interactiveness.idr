@@ -27,7 +27,5 @@ data Command = Add String
 
 parse : (input : String) -> Maybe Command
 
-processInput : Store t -> String -> Maybe (String, Store t)
-
 main : IO ()
-main = replWith (Create _ []) "Command: " processInput
+main = replWith (Create _ []) "Command: " ?processInput
