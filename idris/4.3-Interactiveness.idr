@@ -44,13 +44,14 @@ parse input = case cleanInputs input of
                    (cmd, args) => parseCommand cmd args
 
 processInput : Store t -> String -> Maybe (String, Store t)
-processInput store input = case parse input of
+processInput { t = String } store input = case parse input of
                                 Nothing => Just ("Invalid command\n", store)
                                 Just (Add item) =>
                                                   Just ("ID" ++ show(size store)
                                                   ++ "\n", add store item)
                                 Just (Get pos) => ?get_by_index
                                 Just Quit => Nothing
+processInput _ _ = Just("Currently only working with strings")
 
 partial main : IO ()
 main = replWith (Create _ []) "Command: " processInput
