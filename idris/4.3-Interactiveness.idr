@@ -33,7 +33,7 @@ parseCommand : (cmd : String) -> (args : String) -> Maybe Command
 
 
 parse : (input : String) -> Maybe Command
-parse input = parseCommand (cleanInputs input)
+parse input = parseCommand . cleanInputs input
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
