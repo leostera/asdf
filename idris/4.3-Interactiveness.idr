@@ -46,7 +46,7 @@ parse input = case cleanInputs input of
 processInput : Store t -> String -> Maybe (String, Store t)
 processInput store input
 = case parse input of
-       Just (Add item) => Just ("ID" ++ show(size store) ++ "\n", add store (caset item))
+       Just (Add item) => Just ("ID" ++ show(size store) ++ "\n", add store (cast item))
        Just (Get pos) => ?get_by_index
        Just Quit => Nothing
        Nothing => Just ("Invalid command\n", store)
