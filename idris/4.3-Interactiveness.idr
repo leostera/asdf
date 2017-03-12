@@ -41,10 +41,10 @@ formatMatches store (_ ** []) = "No matches\n"
 formatMatches store (n ** rs) = foldr (++) "" (map resultToString rs)
   where
     resultToString : String -> String
-    resultToString r = (show (indexInStore r)) ++ ": " ++ r ++ "\n"
+    resultToString r = (indexInStore r) ++ ": " ++ r ++ "\n"
 
     indexInStore : String -> String
-    indexInStore r = case (elemIndex r (items store)) of
+    indexInStore r = case elemIndex r (items store) of
                           Just i => finToNat i
                           Nothing => "?"
 
