@@ -29,8 +29,15 @@ cleanInputs : String -> (String, String)
 cleanInputs input = case (span (/= ' ') input) of
                          (cmd, args) => (cmd, ltrim args)
 
+parseCommand : (cmd : String, args : String) -> Maybe Command
+parseCommand ("Add", value) = Just (Add value)
+parseCommand ("Get", index) = Just (Get index)
+parseCommand ("Quit", "")   = Just Quit
+parseCommand _ = Nothing
+
+
 parse : (input : String) -> Maybe Command
-parse input = Just (cleanInputs input)
+parse input = parseCommand (cleanInputs input)
 
 main : IO ()
 main = replWith (Create _ []) "Command: " ?processInput
