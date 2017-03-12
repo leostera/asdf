@@ -40,7 +40,7 @@ formatMatches : (results : (n : Nat ** Vect n String)) -> String
 
 run : Store -> Command -> Maybe (String, Store)
 run store (Search query) = let results = search store query in
-                               Just( (formatMatches store query results) results, store )
+                               Just( (formatMatches results), store )
 run store (Add item) = Just ("ID: " ++ show (size store) ++ "\n", add store item)
 run store (Get pos) = Just ("Result: " ++ show (getByIndex store pos) ++ "\n", store)
 run store Size = Just (show (size store) ++ " item(s)\n", store)
