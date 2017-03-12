@@ -17,4 +17,4 @@ add : (store : Store t) -> t -> Store t
 add (Create size elems) newElem = Create _ (elems ++ [newElem])
 
 main : IO ()
-main = ?main_rhs
+main = replWith (Create _ []) "Command: " ?processInput
