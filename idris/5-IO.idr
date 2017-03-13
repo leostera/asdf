@@ -40,6 +40,12 @@ usePair : IO ()
 usePair = do (str1, str2) <- readPair
              putStrLn ("(" ++ str1 ++ ", " ++ str2 ++ ")")
 
+readNumbers' : IO (Maybe (Nat, Nat))
+readNumbers' = do
+  Just n1 <- readNumber | Nothing => pure Nothing
+  Just n2 <- readNumber | Nothing => pure Nothing
+  pure (Just (n1, n2))
+
 main : IO ()
 main = do
   putStr "Enter a name: "
