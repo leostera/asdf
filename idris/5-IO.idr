@@ -1,7 +1,7 @@
 module Main
 
 printLength : IO ()
-printLength = ?printLength_rhs
+printLength = getLine >>= ?printLength_rhs
 
 main : IO ()
 main = do
