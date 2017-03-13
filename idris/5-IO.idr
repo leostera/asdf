@@ -14,7 +14,11 @@ printLength' = do putStr "Input > "
                   putStrLn (show len)
 
 readNumber : IO (Maybe Nat)
-readNumber = ?readNumber_rhs
+readNumber = do
+  input <- getLine
+  if all isDigit (unpack input)
+     then pure (Just (cast input))
+     else pure Nothing
 
 main : IO ()
 main = do
