@@ -1,4 +1,7 @@
 module Main
 
 main : IO ()
-main = ?main_rhs1
+main = do
+  putStr "Enter a name: "
+  x <- getLine
+  putStrLn ("Hello " ++ x ++ "!")
