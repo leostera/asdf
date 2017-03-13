@@ -38,7 +38,7 @@ readPair = do str1 <- getLine
 
 usePair : IO ()
 usePair = do (str1, str2) <- readPair
-             putStrLn ("(" ++ str1 ++ ", " ++ str2 ++ ")")
+             putStrLn (show (str1, str2))
 
 readNumbers' : IO (Maybe (Nat, Nat))
 readNumbers' = do
