@@ -48,7 +48,8 @@ readNumbers' = do
   Just n2 <- readNumber | Nothing => pure Nothing
   pure (Just (n1, n2))
 
-
+countdown : (secs : Nat) -> IO ()
+countdown s = putStrLn "Yeeehaw!"
 
 main : IO ()
 main = do
