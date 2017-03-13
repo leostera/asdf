@@ -14,6 +14,7 @@ printLength' = do putStr "Input > "
                   putStrLn (show len)
 
 readNumber : IO (Maybe Nat)
+readNumber = ?readNumber_rhs
 
 main : IO ()
 main = do
