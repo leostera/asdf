@@ -37,9 +37,8 @@ readPair = do str1 <- getLine
               pure (str1, str2)
 
 usePair : IO ()
-usePair = do pair <- readPair
-             case pair of
-                  (str1, str2) => printLn ("(" ++ str1 ++ ", " ++ str 2 ++ ")")
+usePair = do (str1, str2) <- readPair
+             printLn ("(" ++ str1 ++ ", " ++ str 2 ++ ")")
 
 main : IO ()
 main = do
