@@ -18,7 +18,7 @@ readNumber = do
   input <- getLine
   if all isDigit (unpack input)
      then pure ?numberOK
-     else pure ?numberNope
+     else pure Nothing
 
 main : IO ()
 main = do
