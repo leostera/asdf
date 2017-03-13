@@ -9,8 +9,9 @@ data Store : Type where
            (elems : Vect size String) ->
            Store
 
-stour : Store
-stour = ?stour_1
+data What : t -> Type where
+  Noop : t -> What t
+
 {-
   Splitting up the Commands for Processing from the strings that represent them
   is what makes easier to isolate parsing and it's failure modes from the
