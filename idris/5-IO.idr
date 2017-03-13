@@ -49,7 +49,10 @@ readNumbers' = do
   pure (Just (n1, n2))
 
 countdown : (secs : Nat) -> IO ()
-countdown s = putStrLn "Yeeehaw!"
+countdown Z = putStrLn "Yeeehaw!"
+countdown (S k) = do putStrLn (show (S k))
+                     usleep 1000000
+                     countdown k
 
 main : IO ()
 main = do
