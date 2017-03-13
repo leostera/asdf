@@ -4,9 +4,8 @@ printLength : IO ()
 printLength = getLine >>= \line => let len = show (length line) in putStrLn len
 
 printTwoThings : IO ()
-printTwoThings = do
-  putStrLn "One"
-  putStrLn "Two"
+printTwoThings = do putStrLn "One"
+                    putStrLn "Two"
 
 printLength' : IO ()
 printLength' = do putStr "Input > "
