@@ -31,6 +31,11 @@ readNumbers = do
               Nothing => pure Nothing
               Just n2' => pure (Just (n1', n2'))
 
+readPair : IO (String, String)
+readPair = do str1 <- getLine
+              str2 <- getLine
+              pure (str1, str2)
+
 main : IO ()
 main = do
   putStr "Enter a name: "
