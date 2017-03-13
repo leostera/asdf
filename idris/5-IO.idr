@@ -21,6 +21,15 @@ readNumber = do
      else pure Nothing
 
 readNumbers : IO (Maybe (Nat, Nat))
+readNumbers = do
+  n1 <- readNumber
+  case n1 of
+       Nothing => pure Nothing
+       Just n1' => do
+         n2 <- readNumber
+         case n2 of
+              Nothing => pure Nothing
+              Just n2' => pure (Just (n1', n2'))
 
 main : IO ()
 main = do
