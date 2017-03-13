@@ -1,5 +1,7 @@
 module Main
 
+import System
+
 printLength : IO ()
 printLength = getLine >>= \line => let len = show (length line) in putStrLn len
 
@@ -45,6 +47,8 @@ readNumbers' = do
   Just n1 <- readNumber | Nothing => pure Nothing
   Just n2 <- readNumber | Nothing => pure Nothing
   pure (Just (n1, n2))
+
+
 
 main : IO ()
 main = do
