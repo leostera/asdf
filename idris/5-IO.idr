@@ -13,7 +13,7 @@ printLength' = do putStr "Input > "
                   let len = length input
                   putStrLn (show len)
 
-readNumber : IO (List Bool)
+readNumber : IO (List Char)
 readNumber = do
   input <- getLine
   pure all isDigit (unpack input)
