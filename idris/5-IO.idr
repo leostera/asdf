@@ -13,6 +13,8 @@ printLength' = do putStr "Input > "
                   let len = length input
                   putStrLn (show len)
 
+readNumber : IO (Maybe Nat)
+
 main : IO ()
 main = do
   putStr "Enter a name: "
