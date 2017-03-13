@@ -58,6 +58,9 @@ continue : IO ()
 continue = do
   putStr "Countdown from: "
   Just startNum <- readNumber
+    | Nothing => do
+      putStrLn "Not a valid number...try again"
+      continue
   countdown startNum
   putStr "Run again? (yes)"
   y <- getLine
