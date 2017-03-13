@@ -1,5 +1,7 @@
 module Main
 
+printLength : IO ()
+
 main : IO ()
 main = do
   putStr "Enter a name: "
