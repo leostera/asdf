@@ -20,6 +20,8 @@ readNumber = do
      then pure (Just (cast input))
      else pure Nothing
 
+readNumbers : IO (Maybe (Nat, Nat))
+
 main : IO ()
 main = do
   putStr "Enter a name: "
