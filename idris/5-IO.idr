@@ -36,6 +36,11 @@ readPair = do str1 <- getLine
               str2 <- getLine
               pure (str1, str2)
 
+usePair : IO ()
+usePair = do pair <- readPair
+             case pair of
+                  (str1, str2) => printLn ("(" ++ str1 ++ ", " ++ str 2 ++ ")")
+
 main : IO ()
 main = do
   putStr "Enter a name: "
