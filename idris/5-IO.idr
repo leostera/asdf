@@ -16,7 +16,7 @@ printLength' = do putStr "Input > "
 readNumber : IO (Bool)
 readNumber = do
   input <- getLine
-  pure all isDigit (unpack input)
+  pure (all isDigit (unpack input))
 
 main : IO ()
 main = do
