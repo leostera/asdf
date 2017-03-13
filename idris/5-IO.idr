@@ -1,7 +1,7 @@
 module Main
 
 printLength : IO ()
-printLength = getLine >>= \line => let len = length line in ?printLength_rhs
+printLength = getLine >>= \line => let len = show (length line) in putStrLn len
 
 main : IO ()
 main = do
