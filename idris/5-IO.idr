@@ -9,6 +9,10 @@ printTwoThings = do
   putStrLn "Two"
 
 printLength' : IO ()
+printLength' = do putStr "Input > "
+                  input <- getLine
+                  let len = length input
+                  putStrLn (show len)
 
 main : IO ()
 main = do
