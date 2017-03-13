@@ -55,16 +55,15 @@ countdown (S k) = do putStrLn (show (S k))
                      countdown k
 
 continue : IO ()
-continue = do putStr "Countdown from: "
-              Just startNum <- readNumber | Nothing => do putStrLn "Not a valid
-                                                          number, try again"
-                                                          continue
-              countdown startNum
-              putStr "Run again? (yes)"
-              y <- getLine
-              if y == "yes"
-                 then continue
-                 else pure ()
+continue = do
+  putStr "Countdown from: "
+  Just startNum <- readNumber
+  countdown startNum
+  putStr "Run again? (yes)"
+  y <- getLine
+  if y == "yes"
+     then continue
+     else pure ()
 
 main : IO ()
 main = do
