@@ -8,6 +8,8 @@ printTwoThings = do
   putStrLn "One"
   putStrLn "Two"
 
+printLength' : IO ()
+
 main : IO ()
 main = do
   putStr "Enter a name: "
