@@ -34,9 +34,10 @@ zipInputs = do putStrLn "Enter vector #1 (blank line to end): "
                putStrLn "Enter vector #2 (blank line to end): "
                (len2 ** vec2) <- readVect
                case exactLength len1 vec2 of
-                    Nothing => do pure "Vector are of different length. Try again"
+                    Nothing => do putStrLn "Vector are of different length. Try again"
                                   zipInputs
-                    Just vec2' => pure (zip vec1 vec2')
+                    Just vec2' => do printLn (zip vec1 vec2')
+                                     zipInputs
 
 main : IO ()
 main = ?main_rhs
