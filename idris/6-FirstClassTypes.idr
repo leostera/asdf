@@ -9,3 +9,5 @@ tri = [(0.0, 0.0), (3.0, 0.0), (0.0, 4.0)]
 
 Position : Type
 Position = (Double, Double)
+
+quad : Vect 4 Position
