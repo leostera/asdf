@@ -25,3 +25,8 @@ StringOrInt True = Int
 getStringOrInt : (isInt : Bool) -> StringOrInt isInt
 getStringOrInt False = "Ninety nine"
 getStringOrInt True = 99
+
+AnyToString : type -> String
+
+
+stringify : (type : Type) -> AnyToString type
