@@ -29,3 +29,5 @@ getStringOrInt True  = 99
 stringify : (isInt : Bool) -> StringOrInt isInt -> String
 stringify False x = trim x
 stringify True  x = cast x
+
+valToString : (isInt : Bool) -> ?argType -> String
