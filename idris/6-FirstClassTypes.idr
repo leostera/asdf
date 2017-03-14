@@ -73,4 +73,4 @@ toFormat (c :: chars) = case toFormat chars of
                              fmt => Lit (strCons c "") fmt
 
 printf : (fmt : String) -> PrintfType (toFormat (unpack fmt))
-printf fmt = ?printf_rhs
+printf fmt = printfFmt _ ""
