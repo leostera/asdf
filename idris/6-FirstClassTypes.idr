@@ -90,5 +90,4 @@ testMatrix : Matrix 2 3 Double
 testMatrix = [[0.0, 0.0, 0.0],
               [0.0, 0.0, 0.0]]
 
-TupleVect : (n : Nat) -> Type -> Type
-
+TupleVect : Nat -> Type -> Type
