@@ -23,4 +23,5 @@ StringOrInt False = String
 StringOrInt True = Int
 
 getStringOrInt : (isInt : Bool) -> StringOrInt isInt
-getStringOrInt isInt = ?getStringOrInt_rhs
+getStringOrInt False = "Ninety nine"
+getStringOrInt True = 99
