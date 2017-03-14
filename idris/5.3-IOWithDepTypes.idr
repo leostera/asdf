@@ -11,5 +11,7 @@ readVectLen (S k) = do x <- getLine
 data UnknownVect : Type -> Type where
   UVect : (len : Nat) -> Vect len a -> UnknownVect a
 
+readUVect : IO (UnknownVect String)
+
 main : IO ()
 main = ?main_rhs
