@@ -76,3 +76,4 @@ printf : (fmt : String) -> PrintfType (toFormat (unpack fmt))
 printf fmt = printfFmt _ ""
 
 Matrix : Num type => (n : Nat) -> (m : Nat) -> type -> Type
+Matrix n m x = ?Matrix_rhs
