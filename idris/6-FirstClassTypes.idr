@@ -99,4 +99,3 @@ Pair : (Nat, (Nat, ()))
 
 testTupleVect : TupleVect 4 Nat
 testTupleVect = (1,2,3,4,())
-
