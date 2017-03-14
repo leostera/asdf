@@ -57,3 +57,5 @@ PrintfType (Number fmt) = (i : Int) -> PrintfType fmt
 PrintfType (Str fmt) = (i : String) -> PrintfType fmt
 PrintfType (Lit _ fmt) = PrintfType fmt
 PrintfType End = String
+
+printfFmt : (fmt : Format) -> (acc : String) -> PrintfType fmt
