@@ -47,17 +47,17 @@ adder : Num numType =>
 adder Z acc = acc
 adder (S k) acc = \next => adder k (next + acc)
 
-data Format = Number Format
+data Format = Char Format
             | Double Format
-            | Char Format
+            | Number Format
             | Str Format
             | Lit String Format
             | End
 
 PrintfType : Format -> Type
-PrintfType (Number fmt) = (i : Int) -> PrintfType fmt
-PrintfType (Double fmt) = (d : Double) -> PrintfType fmt
 PrintfType (Char fmt) = (c : Char) -> PrintfType fmt
+PrintfType (Double fmt) = (d : Double) -> PrintfType fmt
+PrintfType (Number fmt) = (i : Int) -> PrintfType fmt
 PrintfType (Str fmt) = (s : String) -> PrintfType fmt
 PrintfType (Lit _ fmt) = PrintfType fmt
 PrintfType End = String
