@@ -28,7 +28,7 @@ readVect = do x <- getLine
                  else do (_ ** xs) <- readVect
                          pure (_ ** x :: xs)
 
-zipInputs : ()
+zipInputs : IO ()
 
 main : IO ()
 main = ?main_rhs
