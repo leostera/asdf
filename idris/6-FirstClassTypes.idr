@@ -64,7 +64,7 @@ PrintfType End = String
 
 printfFmt : (fmt : Format) -> (acc : String) -> PrintfType fmt
 printfFmt (Number fmt) acc = \i => printfFmt fmt (acc ++ show i)
-printfFmt (Double fmt) acc = \d => printfFmt fmt (acc ++ show ?d)
+printfFmt (Double fmt) acc = \d => printfFmt fmt (acc ++ show d)
 printfFmt (Char fmt) acc = \c => printfFmt fmt (acc ++ (cast c))
 printfFmt (Str fmt) acc = \str => printfFmt fmt (acc ++ str)
 printfFmt (Lit lit fmt) acc = printfFmt fmt (acc ++ lit)
