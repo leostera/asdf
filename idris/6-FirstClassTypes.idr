@@ -43,4 +43,5 @@ AdderType Z = Int
 AdderType (S k) =  (next : Int) -> AdderType k
 
 adder : (numargs : Nat) -> (acc : Int) -> AdderType numargs
-adder numargs acc = ?adder_rhs
+adder Z acc = ?adder_rhs_1
+adder (S k) acc = ?adder_rhs_2
