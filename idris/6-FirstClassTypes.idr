@@ -79,5 +79,5 @@ Matrix : Num t => (n : Nat) -> (m : Nat) -> (t : Type) -> Type
 Matrix n m t = Vect n (Vect m t)
 
 testMatrix : Matrix 2 3 Double
-testMatrix = [[?testMatrix_rhs1, ?testMatrix_rhs2, ?testMatrix_rhs3],
-              [?testMatrix_rhs4, ?testMatrix_rhs5, ?testMatrix_rhs6]]
+testMatrix = [[0.0, 0.0, 0.0],
+              [0.0, 0.0, 0.0]]
