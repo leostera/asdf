@@ -9,7 +9,7 @@ readVectLen (S k) = do x <- getLine
                        pure (x :: xs)
 
 data UnknownVect : Type -> Type where
-  UVect : (len : Nat) -> Vect len a -> UVect a
+  UVect : (len : Nat) -> Vect len a -> UnknownVect a
 
 main : IO ()
 main = ?main_rhs
