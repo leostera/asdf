@@ -37,3 +37,5 @@ valToString : (isInt : Bool) ->
                      False => String
               ) ->
               String
+
+AdderType : (numargs : Nat) -> Type
