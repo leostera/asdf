@@ -60,6 +60,6 @@ PrintfType End = String
 
 printfFmt : (fmt : Format) -> (acc : String) -> PrintfType fmt
 printfFmt (Number fmt) acc = \i => printfFmt fmt (acc ++ show i)
-printfFmt (Str fmt) acc = \str => printfFmt ?fmt_rhs ?acc_rhs  -- (acc ++ str)
+printfFmt (Str fmt) acc = \str => printfFmt fmt (acc ++ str)
 printfFmt (Lit lit fmt) acc = printfFmt fmt (acc ++ lit)
 printfFmt End acc = acc
