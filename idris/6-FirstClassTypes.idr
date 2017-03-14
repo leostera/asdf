@@ -76,3 +76,5 @@ printf : (fmt : String) -> PrintfType (toFormat (unpack fmt))
 printf fmt = printfFmt _ ""
 
 Matrix : (n : Nat) -> (m : Nat) -> Vect n (Vect m Double)
+testMatrix : Matrix 2 3
+testMatrix = [
