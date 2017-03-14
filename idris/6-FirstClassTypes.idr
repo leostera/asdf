@@ -30,4 +30,10 @@ stringify : (isInt : Bool) -> StringOrInt isInt -> String
 stringify False x = trim x
 stringify True  x = cast x
 
-valToString : (isInt : Bool) -> ?argType -> String
+valToString : (isInt : Bool) ->
+              (
+                case isInt of
+                     True => Int
+                     False => String
+              ) ->
+              String
