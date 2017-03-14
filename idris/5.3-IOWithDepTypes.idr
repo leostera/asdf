@@ -3,7 +3,8 @@ module Main
 import Data.Vect
 
 readVectLen : (len : Nat) -> IO (Vect len String)
-readVectLen len = ?readVectLen_rhs
+readVectLen Z = ?readVectLen_rhs_1
+readVectLen (S k) = ?readVectLen_rhs_2
 
 main : IO ()
 main = ?main_rhs
