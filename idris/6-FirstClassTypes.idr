@@ -53,4 +53,5 @@ data Format = Number Format
             | End
 
 PrintfType : Format -> Type
+PrintfType x = ?PrintfType_rhs
 
