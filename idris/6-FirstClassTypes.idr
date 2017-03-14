@@ -91,3 +91,4 @@ testMatrix = [[0.0, 0.0, 0.0],
               [0.0, 0.0, 0.0]]
 
 TupleVect : Nat -> Type -> Type
+TupleVect n t = ?tuplevect_rhs
