@@ -70,7 +70,7 @@ printfFmt (Number fmt) acc = \i => printfFmt fmt (acc ++ show i)
 printfFmt (Str fmt) acc = \str => printfFmt fmt (acc ++ str)
 printfFmt End acc = acc
 
-toFormat : (xs : List Character) -> Format
+toFormat : (xs : List Char) -> Format
 toFormat [] = End
 toFormat ('%' :: 'c' :: chars) = Character (toFormat chars)
 toFormat ('%' :: 'd' :: chars) = Number (toFormat chars)
