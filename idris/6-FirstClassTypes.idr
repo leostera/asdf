@@ -27,3 +27,4 @@ getStringOrInt False = "Ninety nine"
 getStringOrInt True = 99
 
 stringify : (isInt : Bool) -> StringOrInt isInt
+stringify isInt = ?stringify_rhs
