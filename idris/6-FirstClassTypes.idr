@@ -59,7 +59,7 @@ PrintfType (Lit _ fmt) = PrintfType fmt
 PrintfType End = String
 
 printfFmt : (fmt : Format) -> (acc : String) -> PrintfType fmt
-printfFmt (Number fmt) acc = \i => printFmt fmt (acc ++ show i)
-printfFmt (Str fmt) acc = \str => printFmt fmt (acc ++ str) 
-printfFmt (Lit lit fmt) acc = printFmt fmt (acc ++ lit)
+printfFmt (Number fmt) acc = \i => printfFmt fmt (acc ++ show i)
+printfFmt (Str fmt) acc = \str => printfFmt fmt (acc ++ str)
+printfFmt (Lit lit fmt) acc = printfFmt fmt (acc ++ lit)
 printfFmt End acc = acc
