@@ -59,3 +59,4 @@ PrintfType (Lit _ fmt) = PrintfType fmt
 PrintfType End = String
 
 printfFmt : (fmt : Format) -> (acc : String) -> PrintfType fmt
+printfFmt fmt acc = ?printfFmt_rhs
