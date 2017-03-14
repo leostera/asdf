@@ -79,3 +79,4 @@ Matrix : Num t => (n : Nat) -> (m : Nat) -> (t : Type) -> Type
 Matrix n m t = Vect n (Vect m t)
 
 testMatrix : Matrix 2 3 Double
+testMatrix = ?testMatrix_rhs
