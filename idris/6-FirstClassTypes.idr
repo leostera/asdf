@@ -39,4 +39,5 @@ valToString : (isInt : Bool) ->
               String
 
 AdderType : (numargs : Nat) -> Type
-AdderType numargs = ?AdderType_rhs
+AdderType Z = Int
+AdderType (S k) =  ?adderType_rhs --(next : Int) -> AdderType k
