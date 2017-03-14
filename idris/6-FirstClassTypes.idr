@@ -20,11 +20,11 @@ quint = ?quint_rhs
 
 StringOrInt : Bool -> Type
 StringOrInt False = String
-StringOrInt True = Int
+StringOrInt True  = Int
 
 getStringOrInt : (isInt : Bool) -> StringOrInt isInt
 getStringOrInt False = "Ninety nine"
-getStringOrInt True = 99
+getStringOrInt True  = 99
 
 stringify : (isInt : Bool) -> StringOrInt isInt -> String
 stringify False x = trim x
