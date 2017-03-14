@@ -29,6 +29,15 @@ readVect = do x <- getLine
                          pure (_ ** x :: xs)
 
 zipInputs : IO ()
+zipInputs = do putStrLn "Enter vector #1 (blank line to end): "
+               (len1 ** vec1) <- readVect
+               putStrLn "Enter vector #2 (blank line to end): "
+               (len2 ** vec2) <- readVect
+               case exactLength len1 vec2 of
+                    Nothing => do pure "Vector are of different length. Try
+                                  again"
+                                  zipInputs
+                    Just vec2' => pure (zip vec1 vec2)
 
 main : IO ()
 main = ?main_rhs
