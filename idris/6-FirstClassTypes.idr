@@ -77,3 +77,5 @@ printf fmt = printfFmt _ ""
 
 Matrix : Num type => (n : Nat) -> (m : Nat) -> type -> Type
 Matrix n m t = Vect n (Vect m t)
+
+testMatrix : Matrix 2 3
