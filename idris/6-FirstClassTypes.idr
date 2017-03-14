@@ -21,3 +21,5 @@ quint = ?quint_rhs
 StringOrInt : Bool -> Type
 StringOrInt False = String
 StringOrInt True = Int
+
+getStringOrInt : (isInt : Bool) -> StringOrInt isInt
