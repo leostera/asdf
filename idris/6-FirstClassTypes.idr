@@ -44,4 +44,4 @@ AdderType (S k) =  (next : Int) -> AdderType k
 
 adder : (numargs : Nat) -> (acc : Int) -> AdderType numargs
 adder Z acc = acc
-adder (S k) acc = \next => ?adder_rhs_2
+adder (S k) acc = \next => adder k (next + acc)
