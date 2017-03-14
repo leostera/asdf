@@ -89,6 +89,3 @@ Matrix n m t = Vect n (Vect m t)
 testMatrix : Matrix 2 3 Double
 testMatrix = [[0.0, 0.0, 0.0],
               [0.0, 0.0, 0.0]]
-
-TupleVect : Nat -> Type -> Type
-TupleVect n t = ?tuplevect_rhs
