@@ -38,9 +38,9 @@ valToString : (isInt : Bool) ->
               ) ->
               String
 
-AdderType : (numargs : Nat) -> (numType : Type) -> Type
-AdderType Z = Int
-AdderType (S k) =  (next : numType) -> AdderType k numType
+AdderType : (numargs : Nat) -> Type -> Type
+AdderType Z numType = Int
+AdderType (S k) numType =  (next : numType) -> AdderType k numType
 
 adder : Num numType => (numargs : Nat) -> numType -> AdderType numargs numType
 adder Z acc = acc
