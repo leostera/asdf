@@ -75,4 +75,4 @@ toFormat (c :: chars) = case toFormat chars of
 printf : (fmt : String) -> PrintfType (toFormat (unpack fmt))
 printf fmt = printfFmt _ ""
 
-Matrix : (n : Nat) -> (m : Nat) -> ?what_type
+Matrix : (n : Nat) -> (m : Nat) -> Vect n (Vect m Double)
