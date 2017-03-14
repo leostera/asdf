@@ -21,5 +21,7 @@ readUVect = do x <- getLine
 printVect : Show a => UnknownVect a -> IO ()
 printVect (UVect len xs) = putStrLn (show xs ++ " (length " ++ show len ++ ")")
 
+readVect : IO (len ** Vect len String)
+
 main : IO ()
 main = ?main_rhs
