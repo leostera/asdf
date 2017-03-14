@@ -19,5 +19,5 @@ quint : Polygon 5
 quint = ?quint_rhs
 
 StringOrInt : Bool -> Type
-StringOrInt False = ?StringOrInt_rhs_1
-StringOrInt True = ?StringOrInt_rhs_2
+StringOrInt False = String
+StringOrInt True = Int
