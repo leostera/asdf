@@ -92,5 +92,3 @@ testMatrix = [[0.0, 0.0, 0.0],
 
 TupleVect : (n : Nat) -> Type -> Type
 
-testTupleVect : TupleVect 4 Nat
-testTupleVect = (1,2,3,4,())
