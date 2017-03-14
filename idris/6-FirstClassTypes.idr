@@ -19,3 +19,4 @@ quint : Polygon 5
 quint = ?quint_rhs
 
 StringOrInt : Bool -> Type
+StringOrInt x = ?StringOrInt_rhs
