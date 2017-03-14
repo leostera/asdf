@@ -89,3 +89,6 @@ Matrix n m t = Vect n (Vect m t)
 testMatrix : Matrix 2 3 Double
 testMatrix = [[0.0, 0.0, 0.0],
               [0.0, 0.0, 0.0]]
+
+testTupleVect : TupleVect 4 Nat
+testTupleVect = (1,2,3,4,())
