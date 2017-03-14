@@ -53,5 +53,8 @@ data Format = Number Format
             | End
 
 PrintfType : Format -> Type
-PrintfType x = ?PrintfType_rhs
+PrintfType (Number x) = ?PrintfType_rhs_1
+PrintfType (Str x) = ?PrintfType_rhs_2
+PrintfType (Lit x y) = ?PrintfType_rhs_3
+PrintfType End = ?PrintfType_rhs_4
 
