@@ -11,3 +11,8 @@ Position : Type
 Position = (Double, Double)
 
 quad : Vect 4 Position
+
+Polygon : Nat -> Type
+Polygon n = Vect n Position
+
+quint : Polygon 5
