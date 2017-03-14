@@ -1,6 +1,7 @@
 module Main
 
 readVectLen : (len : Nat) -> IO (Vect len String)
+readVectLen x = ?readVectLen_rhs
 
 main : IO ()
 main = ?main_rhs
