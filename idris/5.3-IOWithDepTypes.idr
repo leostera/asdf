@@ -19,7 +19,7 @@ readUVect = do x <- getLine
                           pure (UVect _ (x :: xs))
 
 printVect : Show a => UnknownVect a -> IO ()
-printVect x = ?printVect_rhs
+printVect (UVect len xs) = ?printVect_rhs_1
 
 main : IO ()
 main = ?main_rhs
