@@ -37,7 +37,7 @@ zipInputs = do putStrLn "Enter vector #1 (blank line to end): "
                     Nothing => do pure "Vector are of different length. Try
                                   again"
                                   zipInputs
-                    Just vec2' => pure (zip vec1 vec2)
+                    Just vec2' => pure (?zipped_inputs)
 
 main : IO ()
 main = ?main_rhs
