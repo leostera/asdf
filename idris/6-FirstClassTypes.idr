@@ -95,3 +95,4 @@ TupleVect Z t = ()
 TupleVect (S k) t = (t, TupleVect k t)
 
 testTupleVect : TupleVect 4 Nat
+testTupleVect = (1,2,3,4,())
