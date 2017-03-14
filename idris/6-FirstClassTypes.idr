@@ -76,5 +76,3 @@ printf : (fmt : String) -> PrintfType (toFormat (unpack fmt))
 printf fmt = printfFmt _ ""
 
 Matrix : (n : Nat) -> (m : Nat) -> ?what_type
-testMatrix : Matrix 2 3
-testMatrix = [[0, 0, 0], [0, 0, 0]]
