@@ -27,6 +27,5 @@ getStringOrInt False = "Ninety nine"
 getStringOrInt True = 99
 
 stringify : (isInt : Bool) -> StringOrInt isInt -> String
-stringify False string = trim string
-stringify True int = cast int
-
+stringify False x = trim x
+stringify True x = cast x
