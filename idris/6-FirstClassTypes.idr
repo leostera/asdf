@@ -17,3 +17,5 @@ Polygon n = Vect n Position
 
 quint : Polygon 5
 quint = ?quint_rhs
+
+StringOrInt : Bool -> Type
