@@ -12,6 +12,11 @@ data UnknownVect : Type -> Type where
   UVect : (len : Nat) -> Vect len a -> UnknownVect a
 
 readUVect : IO (UnknownVect String)
+readUVect = do x <- getLine
+               if (x == "")
+                  then pure (UVect _ [])
+                  else do UVect _ xs <- readUVect
+                          pure (UVect _ (x :: xs))
 
 main : IO ()
 main = ?main_rhs
