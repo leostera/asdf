@@ -71,3 +71,5 @@ toFormat ('%' :: 's' :: chars) = Str (toFormat chars)
 toFormat (c :: chars) = case toFormat chars of
                              Lit lit chars' => Lit (strCons c lit) chars'
                              fmt => Lit (strCons c "") fmt
+
+printf : (fmt : String) -> PrintfType (toFormat (unpack fmt))
