@@ -46,3 +46,8 @@ adder : Num numType =>
         (numargs : Nat) -> numType -> AdderType numargs numType
 adder Z acc = acc
 adder (S k) acc = \next => adder k (next + acc)
+
+data Format = Number Format
+            | Str Format
+            | Lit String Format
+            | End
