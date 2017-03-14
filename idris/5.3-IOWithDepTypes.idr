@@ -3,8 +3,10 @@ module Main
 import Data.Vect
 
 readVectLen : (len : Nat) -> IO (Vect len String)
-readVectLen Z = ?readVectLen_rhs_4
-readVectLen (S k) = ?readVectLen_rhs_2
+readVectLen Z = pure []
+readVectLen (S k) = do x <- getline
+                       xs <- readVectLen k
+                       pure (x :: xs)
 
 main : IO ()
 main = ?main_rhs
