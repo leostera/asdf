@@ -47,34 +47,34 @@ adder : Num numType =>
 adder Z acc = acc
 adder (S k) acc = \next => adder k (next + acc)
 
-data Format = Char Format
-            | Double Format
+data Format = Character Format
+            | Float Format
             | Number Format
             | Str Format
             | Lit String Format
             | End
 
 PrintfType : Format -> Type
-PrintfType (Char fmt) = (c : Char) -> PrintfType fmt
-PrintfType (Double fmt) = (d : Double) -> PrintfType fmt
+PrintfType (Character fmt) = (c : Char) -> PrintfType fmt
+PrintfType (Float fmt) = (d : Float) -> PrintfType fmt
 PrintfType (Number fmt) = (i : Int) -> PrintfType fmt
 PrintfType (Str fmt) = (s : String) -> PrintfType fmt
 PrintfType (Lit _ fmt) = PrintfType fmt
 PrintfType End = String
 
 printfFmt : (fmt : Format) -> (acc : String) -> PrintfType fmt
-printfFmt (Char fmt) acc = \c => printfFmt fmt (acc ++ show c)
-printfFmt (Double fmt) acc = \d => printfFmt fmt (acc ++ show d)
+printfFmt (Character fmt) acc = \c => printfFmt fmt (acc ++ show c)
+printfFmt (Float fmt) acc = \d => printfFmt fmt (acc ++ show d)
+printfFmt (Lit lit fmt) acc = printfFmt fmt (acc ++ lit)
 printfFmt (Number fmt) acc = \i => printfFmt fmt (acc ++ show i)
 printfFmt (Str fmt) acc = \str => printfFmt fmt (acc ++ str)
-printfFmt (Lit lit fmt) acc = printfFmt fmt (acc ++ lit)
 printfFmt End acc = acc
 
-toFormat : (xs : List Char) -> Format
+toFormat : (xs : List Character) -> Format
 toFormat [] = End
-toFormat ('%' :: 'c' :: chars) = Char (toFormat chars)
+toFormat ('%' :: 'c' :: chars) = Character (toFormat chars)
 toFormat ('%' :: 'd' :: chars) = Number (toFormat chars)
-toFormat ('%' :: 'f' :: chars) = Double (toFormat chars)
+toFormat ('%' :: 'f' :: chars) = Float (toFormat chars)
 toFormat ('%' :: 's' :: chars) = Str (toFormat chars)
 toFormat (c :: chars) = case toFormat chars of
                              Lit lit chars' => Lit (strCons c lit) chars'
