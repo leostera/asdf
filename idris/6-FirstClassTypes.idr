@@ -65,3 +65,4 @@ printfFmt (Lit lit fmt) acc = printfFmt fmt (acc ++ lit)
 printfFmt End acc = acc
 
 toFormat : (xs : List Char) -> Format
+toFormat xs = ?toFormat_rhs
