@@ -75,6 +75,6 @@ toFormat (c :: chars) = case toFormat chars of
 printf : (fmt : String) -> PrintfType (toFormat (unpack fmt))
 printf fmt = printfFmt _ ""
 
-Matrix : Num type => Nat n -> Nat m -> type -> ?what_type
+Matrix : Num type => (n : Nat) -> (m : Nat) -> type -> ?what_type
 testMatrix : Matrix 2 3 Double
 testMatrix = [[0, 0, 0], [0, 0, 0]]
