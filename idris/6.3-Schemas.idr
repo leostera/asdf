@@ -6,8 +6,14 @@ import Data.Vect
 
 infixr 5 .+.
 
-data Schema
+data Schema = SString
+            | SInt
+            | (.+.) Schema Schema
+
 SchemaType : Schema -> Type
+SchemaType SString = String
+SchemaType SInt = Int
+SchemaType (x .+. y) = (SchemaType x, SchemaType y)
 
 data Store : Type where
   Create : (schema : Schema) ->
