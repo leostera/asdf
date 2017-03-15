@@ -31,6 +31,10 @@ data Command = Add String
              | Size
              | Quit
 
+{-
+  Access to parts of the store
+-}
+
 size : Store -> Nat
 size (Create schema' size' elems') = size'
 
@@ -39,6 +43,10 @@ items (Create schema' size' elems') = elems'
 
 schema : Store -> Schema
 schema (Create schema' size' elems') = schema'
+
+{-
+  Operate on a store
+-}
 
 add : (store : Store) -> String -> Store
 add (Create schema' size elems) newElem = Create schema' _ (elems ++ [newElem])
@@ -55,6 +63,10 @@ getIndexByElement store el = case elemIndex el (items store) of
 
 search : (store : Store) -> (query : String) -> (n : Nat ** Vect n String)
 search store query = filter (isInfixOf query) (items store)
+
+{-
+  Interactive part
+-}
 
 formatMatches : (store : Store) -> (results : (n : Nat ** Vect n String)) -> String
 formatMatches store (_ ** []) = "No matches\n"
