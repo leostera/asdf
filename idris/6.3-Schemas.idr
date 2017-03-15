@@ -38,7 +38,7 @@ data Command = Add String
 size : Store -> Nat
 size (Create schema' size' elems') = size'
 
-items : (store : Store) -> Vect (size store) String
+items : (store : Store) -> Vect (size store) (SchemaType (schema store))
 items (Create schema' size' elems') = elems'
 
 schema : Store -> Schema
