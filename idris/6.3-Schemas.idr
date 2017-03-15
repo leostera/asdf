@@ -32,16 +32,16 @@ data Command = Add String
              | Quit
 
 size : Store -> Nat
-size (Create size' elems') = size'
+size (Create schema' size' elems') = size'
 
 items : (store : Store) -> Vect (size store) String
-items (Create size' elems') = elems'
+items (Create schema' size' elems') = elems'
 
 schema : Store -> Schema
 schema (Create schema' size' elems') = schema'
 
 add : (store : Store) -> String -> Store
-add (Create size elems) newElem = Create _ (elems ++ [newElem])
+add (Create schema' size elems) newElem = Create schema' _ (elems ++ [newElem])
 
 getByIndex : (store : Store) -> (pos : Integer) -> String
 getByIndex store pos = case integerToFin pos (size store) of
