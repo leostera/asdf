@@ -37,6 +37,9 @@ size (Create size' elems') = size'
 items : (store : Store) -> Vect (size store) String
 items (Create size' elems') = elems'
 
+schema : Store -> Schema
+schema (Create schema' size' elems') = schema'
+
 add : (store : Store) -> String -> Store
 add (Create size elems) newElem = Create _ (elems ++ [newElem])
 
