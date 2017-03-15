@@ -4,9 +4,13 @@ import Data.Vect
 
 %default total
 
+data Schema
+SchemaType : Schema -> Type
+
 data Store : Type where
-  Create : (size : Nat) ->
-           (elems : Vect size String) ->
+  Create : (schema : Schema) ->
+           (size : Nat) ->
+           (elems : Vect size (SchemaType schema)) ->
            Store
 {-
   Splitting up the Commands for Processing from the strings that represent them
