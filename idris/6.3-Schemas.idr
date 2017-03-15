@@ -4,6 +4,8 @@ import Data.Vect
 
 %default total
 
+infixr 5 .+.
+
 data Schema
 SchemaType : Schema -> Type
 
