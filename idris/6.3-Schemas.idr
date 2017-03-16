@@ -15,6 +15,8 @@ SchemaType SString = String
 SchemaType SInt = Int
 SchemaType (x .+. y) = (SchemaType x, SchemaType y)
 
+record Store where
+
 data Store : Type where
   Create : (schema : Schema) ->
            (size : Nat) ->
