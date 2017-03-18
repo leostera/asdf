@@ -40,8 +40,9 @@ Functor Tree where
 
 Foldable Tree where
     foldr func acc Empty = acc
-    foldr func acc (Node left x right) = let
-                                           leftFold = foldr func acc left
-                                           rightFold = foldr func leftFold right
-                                         in
-                                           ?what
+    foldr func acc (Node left x right)
+      = let
+          leftFold = foldr func acc left
+          rightFold = foldr func leftFold right
+        in
+          ?what
