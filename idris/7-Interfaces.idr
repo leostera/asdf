@@ -35,5 +35,5 @@ Eq elem => Eq (Tree elem) where
     (==) _ _ = False
 
 Functor Tree where
-    map func Empty = ?Functor_rhs_2
-    map func (Node tree x tree1) = ?Functor_rhs_3
+    map func Empty = Empty
+    map func (Node l x r) = (Node (map func l) (func x) (map func r))
