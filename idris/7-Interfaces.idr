@@ -39,7 +39,7 @@ Functor Tree where
     map func (Node l x r) = (Node (map func l) (func x) (map func r))
 
 Foldable Tree where
-    foldr func acc Empty = acc 
+    foldr func acc Empty = acc
     foldr func acc (Node tree x tree1) = ?what
 
     foldl func acc Empty = ?Foldable_rhs_1
