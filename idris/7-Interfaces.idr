@@ -12,13 +12,8 @@ occurrences item (value :: values) = case value == item of
 data Matter = Solid | Liquid | Gas
 
 Eq Matter where
-    (==) Solid Solid = ?Eq_rhs_1
-    (==) Solid Liquid = ?Eq_rhs_6
-    (==) Solid Gas = ?Eq_rhs_7
-    (==) Liquid Solid = ?Eq_rhs_3
-    (==) Liquid Liquid = ?Eq_rhs_8
-    (==) Liquid Gas = ?Eq_rhs_9
-    (==) Gas Solid = ?Eq_rhs_4
-    (==) Gas Liquid = ?Eq_rhs_10
-    (==) Gas Gas = ?Eq_rhs_11
-    (/=) x y = ?Eq_rhs_2
+    (==) Solid Solid = True
+    (==) Liquid Liquid = True
+    (==) Gas Gas = True
+    (==) _ _ = False
+    (/=) x y = ?what 
