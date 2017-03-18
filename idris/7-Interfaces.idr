@@ -30,5 +30,5 @@ data Tree elem = Empty
 
 Eq (Tree elem) where
     (==) Empty Empty = True
-    (==) (Node tree x tree1) (Node tree2 y tree3) = ?Eq_rhs_5
+    (==) (Node t x t1) (Node t2 y t3) =  t == t2 && x == y && t1
     (==) _ _ = False
