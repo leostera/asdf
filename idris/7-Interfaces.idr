@@ -29,5 +29,6 @@ data Tree elem = Empty
 %name Tree tree, tree1, tree2, tree3
 
 Eq (Tree elem) where
-    (==) Empty Empty = ?Eq_rhs_1
+    (==) Empty Empty = True
     (==) (Node tree x tree1) (Node tree2 y tree3) = ?Eq_rhs_5
+    (==) _ _ = False
