@@ -30,5 +30,6 @@ data Tree elem = Empty
 
 Eq (Tree elem) where
     (==) Empty Empty = True
-    (==) (Node t x t1) (Node t2 y t3) =  t == t2 && x == y && t1
+    (==) (Node left value right) (Node left' value' right') =
+      left == left' && value == value' && right == right'
     (==) _ _ = False
