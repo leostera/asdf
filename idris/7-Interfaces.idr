@@ -37,3 +37,7 @@ Eq elem => Eq (Tree elem) where
 Functor Tree where
     map func Empty = Empty
     map func (Node l x r) = (Node (map func l) (func x) (map func r))
+
+Foldable Tree where
+    foldr func init input = ?Foldable_rhs_1
+    foldl func init input = ?Foldable_rhs_2
