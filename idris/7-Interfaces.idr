@@ -33,3 +33,5 @@ Eq elem => Eq (Tree elem) where
     (==) (Node left value right) (Node left' value' right') =
       left == left' && value == value' && right == right'
     (==) _ _ = False
+
+Functor (Tree elem) where
