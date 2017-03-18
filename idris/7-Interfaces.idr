@@ -21,3 +21,10 @@ Eq Matter where
       this definition is actually the default one,
       so no need to redefine it here
     -}
+
+data Tree elem = Empty
+               | Node (Tree elem) elem (Tree elem)
+
+Eq (Tree elem) where
+    (==) x y = ?Eq_rhs_1
+    (/=) x y = ?Eq_rhs_2
