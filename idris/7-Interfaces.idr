@@ -28,7 +28,7 @@ data Tree elem = Empty
 %name Node node, node1, node2, node3
 %name Tree tree, tree1, tree2, tree3
 
-Eq (Tree elem) where
+Eq elem => Eq (Tree elem) where
     (==) Empty Empty = True
     (==) (Node left value right) (Node left' value' right') =
       left == left' && value == value' && right == right'
