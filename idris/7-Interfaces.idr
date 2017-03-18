@@ -8,3 +8,5 @@ occurrences item [] = 0
 occurrences item (value :: values) = case value == item of
                                           True => 1 + occurrences item values
                                           False => occurrences item values
+
+data Matter = Solid | Liquid | Gas
