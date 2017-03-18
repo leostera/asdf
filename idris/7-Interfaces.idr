@@ -42,6 +42,6 @@ Foldable Tree where
     foldr func acc Empty = acc
     foldr func acc (Node left x right) = let
                                            leftFold = foldr func acc left
-                                           value = func leftFold x
+                                           rightFold = foldr func leftFold right
                                          in
-                                           foldr func value right
+                                           func rightFold x
