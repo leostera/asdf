@@ -1,4 +1,4 @@
 module Main
 
 double : Num a => a -> a
-double x = x*x*x
+double x = x*x
