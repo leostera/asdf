@@ -16,4 +16,4 @@ Eq Matter where
     (==) Liquid Liquid = True
     (==) Gas Gas = True
     (==) _ _ = False
-    (/=) x y = (== x y)
+    (/=) x y = (x == y)
