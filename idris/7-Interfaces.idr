@@ -34,4 +34,5 @@ Eq elem => Eq (Tree elem) where
       left == left' && value == value' && right == right'
     (==) _ _ = False
 
-Functor (Tree elem) where
+Functor Tree where
+    map func x = ?Functor_rhs_1
