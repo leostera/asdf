@@ -18,5 +18,7 @@ Eq Matter where
     (==) Liquid Solid = ?Eq_rhs_3
     (==) Liquid Liquid = ?Eq_rhs_8
     (==) Liquid Gas = ?Eq_rhs_9
-    (==) Gas y = ?Eq_rhs_5
+    (==) Gas Solid = ?Eq_rhs_4
+    (==) Gas Liquid = ?Eq_rhs_10
+    (==) Gas Gas = ?Eq_rhs_11
     (/=) x y = ?Eq_rhs_2
