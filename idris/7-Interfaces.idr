@@ -44,6 +44,6 @@ Foldable Tree where
       = let
           leftFold = foldr func acc left
           rightFold = foldr func leftFold right
-          final = func e rightfold
+          final = func x rightfold
         in
           ?what
