@@ -41,4 +41,5 @@ Functor Tree where
 Foldable Tree where
     foldr func acc Empty = ?Foldable_rhs_3
     foldr func acc (Node tree x tree1) = ?Foldable_rhs_4
-    foldl func acc input = ?Foldable_rhs_2
+    foldl func acc Empty = ?Foldable_rhs_1
+    foldl func acc (Node tree x tree1) = ?Foldable_rhs_5
