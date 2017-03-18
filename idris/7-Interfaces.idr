@@ -25,11 +25,9 @@ Eq Matter where
 data Tree elem = Empty
                | Node (Tree elem) elem (Tree elem)
 %name Empty empty
-%name Node node, node1, node2
-%name Tree tree, tree1, tree2
+%name Node node, node1, node2, node3
+%name Tree tree, tree1, tree2, tree3
 
 Eq (Tree elem) where
     (==) Empty Empty = ?Eq_rhs_1
-    (==) Empty (Node tree x tree1) = ?Eq_rhs_4
-    (==) (Node tree x tree1) Empty = ?Eq_rhs_2
-    (==) (Node tree x tree1) (Node tree2 y z) = ?Eq_rhs_5
+    (==) (Node tree x tree1) (Node tree2 y tree3) = ?Eq_rhs_5
