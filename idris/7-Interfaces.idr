@@ -26,5 +26,5 @@ data Tree elem = Empty
                | Node (Tree elem) elem (Tree elem)
 
 Eq (Tree elem) where
-    (==) x y = ?Eq_rhs_1
-    (/=) x y = ?Eq_rhs_2
+    (==) Empty y = ?Eq_rhs_2
+    (==) (Node x z w) y = ?Eq_rhs_3
