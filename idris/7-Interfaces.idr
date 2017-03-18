@@ -29,3 +29,5 @@ data Tree elem = Empty
 %name Tree tree, tree1, tree2
 
 Eq (Tree elem) where
+    (==) x y = ?Eq_rhs_1
+    (/=) x y = ?Eq_rhs_2
