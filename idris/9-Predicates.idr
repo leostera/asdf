@@ -57,4 +57,5 @@ removeElemWithProof : (value : a) ->
                       (prf : Elem value xs) ->
                       Vect n a
 removeElemWithProof value (value :: ys) Here = ys
-removeElemWithProof value (y :: ys) (There later) = ?removeElemWithProof_rhs_2
+removeElemWithProof { n = Z } value (y :: ys) (There later) = ?removeElemWithProof_rhs_2
+removeElemWithProof { n = (S k) } value (y :: ys) (There later) = ?removeElemWithProof_rhs_3
