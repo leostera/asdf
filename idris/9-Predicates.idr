@@ -85,5 +85,5 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
 
 -- String implements DecEq
 -- There's 26 letters in this alphabet
-isAlphaProof : (value : String) -> Dec (Elem value (Vect 26 String))
+isAlphaProof : (value : String) -> Dec (Elem value (Vect 1 String))
 isAlphaProof x = isElem x ["A"]
