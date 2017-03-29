@@ -27,3 +27,32 @@ removeElem : DecEq a => (value : a) -> (xs : Vect (S n) a) -> Vect n a
 removeElem value (x :: xs) = case decEq value x of
                                   Yes prf => xs
                                   No contr => ?x_removeElem_value_xs
+
+{-
+  Let's implement option 3 by defining a specific type that tells us that a
+  given element is indeed part of the vector
+
+  Elem is actually already part of Data.Vect, so here it's defined as Elem'
+  but we'll use Data.Vect.Elem instead
+-}
+
+data Elem' : a -> Vect k a -> Type where
+  -- x is the first value of the vector
+  Here : Elem' x (x :: xs)
+
+  -- if x is in xs, it's also in y :: xs
+  There : (later : Elem' x xs) -> Elem' x (y :: xs)
+
+oneInVector : Elem 1 [1,2,3]
+oneInVector = Here
+
+somewhereElseInVector : Elem 1 [2,3,1]
+somewhereElseInVector = There (There Here)
+
+notInVector : Elem 1 [3,4]
+notInVector = There (There ?notInVector_rhs2)
+
+removeElemWithProof : (value : a) ->
+              (xs : Vect (S n) a ) ->
+              (prf : Elem value xs) ->
+              Vect n a
