@@ -32,3 +32,8 @@ removeElem value (x :: xs) = case decEq value x of
   Let's implement option 3 by defining a specific type that tells us that a
   given element is indeed part of the vector
 -}
+
+data Elem : a -> Vect k a -> Type where
+
+  Here : Elem x (x :: xs) 
+  There : (later : Elem x xs) -> Elem x (y :: xs) -- if x is in xs, it's also in y :: xs
