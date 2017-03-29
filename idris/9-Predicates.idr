@@ -80,3 +80,5 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
   Now let's try to make a Letter data type that will only accept being
   constructed with alpha characters
 -}
+data Letter : Type where
+  MkLetter : (value : String) -> { auto prf : isAlpha value } -> Letter value
