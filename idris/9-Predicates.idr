@@ -137,4 +137,4 @@ Alphabet = ['a',
            'Z']
 
 data Letter : Char -> Type where
-  MkLetter : (c : Char) -> { auto prf : isElem c Alphabet = Yes _ } -> Letter c
+  MkLetter : (c : Char) -> { auto prf : Elem c Alphabet } -> Letter c
