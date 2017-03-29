@@ -23,8 +23,8 @@ import Data.Vect
 
   3. Have a type-level predicate that ensures that the element is in the vector
 -}
-removeElem : DecEq a => (value : a) -> (xs : Vect (S n) a) -> Vect n a
-removeElem value (x :: xs) = case decEq value x of
+removeElem__nope : DecEq a => (value : a) -> (xs : Vect (S n) a) -> Vect n a
+removeElem__nope value (x :: xs) = case decEq value x of
                                   Yes prf => xs
                                   No contr => ?x_removeElem_value_xs
 
@@ -66,6 +66,8 @@ removeAutoProofed : (value : a) ->
                     {auto prf : Elem value xs} ->
                     Vect n a
 removeAutoProofed value xs {prf} = removeElemWithProof value xs prf
+
+removeElem
 
 {-
   Now let's try to make a Letter data type that will only accept being
