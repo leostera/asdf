@@ -60,3 +60,8 @@ removeElemWithProof value (value :: ys) Here = ys
 removeElemWithProof { n = Z } value (y :: ys) (There later) = absurd later
 removeElemWithProof { n = (S k) } value (y :: ys) (There later) =
   y :: removeElemWithProof value ys later
+
+removeAutoProofed : (value : a) ->
+                    (xs : Vect (S n) a) ->
+                    {auto prf : Elem value xs} ->
+                    Vect n a
