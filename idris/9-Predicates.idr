@@ -47,3 +47,4 @@ oneInVector : Elem 1 [1,2,3]
 oneInVector = Here
 
 somewhereElseInVector : Elem 1 [2,3,1]
+somewhereElseInVector = ?somewhereElseInVector_rhs
