@@ -87,3 +87,4 @@ Alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 data Letter : Char -> Type where
   -- MkLetter : (c : Char) -> { auto prf : isElem c Alphabet = Yes _ } -> Letter c
+  MkLetter : (c : Char) -> (So (isAlpha c)) -> Letter c
