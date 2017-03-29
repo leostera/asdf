@@ -12,9 +12,16 @@ import Data.Vect
   So there's really no guarantee that the value will appear in the vector,
   and thus it's possible to reach the end of the vector without ever finding it.
 
-  Some options here would be to consider the case for `[]`, and change the
-  signature to return `Maybe (Vect n a)` -- if we reach the empty case, we
-  might as well return Nothing.
+  Some options here would be:
+
+  1. to consider the case for `[]`, and change the signature to return
+     `Maybe (Vect n a)` -- if we reach the empty case, we might as well return
+      Nothing.
+
+  2. Return a dependant pair (length ** Vect lenght a) so we don't make an
+     assumption on the length
+
+  3. Have a type-level predicate that ensures that the element is in the vector
 -}
 removeElem : DecEq a => (value : a) -> (xs : Vect (S n) a) -> Vect n a
 removeElem value (x :: xs) = case decEq value x of
