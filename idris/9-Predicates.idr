@@ -58,4 +58,5 @@ removeElemWithProof : (value : a) ->
                       Vect n a
 removeElemWithProof value (value :: ys) Here = ys
 removeElemWithProof { n = Z } value (y :: ys) (There later) = []
-removeElemWithProof { n = (S k) } value (y :: ys) (There later) = ?removeElemWithProof_rhs_3
+removeElemWithProof { n = (S k) } value (y :: ys) (There later) =
+  removeElemWithProof value ys later
