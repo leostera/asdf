@@ -83,5 +83,5 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
 
 
 -- String implements DecEq
-isAlphaProof : (value : String) -> Dec (Elem value (Vect _ String))
+isAlphaProof : (value : String) -> Dec (Elem value (Vect n String))
 isAlphaProof x = isElem x ["A"]
