@@ -67,7 +67,10 @@ removeAutoProofed : (value : a) ->
                     Vect n a
 removeAutoProofed value xs {prf} = removeElemWithProof value xs prf
 
-removeElem
+removeElem : (value : a) ->
+             (xs : Vect (S n) a) ->
+             {auto prf : Elem value xs} ->
+             Vect n a
 
 {-
   Now let's try to make a Letter data type that will only accept being
