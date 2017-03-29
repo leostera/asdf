@@ -74,7 +74,7 @@ removeElem : (value : a) ->
 removeElem value (value :: ys) { prf = Here  } = ys
 removeElem { n = Z } value (y :: []) { prf = There later } = absurd later
 removeElem { n = (S k) } value (y :: ys) { prf = There later } =
-  y :: removeElem value ys later
+  y :: removeElem value ys
 
 {-
   Now let's try to make a Letter data type that will only accept being
