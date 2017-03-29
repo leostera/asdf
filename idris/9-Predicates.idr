@@ -81,4 +81,4 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
   constructed with alpha characters
 -}
 data Letter : Type where
-  MkLetter : (value : String) -> { auto prf : ?isAlphaDec value } -> Letter value
+  MkLetter : (value : String) -> { auto prf : ?isAlphaDec_value } -> Letter value
