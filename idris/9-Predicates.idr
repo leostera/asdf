@@ -87,3 +87,30 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
 -- There's 26 letters in this alphabet
 isAlphaProof : (value : String) -> Dec (Elem value (Vect 1 String))
 isAlphaProof x = isElem x ["A"]
+
+a,
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
