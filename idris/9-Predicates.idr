@@ -65,3 +65,4 @@ removeAutoProofed : (value : a) ->
                     (xs : Vect (S n) a) ->
                     {auto prf : Elem value xs} ->
                     Vect n a
+removeAutoProofed value xs {prf} = removeElemWithProof value xs prf
