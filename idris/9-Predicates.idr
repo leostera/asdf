@@ -84,5 +84,5 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
 -- String implements DecEq
 isAlphaProof : (value : String) -> Dec String
 isAlphaProof x = case decEq x "A" of
-                      u
                       Yes prf => Yes ?isAlphaProof
+                      No contra => ?notAlphaContra
