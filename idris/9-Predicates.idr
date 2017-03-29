@@ -37,5 +37,5 @@ data Elem : a -> Vect k a -> Type where
   -- x is the first value of the vector
   Here : Elem x (x :: xs)
 
-  if x is in xs, it's also in y :: xs
-
+  -- if x is in xs, it's also in y :: xs
+  There : (later : Elem x xs) -> Elem x (y :: xs)
