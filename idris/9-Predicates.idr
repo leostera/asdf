@@ -92,4 +92,4 @@ isAlphaProof x xs = isElem x xs
 data Letter : (value : String) ->
               { auto prf : (isAlphaProof value alphabet)} ->
               Type where
-                MkLetter : Letter value
+  MkLetter : Letter value
