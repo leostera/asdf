@@ -86,9 +86,4 @@ alphabet : Vect 52 Char
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 isAlphaChar : (c : Char) -> Type
-isAlphaChar c = case isElem c alphabet of
-                     Yes c => c
-                     No contra => Void
-
-data Letter : Char -> Type where
-  MkLetter : (c : Char) -> { auto prf : (isAlphaChar) } -> Letter c
+isAlphaChar c = isElem c alphabet
