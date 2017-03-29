@@ -52,4 +52,4 @@ somewhereElseInVector = There (There Here)
 notInVector : Elem 1 [3,4]
 notInVector = There (There ?notInVector_rhs2)
 
-removeElem' : (value : a) -> (xs : Vect (S n) a ) -> (proof : Elem value xs) -> Vect n a
+removeElem' : (value : a) -> (xs : Vect (S n) a ) -> (prf : Elem value xs) -> Vect n a
