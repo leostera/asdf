@@ -50,4 +50,4 @@ somewhereElseInVector : Elem 1 [2,3,1]
 somewhereElseInVector = There (There Here)
 
 notInVector : Elem 1 [3,4]
-notInVector = ?notInVector_rhs
+notInVector = There (There ?notInVector_rhs1)
