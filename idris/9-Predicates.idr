@@ -6,7 +6,7 @@ import Data.Vect
   This actually won't type check.
 
   Even though `a` is implementing the Decidable Equality interface,
-  at some point the recursion _might_ end up calling `removeElem value []`
+  at some point the recursion might end up calling `removeElem value []`
   which this function is not defined for (since [] is a Vect Z a).
 
   So there's really no guarantee that the value will appear in the vector,
@@ -56,3 +56,4 @@ removeElemWithProof : (value : a) ->
                       (xs : Vect (S n) a ) ->
                       (prf : Elem value xs) ->
                       Vect n a
+removeElemWithProof value xs prf = ?removeElemWithProof_rhs
