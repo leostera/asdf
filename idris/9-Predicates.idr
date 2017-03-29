@@ -26,7 +26,7 @@ import Data.Vect
 removeElem : DecEq a => (value : a) -> (xs : Vect (S n) a) -> Vect n a
 removeElem value (x :: xs) = case decEq value x of
                                   Yes prf => xs
-                                  No contr => x :: removeElem value ?xs
+                                  No contr => ?x_removeElem_value_xs
 
 {-
   Let's implement option 3 by defining a specific type that tells us that a
