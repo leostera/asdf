@@ -88,3 +88,8 @@ alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n"
 -- String implements DecEq
 isAlphaProof : (value : String) -> (xs : Vect 52 String) -> Dec (Elem value xs)
 isAlphaProof x xs = isElem x xs
+
+data Letter : (value : String) ->
+              { auto prf : (isAlphaProof value alphabet)} ->
+              Type where
+                MkLetter : Letter value
