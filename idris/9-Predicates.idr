@@ -82,8 +82,8 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
 -}
 
 -- String implements DecEq
-isAlphaDec : (value : String) -> 
-isAlphaDec "A" = Yes
+isAlphaProof : (value : String) -> Dec value 
+isAlphaProof "A" = Yes
 
 data Letter : (value : String) -> Type where
   MkLetter : { auto prf : (isAlphaProof value) } -> Letter value
