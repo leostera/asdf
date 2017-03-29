@@ -45,3 +45,5 @@ data Elem' : a -> Vect k a -> Type where
 
 oneInVector : Elem 1 [1,2,3]
 oneInVector = Here
+
+somewhereElseInVector : Elem 1 [2,3,1]
