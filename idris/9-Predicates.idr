@@ -34,6 +34,8 @@ removeElem value (x :: xs) = case decEq value x of
 -}
 
 data Elem : a -> Vect k a -> Type where
+  -- x is the first value of the vector
+  Here : Elem x (x :: xs)
 
-  Here : Elem x (x :: xs) 
-  There : (later : Elem x xs) -> Elem x (y :: xs) -- if x is in xs, it's also in y :: xs
+  if x is in xs, it's also in y :: xs
+
