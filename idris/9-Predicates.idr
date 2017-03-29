@@ -31,6 +31,9 @@ removeElem value (x :: xs) = case decEq value x of
 {-
   Let's implement option 3 by defining a specific type that tells us that a
   given element is indeed part of the vector
+
+  Elem is actually already part of Data.Vect, so here it's defined as Elem'
+  but we'll use Data.Vect.Elem instead
 -}
 
 data Elem' : a -> Vect k a -> Type where
