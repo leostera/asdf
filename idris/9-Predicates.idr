@@ -43,5 +43,5 @@ data Elem' : a -> Vect k a -> Type where
   -- if x is in xs, it's also in y :: xs
   There : (later : Elem' x xs) -> Elem' x (y :: xs)
 
-oneInVector : Elem 1 [2,3]
-oneInVector = ?here
+oneInVector : Elem 1 [1,2,3]
+oneInVector = Here
