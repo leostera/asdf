@@ -88,7 +88,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 isAlphaChar : (c : Char) -> Type
 isAlphaChar c = case isElem c alphabet of
                      Yes c => ?alpha_char_proof
-                     No contra => ?alpha_char_contra
+                     No contra => Void
 
 data Letter : Char -> Type where
   MkLetter : (c : Char) -> { auto prf : (isAlphaChar) } -> Letter c
