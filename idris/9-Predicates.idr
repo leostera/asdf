@@ -92,5 +92,3 @@ isAlphaChar c = case isElem c alphabet of
 
 data Letter : Char -> Type where
   MkLetter : (c : Char) -> { auto prf : (isAlphaChar) } -> Letter c
-
-
