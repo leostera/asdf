@@ -87,7 +87,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 isAlphaChar : (c -> Char) -> Type
 isAlphaChar c = case isElem c alphabet of
-                     Yes c => Letter c
+                     Yes c => ?alpha_char_proof
                      No contra => ?alpha_char_contra
 
 data Letter : Char -> Type where
