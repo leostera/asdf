@@ -76,11 +76,13 @@ removeElem { n = Z } value (y :: []) { prf = There later } = absurd later
 removeElem { n = (S k) } value (y :: ys) { prf = There later } =
   y :: removeElem value ys
 
-isAlphaDec_value : (value : String) -> Type
-
 {-
   Now let's try to make a Letter data type that will only accept being
   constructed with alpha characters
 -}
+
+-- String implements DecEq
+isAlphaDec : (value : String) -> Type
+
 data Letter : (value : String) -> Type where
-  MkLetter : { auto prf : (isAlphaDec_value value) } -> Letter value
+  MkLetter : { auto prf : (isAlphaDec value) } -> Letter value
