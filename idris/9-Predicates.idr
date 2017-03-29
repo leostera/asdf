@@ -82,5 +82,5 @@ removeElem { n = (S k) } value (y :: ys) { prf = There later } =
 -}
 
 
-data Letter : Type where
+data Letter : Char -> Type where
   MkLetter : (c : Char) -> (isAlpha c = True) -> Letter c
