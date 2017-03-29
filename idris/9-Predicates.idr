@@ -44,3 +44,4 @@ data Elem' : a -> Vect k a -> Type where
   There : (later : Elem' x xs) -> Elem' x (y :: xs)
 
 oneInVector : Elem 1 [1,2,3]
+oneInVector = ?oneInVector_rhs
