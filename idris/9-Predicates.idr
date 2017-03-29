@@ -59,4 +59,4 @@ removeElemWithProof : (value : a) ->
 removeElemWithProof value (value :: ys) Here = ys
 removeElemWithProof { n = Z } value (y :: ys) (There later) = []
 removeElemWithProof { n = (S k) } value (y :: ys) (There later) =
-  removeElemWithProof value ys later
+  y :: removeElemWithProof value ys later
