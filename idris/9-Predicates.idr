@@ -56,4 +56,3 @@ removeElem' : (value : a) ->
               (xs : Vect (S n) a ) ->
               (proof : Elem value xs) ->
               Vect n a
-
