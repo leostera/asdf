@@ -1,4 +1,2 @@
-module Main where
-
-main :: IO ()
-main = printLn "hello"
+prop_RevRev xs = reverse (reverse xs) == xs
+  where types = xs::[Int]
