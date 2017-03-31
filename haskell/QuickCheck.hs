@@ -1,6 +1,6 @@
 module Main where
 
-import Test.QuickCheck (*)
+import Test.QuickCheck ()
 
 main :: IO ()
 main = printLn "hello"
