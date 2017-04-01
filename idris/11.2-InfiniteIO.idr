@@ -37,6 +37,10 @@ data Gas : Type where
   Empty : Gas
   Some : Fuel -> Lazy Fuel
 
+freeGas : Gas
+freeGas = More forever
+
+
 
 main : IO ()
 main = run $ loopPrint "hello world"
