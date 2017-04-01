@@ -1,8 +1,8 @@
 module Infinity
 
-labelFrom : List a -> Integer -> List (Integer, a)
-labelFrom [] k = []
-labelFrom (x :: xs) k = (k, x) :: labelFrom xs (k+1)
+labelFrom : Integer -> List a -> List (Integer, a)
+labelFrom k [] = []
+labelFrom k (x :: xs) = (k, x) :: labelFrom (k+1) xs
 
 label : List a -> List (Integer, a)
 label = labelFrom 0
