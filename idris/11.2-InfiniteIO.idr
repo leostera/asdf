@@ -30,7 +30,7 @@ tank : Nat -> Fuel
 tank Z = Dry
 tank (S k) = More (tank k)
 
-runTank : Fuel -> InfIO -> IO ()
+total runTank : Fuel -> InfIO -> IO ()
 runTank Dry _ = putStrLn "Out of Fuel"
 runTank (More fuel) (Do c f) = do res <- c
                                   runTank fuel (f res)
