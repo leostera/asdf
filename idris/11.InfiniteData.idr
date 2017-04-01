@@ -41,4 +41,3 @@ main = print $ getPrefix 10 (countFrom' 0)
 
 -- the following line doesn't work:
 -- main = print $ label' [1,2,3]
-
