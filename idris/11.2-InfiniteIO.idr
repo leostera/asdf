@@ -1,14 +1,8 @@
 module Main
 
-Inf : Type
-Lazy : Type
-
-A : Type
-Lazy A
-
-data InfIO : Type where
+codata InfIO : Type where
   Do : IO a ->
-       (a -> Inf InfIO) ->
+       (a -> InfIO) ->
        InfIO
 
 -- sugar me with do-notation
@@ -26,6 +20,10 @@ run (Do x f) = do res <- x
                   run (f res)
 
 -- Second try, finine infinite IO with total run
+
+data Fuel' : Type where
+  Dry : Fuel'
+  More : Fuel' -> Fuel' -> Fuel'
 
 data Fuel : Type where
   Dry : Fuel
