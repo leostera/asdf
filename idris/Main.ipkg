@@ -1,6 +1,6 @@
 package Main
 
-modules = InfiniteIO.idr
+modules = InfiniteIO
 
 main = Main
 
