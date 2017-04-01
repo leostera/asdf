@@ -58,5 +58,5 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Inf (List Bool) -> (List Bool)
-f (Delay []) = ?f_rhs_1
+f (Delay []) = []
 f (Delay (x :: xs)) = ?f_rhs_2
