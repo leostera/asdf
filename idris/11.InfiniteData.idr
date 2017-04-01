@@ -22,4 +22,3 @@ labelWith (x :: xs) (y :: ys) = (x, y) :: labelWith xs ys
 -- but it does, and I wonder why
 label' : List a -> List (Integer, a)
 label' = labelWith (countFrom 0)
-
