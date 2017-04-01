@@ -30,7 +30,7 @@ data InfList : Type -> Type where
 
 -- countFrom' is a corecursive function that returns codata
 total countFrom' : Integer -> InfList Integer
-countFrom' x = x :: Delay (countFrom' (x + 1))
+countFrom' x = x :: countFrom' (x + 1)
 
 getPrefix : (count : Nat) -> InfList a -> List a
 getPrefix Z xs = []
