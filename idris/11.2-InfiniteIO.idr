@@ -35,7 +35,7 @@ runTank (More fuel) (Do c f) = do res <- c
 
 data Gas : Type where
   Empty : Gas
-  Some : Fuel -> Lazy Fuel
+  Some : Lazy Fuel -> Fuel
 
 freeGas : Gas
 freeGas = More forever
