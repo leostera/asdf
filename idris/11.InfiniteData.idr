@@ -24,7 +24,7 @@ label' = labelWith (countFrom 0)
 
 -- Third iteration, Infinite Lists!
 
-data InfList' : Type -> Type where
+data InfList : Type -> Type where
   (::) : (value : elem) -> Inf (InfList elem) -> InfList elem
 -- there's no [] constructor because infinite lists just don't end
 
