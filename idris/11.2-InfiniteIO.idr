@@ -57,5 +57,6 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Lazy (Lazy (Lazy Nat))
-f = Delay 2
+f : Lazy Bool -> Bool
+f x = x
+
