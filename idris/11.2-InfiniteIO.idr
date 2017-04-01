@@ -2,6 +2,7 @@ module Main
 
 fib : Stream Nat
 fib = iterate fib' (0, 0) where
+  fib' : (Nat, Nat) -> 
   fib' (0, 0) = 0
   fib' (1, 1) = 1
   fib' (a, b) = fib' (a+b, b)
