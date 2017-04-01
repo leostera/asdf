@@ -1,6 +1,6 @@
 module Infinity
 
--- First iteration, complected label generation with labeling
+-- First iteration, complected number generation with labeling
 
 labelFrom : Integer -> List a -> List (Integer, a)
 labelFrom k [] = []
