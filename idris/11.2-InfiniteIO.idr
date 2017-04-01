@@ -12,7 +12,6 @@ data InfIO : Type where
 
 -- First try, infinite IO with partial run
 
-loopPrint : Nat -> () -> InfIO
+loopPrint : Nat -> () -> IO
 loopPrint x = \_ => do putStrLn (show x)
-                       loopPrint (S x)
 
