@@ -27,8 +27,8 @@ tank Z = Dry
 tank (S k) = More (tank k)
 
 runTank : Fuel -> InfIO -> IO ()
-runTank Dry (Do x f) = putStrLn "Out of Fuel"
-runTank (More x) (Do y f) = ?runTank_rhs_2
+runTank Dry _ = putStrLn "Out of Fuel"
+runTank (More fuel) (Do y f) = do res <- y; run fuel
 
 main : IO ()
 main = run $ loopPrint "hello world"
