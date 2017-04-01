@@ -57,6 +57,4 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Inf (List Bool) -> (List Bool)
-f (Delay []) = []
-f (Delay (x :: xs)) = [x]
+f : Inf a -> a 
