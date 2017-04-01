@@ -13,6 +13,6 @@ data InfIO : Type where
 -- First try, infinite IO with partial run
 
 loopPrint : Nat -> () -> IO ()
-loopPrint x = \_ => do let y = x+1
-                       putStrLn (show y)
+loopPrint x = \_ => do putStrLn (show y) where
+  y = x+1
 
