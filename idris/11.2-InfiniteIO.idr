@@ -58,3 +58,4 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Inf (Vect n a) -> a
+f x = ?what
