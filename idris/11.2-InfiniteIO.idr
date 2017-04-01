@@ -20,7 +20,7 @@ run (Do x f) = do res <- x
 
 data Fuel : Type where
   Dry : Fuel
-  More : Fuel -> More Fuel
+  More : Fuel -> Fuel
 
 tank : Nat -> Fuel
 
