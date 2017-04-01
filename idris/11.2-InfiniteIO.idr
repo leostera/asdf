@@ -40,6 +40,5 @@ data Gas : Type where
 freeGas : Gas
 freeGas = Some freeGas
 
-
 main : IO ()
 main = run $ loopPrint "hello world"
