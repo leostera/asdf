@@ -57,5 +57,5 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Lazy Bool -> Bool
-f x = x
+f : Bool -> Bool
+f x = x+1
