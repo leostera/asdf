@@ -41,8 +41,8 @@ freeGas : Gas
 freeGas = Some freeGas
 
 runEngine : Gas -> InfIO -> IO ()
-runEngine Empty (Do x f) = ?runEngine_rhs_3
-runEngine (Some x) y = ?runEngine_rhs_2
+runEngine Empty y = putStrLn "Out of fuel"
+runEngine (Some x) (Do y f) = ?runEngine_rhs_1
 
 main : IO ()
 main = run $ loopPrint "hello world"
