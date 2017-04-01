@@ -31,7 +31,7 @@ runTank Dry _ = putStrLn "Out of Fuel"
 runTank (More fuel) (Do c f) = do res <- c
                                   runTank fuel (f res)
 
--- Third try, Lazy Fuel
+-- Third try, Lazy Fuel for infinite infinite IO with a total run
 
 main : IO ()
 main = run $ loopPrint "hello world"
