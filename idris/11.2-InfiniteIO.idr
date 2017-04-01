@@ -58,6 +58,4 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Lazy Bool -> Bool
-f (Delay False) = ?f_rhs_1
-f (Delay True) = ?f_rhs_2
-
+f (Delay x) = x
