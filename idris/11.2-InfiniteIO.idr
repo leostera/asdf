@@ -59,3 +59,6 @@ main = runEngine freeGas (loopPrint 0)
 
 f : Lazy Integer -> Bool -> IO Integer
 f (Delay x) a = do if a then pure (x+1) else pure x
+
+g : Bool -> IO Integer
+g = f 1
