@@ -1,7 +1,5 @@
 module Main
 
-import Data.Vect
-
 next : Nat -> Stream Nat
 next n = (n :: Delay (next (S n)))
 
@@ -59,6 +57,5 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Vect n (Lazy Nat) -> Vect n Nat 
-f (Delay []) = ?f_rhs_1
-f (Delay (x :: xs)) = ()
+f : Lazy a -> Lazy a
+f x = x 
