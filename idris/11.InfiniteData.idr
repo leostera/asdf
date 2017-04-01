@@ -29,10 +29,10 @@ data InfList : Type -> Type where
 -- there's no [] constructor because infinite lists just don't end
 
 -- countFrom' is a corecursive function that returns codata
-total countFrom' : Integer -> InfList Integer
+total countFrom' : Integer -> Inf (List Integer)
 countFrom' x = x :: countFrom' (x + 1)
 
-getPrefix : (count : Nat) -> InfList a -> List a
+getPrefix : (count : Nat) -> Inf (List a) -> List a
 getPrefix Z xs = []
 getPrefix (S k) (value :: xs) = value :: getPrefix k xs
 
