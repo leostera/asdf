@@ -6,8 +6,7 @@ data InfIO : Type where
        InfIO
 
 (>>=) : IO a -> (a -> Inf InfIO) -> InfIO
-        IO x f = ?IO_rhs
-
+(>>=) = Do
 
 -- First try, infinite IO with partial run
 
