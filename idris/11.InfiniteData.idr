@@ -29,3 +29,4 @@ data InfList : Type -> Type where
 -- there's no [] constructor because infinite lists just don't end
 
 countFrom' : Integer -> InfList Integer
+countFrom' x = ?countFrom'_rhs
