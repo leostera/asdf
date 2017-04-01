@@ -1,8 +1,8 @@
 module Main
 
-codata InfIO : Type where
+data InfIO : Type where
   Do : IO a ->
-       (a -> InfIO) ->
+       (a -> Inf InfIO) ->
        InfIO
 
 -- sugar me with do-notation
