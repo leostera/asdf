@@ -14,5 +14,5 @@ data InfIO : Type where
 
 loopPrint : Nat -> () -> IO ()
 loopPrint x = \_ => do let y = x+1
-                           putStrLn (show y)
+                       putStrLn (show y)
 
