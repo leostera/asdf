@@ -57,5 +57,5 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Bool -> Lazy Integer -> Lazy Integer
-f a x = if a then x+1 else x
+f : Lazy Integer -> Bool -> Lazy Integer
+f x a = if a then x+1 else x
