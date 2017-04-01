@@ -1,12 +1,14 @@
 module Main
 
-
--- First try, infinite IO with partial run
-
 data InfIO : Type where
   Do : IO a ->
        (a -> Inf InfIO) ->
        InfIO
+
+(>>=) : IO a -> (a -> Inf InfIO) -> InfIO
+
+
+-- First try, infinite IO with partial run
 
 loopPrint : String -> InfIO
 loopPrint x = Do (putStrLn x)
