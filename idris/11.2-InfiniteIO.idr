@@ -24,7 +24,7 @@ data Fuel : Type where
 
 tank : Nat -> Fuel
 tank Z = Dry
-tank (S k) = Dry
+tank (S k) = ?tank_rhs_2
 
 main : IO ()
 main = run $ loopPrint "hello world"
