@@ -13,7 +13,7 @@ data InfIO : Type where
 
 loopPrint' : String -> IO ()
 loopPrint' x = do putStrLn x
-                  loopPrint x
+                  loopPrint' x
 
 loopPrint : String -> InfIO
 loopPrint x = do putStrLn x
