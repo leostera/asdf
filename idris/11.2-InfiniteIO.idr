@@ -33,5 +33,10 @@ runTank (More fuel) (Do c f) = do res <- c
 
 -- Third try, Lazy Fuel for infinite infinite IO with a total run
 
+data Gas : Type where
+  Empty : Gas
+  Some : Fuel -> Lazy Fuel
+
+
 main : IO ()
 main = run $ loopPrint "hello world"
