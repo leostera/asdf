@@ -28,5 +28,5 @@ data InfList : Type -> Type where
   (::) : (value : elem) -> Inf (InfList elem) -> InfList elem
 -- there's no [] constructor because infinite lists just don't end
 
-countFrom' : Integer -> InfList Integer
+total countFrom' : Integer -> InfList Integer
 countFrom' x = x :: Delay (countFrom' (x + 1))
