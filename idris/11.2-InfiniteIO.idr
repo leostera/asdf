@@ -27,7 +27,7 @@ tank Z = Dry
 tank (S k) = More (tank k)
 
 runTank : Fuel -> InfIO -> IO ()
-runTank Dry y = ?runTank_rhs_1
+runTank Dry (Do x f) = ?runTank_rhs_3
 runTank (More x) y = ?runTank_rhs_2
 
 main : IO ()
