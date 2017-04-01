@@ -41,7 +41,7 @@ freeGas : Gas
 freeGas = Some freeGas
 
 runEngine : Gas -> InfIO -> IO ()
-runEngine Empty y = ?runEngine_rhs_1
+runEngine Empty (Do x f) = ?runEngine_rhs_3
 runEngine (Some x) y = ?runEngine_rhs_2
 
 main : IO ()
