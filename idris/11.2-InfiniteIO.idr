@@ -57,6 +57,4 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Inf Bool -> Bool
-f (Delay False) = False
-f (Delay True) = True
+f : Inf (List Bool) -> (List Bool)
