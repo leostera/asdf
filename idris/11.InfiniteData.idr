@@ -17,3 +17,5 @@ countFrom n = n :: countFrom (n+1)
 labelWith : List Integer -> List a -> List (Integer, a)
 labelWith = zip
 
+label' = labelWith (countFrom 0)
+
