@@ -28,5 +28,6 @@ data InfList : Type -> Type where
   (::) : (value : elem) -> Inf (InfList elem) -> InfList elem
 -- there's no [] constructor because infinite lists just don't end
 
+-- countFrom' is a corecursive function that returns codata
 total countFrom' : Integer -> InfList Integer
 countFrom' x = x :: Delay (countFrom' (x + 1))
