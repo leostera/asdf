@@ -18,5 +18,9 @@ run (Do x f) = do res <- x
 
 -- Second try, infinite IO with total run
 
+data Fuel : Type where
+  Dry : Type
+  More : Fuel -> Type
+
 main : IO ()
 main = run $ loopPrint "hello world"
