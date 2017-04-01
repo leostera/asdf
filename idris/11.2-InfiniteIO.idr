@@ -58,4 +58,4 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Lazy a -> Lazy a
-f x = x 
+f x = x+1 
