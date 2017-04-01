@@ -1,8 +1,8 @@
 module Main
 
-fib : Stream Nat
+fib : Stream Integer
 fib = fst $ iterate fib' (0, 0) where
-  fib' : (Nat, Nat) -> (Nat, Nat)
+  fib' : (Integer, Integer) -> (Integer, Integer)
   fib' (0, 0) = (0, 0)
   fib' (1, 1) = (1, 1)
   fib' (a, b) = fib' (a+b, b)
