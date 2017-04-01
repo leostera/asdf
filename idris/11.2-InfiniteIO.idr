@@ -51,3 +51,6 @@ runEngine (Some x) (Do y f) = y >>= \res => runEngine x (f res)
 
 freeGas : Gas
 freeGas = Some freeGas
+
+main : IO ()
+main = runEngine freeGas (loopPrint 0)
