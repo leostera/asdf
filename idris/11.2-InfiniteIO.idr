@@ -8,3 +8,6 @@ data InfIO : Type where
 loopPrint : String -> InfIO
 loopPrint x = Do (putStrLn x)
                  (\_ => loopPrint x)
+
+main : IO ()
+main = 
