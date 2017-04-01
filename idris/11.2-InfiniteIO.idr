@@ -1,7 +1,6 @@
 module Main
 
-fib : Nat -> Nat -> Inf (List Nat)
-fib 0 = 1
+fib : Inf (List Nat)
 fib a = ( a+b :: Delay (fib b ))
 
 data InfIO : Type where
