@@ -1,4 +1,6 @@
 module Infinity
 
+labelFrom : List a -> List (Integer, a)
+
 label : List a -> List (Integer, a)
-label xs = ?label_rhs
+label = labelFrom
