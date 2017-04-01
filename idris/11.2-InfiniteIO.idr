@@ -55,13 +55,5 @@ freeGas = Some freeGas
 main : IO ()
 main = runEngine freeGas (loopPrint 0)
 
--- Lazy without case split
-
-f : Lazy Integer -> IO Integer
-f (Delay x) = do if True then pure (x+1) else pure x
-
-g : IO Integer
-g = f 1
-
 h : () => Bool
-h _ = True
+h = \x => True
