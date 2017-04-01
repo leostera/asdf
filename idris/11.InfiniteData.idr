@@ -18,7 +18,6 @@ labelWith : List Integer -> List a -> List (Integer, a)
 labelWith _ []  = []
 labelWith (x :: xs) (y :: ys) = (x, y) :: labelWith xs ys
 
--- I would have expected this to not work!
--- but it does, and I wonder why
+-- this works on the REPL because it's lazy
 label' : List a -> List (Integer, a)
 label' = labelWith (countFrom 0)
