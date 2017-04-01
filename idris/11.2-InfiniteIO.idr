@@ -4,8 +4,8 @@ fib : Stream (Integer, Integer)
 fib = iterate fib' (0, 0) where
   fib' : (Integer, Integer) -> (Integer, Integer)
   fib' (a, b) = fib' (a+b, b)
-  fib' (1, 1) = (1, 1)
-  fib' (0, 0) = (0, 0)
+  fib' (1, 1) = (2, 2)
+  fib' (0, 0) = (1, 1)
 
 data InfIO : Type where
   Do : IO a -> (a -> Inf InfIO) -> InfIO
