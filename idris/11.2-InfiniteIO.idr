@@ -6,7 +6,6 @@ fib = iterate fib' (0, 0) where
   fib' (1, 1) = 1
   fib' (a, b) = fib' (a+b, b)
 
-
 data InfIO : Type where
   Do : IO a -> (a -> Inf InfIO) -> InfIO
 
