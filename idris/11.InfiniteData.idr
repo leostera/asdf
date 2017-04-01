@@ -10,3 +10,6 @@ label : List a -> List (Integer, a)
 label = labelFrom 0
 
 -- Second iteration, split number generation from labeling
+
+countFrom : Integer -> List Integer
+countFrom n = n :: countFrom (n+1)
