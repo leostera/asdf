@@ -11,8 +11,8 @@ data InfIO : Type where
 -- First try, infinite IO with partial run
 
 loopPrint : String -> InfIO
-loopPrint x = Do (putStrLn x)
-                 (\_ => loopPrint x)
+loopPrint x = do putStrLn x
+                 loopPrint x
 
 run : InfIO -> IO ()
 run (Do x f) = do res <- x
@@ -44,7 +44,7 @@ freeGas = Some freeGas
 
 runEngine : Gas -> InfIO -> IO ()
 runEngine Empty y = putStrLn "Out of fuel"
-runEngine (Some x) (Do y f) = ?runEngine_rhs_1
+runEngine (Some x) (Do y f) = do 
 
 main : IO ()
 main = run $ loopPrint "hello world"
