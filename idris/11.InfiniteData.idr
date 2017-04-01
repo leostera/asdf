@@ -23,3 +23,6 @@ label' : List a -> List (Integer, a)
 label' = labelWith (countFrom 0)
 
 -- Third iteration, Infinite Lists!
+
+data InfList' : Type -> Typpe where
+  (::) : (value : elem) -> Inf (InfList elem) -> InfList elem
