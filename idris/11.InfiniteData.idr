@@ -15,7 +15,8 @@ countFrom : Integer -> List Integer
 countFrom n = n :: countFrom (n+1)
 
 labelWith : List Integer -> List a -> List (Integer, a)
-labelWith [] ys = ?what_1
+labelWith [] [] = ?what_3
+labelWith [] (x :: xs) = ?what_4
 labelWith (x :: xs) ys = ?what_2
 
 label' : List a -> List (Integer, a)
