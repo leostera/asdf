@@ -34,4 +34,4 @@ countFrom' x = x :: Delay (countFrom' (x + 1))
 
 getPrefix : (count : Nat) -> InfList ty -> List ty
 getPrefix Z x = []
-getPrefix (S k) (value :: xs) = value :: ?next
+getPrefix (S k) (value :: xs) = value :: []
