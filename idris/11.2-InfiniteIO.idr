@@ -40,5 +40,8 @@ data Gas : Type where
 freeGas : Gas
 freeGas = Some freeGas
 
+runEngine : Gas -> InfIO -> IO ()
+runEngine x y = ?runEngine_rhs
+
 main : IO ()
 main = run $ loopPrint "hello world"
