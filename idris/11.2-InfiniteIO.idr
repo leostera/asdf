@@ -22,5 +22,7 @@ data Fuel : Type where
   Dry : Type
   More : Fuel -> Type
 
+tank : Nat -> Fuel
+
 main : IO ()
 main = run $ loopPrint "hello world"
