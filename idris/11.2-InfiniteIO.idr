@@ -41,6 +41,5 @@ freeGas : Gas
 freeGas = More forever
 
 
-
 main : IO ()
 main = run $ loopPrint "hello world"
