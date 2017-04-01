@@ -64,4 +64,4 @@ g : IO Integer
 g = f 1
 
 h : () => Bool
-h = \_ => True
+h = \x => True
