@@ -5,6 +5,7 @@ data InfIO : Type where
        (a -> Inf InfIO) ->
        InfIO
 
+-- sugar me with do-notation
 (>>=) : IO a -> (a -> Inf InfIO) -> InfIO
 (>>=) = Do
 
