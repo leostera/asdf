@@ -7,4 +7,4 @@ data InfIO : Type where
 
 loopPrint : String -> InfIO
 loopPrint x = Do (putStrLn x)
-                 (\_ => loopPrint msg)
+                 (\_ => loopPrint x)
