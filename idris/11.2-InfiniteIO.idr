@@ -14,5 +14,6 @@ data InfIO : Type where
 
 loopPrint : Nat -> () -> IO ()
 loopPrint x = \_ => do putStrLn (show y) where
+  y : Nat
   y = x+1
 
