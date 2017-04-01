@@ -56,4 +56,4 @@ main : IO ()
 main = runEngine freeGas (loopPrint 0)
 
 h : () => Bool
-h = \x => True
+h = \_ => True
