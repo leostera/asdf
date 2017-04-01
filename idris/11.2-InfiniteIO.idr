@@ -1,6 +1,6 @@
 module Main
 
-fib : Inf (List Nat)
+fib : Stream Nat
 fib = iterate fib' (0, 0) where
   fib' (0, 0) = 0
   fib' (1, 1) = 1
