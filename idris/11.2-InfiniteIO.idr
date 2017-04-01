@@ -6,4 +6,5 @@ data InfIO : Type where
        InfIO
 
 loopPrint : String -> InfIO
-loopPrint x = Do {a = ([__])} ?loopPrint_rhs1 ?loopPrint_rhs2
+loopPrint x = Do (putStrLn x)
+                 (\_ => loopPrint msg)
