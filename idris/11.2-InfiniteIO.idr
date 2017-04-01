@@ -59,6 +59,6 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Inf (Vect n Nat) -> Vect n Nat 
+f : Vect n (Lazy Nat) -> Vect n Nat 
 f (Delay []) = ?f_rhs_1
 f (Delay (x :: xs)) = ()
