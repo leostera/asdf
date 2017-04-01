@@ -1,6 +1,6 @@
 package Main
 
-modules = 11.2-InfiniteIO.idr
+modules = "11.2-InfiniteIO.idr"
 
 main = Main
 executable = main
