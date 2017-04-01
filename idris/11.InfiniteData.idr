@@ -33,5 +33,5 @@ total countFrom' : Integer -> InfList Integer
 countFrom' x = x :: Delay (countFrom' (x + 1))
 
 getPrefix : (count : Nat) -> InfList ty -> List ty
-getPrefix Z x = ?getPrefix_rhs_1
+getPrefix Z x = []
 getPrefix (S k) x = ?getPrefix_rhs_2
