@@ -15,5 +15,5 @@ countFrom : Integer -> List Integer
 countFrom n = n :: countFrom (n+1)
 
 labelWith : List Integer -> List a -> List (Integer, a)
-labelWith xs ys = ?labelWith_rhs
+labelWith = zip
 
