@@ -58,4 +58,3 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Inf Nat -> Nat
-f x = x
