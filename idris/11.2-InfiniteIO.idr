@@ -1,5 +1,11 @@
 module Main
 
+Inf : Type
+Lazy : Type
+
+A : Type
+Lazy A
+
 data InfIO : Type where
   Do : IO a ->
        (a -> Inf InfIO) ->
