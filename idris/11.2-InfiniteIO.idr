@@ -58,4 +58,4 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Inf a -> a
-f x = x
+f (Delay x) = x
