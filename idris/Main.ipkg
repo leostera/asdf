@@ -2,6 +2,6 @@ package Main
 
 modules = InfiniteIO
 
-main = Main
+main = InfiniteIO
 
 executable = main
