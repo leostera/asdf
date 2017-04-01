@@ -1,5 +1,7 @@
 module Main
 
+import Data.Vect
+
 next : Nat -> Stream Nat
 next n = (n :: Delay (next (S n)))
 
@@ -58,4 +60,3 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Inf (Vect n a) -> a
-f x = ?what
