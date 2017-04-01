@@ -23,7 +23,7 @@ data Fuel : Type where
   More : Fuel -> Fuel
 
 tank : Nat -> Fuel
-tank Z = ?tank_rhs_1
+tank Z = Dry
 tank (S k) = ?tank_rhs_2
 
 main : IO ()
