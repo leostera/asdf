@@ -58,4 +58,5 @@ main = runEngine freeGas (loopPrint 0)
 -- Lazy without case split
 
 f : Inf Nat -> Nat
-f x = ?f_rhs
+f (Delay 0) = ?f_rhs_1
+f (Delay (S k)) = ?f_rhs_2
