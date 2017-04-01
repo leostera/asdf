@@ -1,4 +1,4 @@
-module Infinity
+module Main
 
 -- First iteration, complected number generation with labeling
 
