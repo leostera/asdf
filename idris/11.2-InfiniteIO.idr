@@ -1,5 +1,8 @@
 module Main
 
+fib : Nat -> Nat -> Inf Nat
+fib k j = ?fib_rhs
+
 data InfIO : Type where
   Do : IO a -> (a -> Inf InfIO) -> InfIO
 
