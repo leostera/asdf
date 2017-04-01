@@ -10,7 +10,8 @@ loopPrint x = Do (putStrLn x)
                  (\_ => loopPrint x)
 
 run : InfIO -> IO ()
-run (Do x f) = ?run_rhs_1
+run (Do x f) = do res <- x
+                  run (f res)
 
 main : IO ()
 main = run $ loopPrint "hello world"
