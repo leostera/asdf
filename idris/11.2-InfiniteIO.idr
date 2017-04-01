@@ -56,4 +56,4 @@ main : IO ()
 main = runEngine freeGas (loopPrint 0)
 
 h : Nat -> () -> Nat
-h x = \_ => x+1
+h x = \_ => (x+1)
