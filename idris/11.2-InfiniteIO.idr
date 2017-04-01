@@ -59,4 +59,4 @@ h : Nat -> () -> Nat
 h x = \_ => (x+1)
 
 h' : Nat -> Lazy Nat
-h x = Delay (x+1)
+h x = x+1
