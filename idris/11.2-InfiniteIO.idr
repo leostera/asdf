@@ -1,6 +1,6 @@
 module Main
 
-next : Nat -> Stream Integer
+next : Nat -> Stream Nat
 next n = (n :: Delay (next (S n)))
 
 data InfIO : Type where
