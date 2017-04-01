@@ -57,5 +57,6 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-
+f : Lazy Bool -> Bool
+f x = ?f_rhs
 
