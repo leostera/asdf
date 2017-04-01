@@ -28,7 +28,8 @@ tank (S k) = More (tank k)
 
 runTank : Fuel -> InfIO -> IO ()
 runTank Dry _ = putStrLn "Out of Fuel"
-runTank (More fuel) (Do this cont) = do res <- this; run fuel (cont res)
+runTank (More fuel) (Do this cont) = do res <- this
+                                        run fuel (cont res)
 
 main : IO ()
 main = run $ loopPrint "hello world"
