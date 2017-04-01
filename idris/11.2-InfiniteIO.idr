@@ -12,9 +12,9 @@ data InfIO : Type where
 
 -- First try, infinite IO with partial run
 
-loopPrint : String -> InfIO
+loopPrint : Nat -> InfIO
 loopPrint x = do putStrLn x
-                 loopPrint x
+                 loopPrint (S x)
 
 run : InfIO -> IO ()
 run (Do x f) = do res <- x
