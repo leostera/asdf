@@ -62,3 +62,6 @@ f (Delay x) = do if True then pure (x+1) else pure x
 
 g : IO Integer
 g = f 1
+
+h : () => Bool
+h = \_ => True
