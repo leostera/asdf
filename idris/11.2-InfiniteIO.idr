@@ -19,8 +19,8 @@ run (Do x f) = do res <- x
 -- Second try, infinite IO with total run
 
 data Fuel : Type where
-  Dry : Type
-  More : Fuel -> Type
+  Dry : Fuel
+  More : Fuel -> Fuel
 
 tank : Nat -> Fuel
 
