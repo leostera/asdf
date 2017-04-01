@@ -44,5 +44,5 @@ freeGas = Some freeGas
 
 runEngine : Gas -> InfIO -> IO ()
 runEngine Empty y = putStrLn "Out of fuel"
-runEngine (Some x) (Do y f) = do ?res <- y
+runEngine (Some x) (Do y f) = do ?run_a_y y
                                  ?what_runEngine
