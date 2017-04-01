@@ -26,5 +26,7 @@ tank : Nat -> Fuel
 tank Z = Dry
 tank (S k) = More (tank k)
 
+runTank : Fuel -> InfIO -> IO ()
+
 main : IO ()
 main = run $ loopPrint "hello world"
