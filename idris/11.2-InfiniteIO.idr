@@ -57,5 +57,4 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Inf a -> a
-f (Delay x) = Force x
+f : Inf (Vect n a) -> a
