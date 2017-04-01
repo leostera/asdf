@@ -38,7 +38,7 @@ data Gas : Type where
   Some : Lazy Gas -> Gas
 
 freeGas : Gas
-freeGas = Some forever
+freeGas = Some freeGas
 
 
 main : IO ()
