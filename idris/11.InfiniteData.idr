@@ -21,3 +21,5 @@ labelWith (x :: xs) (y :: ys) = (x, y) :: labelWith xs ys
 -- this works on the REPL because it's lazy
 label' : List a -> List (Integer, a)
 label' = labelWith (countFrom 0)
+
+-- Third iteration, Infinite Lists!
