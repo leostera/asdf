@@ -3,4 +3,5 @@ package Main
 modules = InfiniteIO.idr
 
 main = Main
+
 executable = main
