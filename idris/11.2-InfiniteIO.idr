@@ -46,5 +46,4 @@ freeGas = Some freeGas
 
 total runEngine : Gas -> InfIO -> IO ()
 runEngine Empty y = putStrLn "Out of fuel"
-runEngine (Some x) (Do y f) = do result <- y
-                                 runEngine x (f result)
+runEngine (Some x) (Do y f) = y >>= \result => runEngine x (f result)
