@@ -54,3 +54,8 @@ freeGas = Some freeGas
 
 main : IO ()
 main = runEngine freeGas (loopPrint 0)
+
+-- Lazy without case split
+
+
+
