@@ -59,4 +59,3 @@ main = runEngine freeGas (loopPrint 0)
 
 f : Lazy Bool -> Bool
 f x = x
-
