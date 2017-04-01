@@ -23,7 +23,8 @@ data Fuel : Type where
   More : Fuel -> Fuel
 
 tank : Nat -> Fuel
-tank k = ?tank_rhs
+tank Z = ?tank_rhs_1
+tank (S k) = ?tank_rhs_2
 
 main : IO ()
 main = run $ loopPrint "hello world"
