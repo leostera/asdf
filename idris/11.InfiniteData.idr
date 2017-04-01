@@ -38,3 +38,4 @@ getPrefix (S k) (value :: xs) = value :: getPrefix k xs
 
 main : IO ()
 main = print $ getPrefix 10 (countFrom' 0)
+--u
