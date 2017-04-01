@@ -59,4 +59,4 @@ main = runEngine freeGas (loopPrint 0)
 
 f : Inf (List Bool) -> (List Bool)
 f (Delay []) = []
-f (Delay (x :: xs)) = (x :: xs)
+f (Delay (x :: xs)) = [x]
