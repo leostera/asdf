@@ -1,9 +1,7 @@
 module Main
 
 data InfIO : Type where
-  Do : IO a ->
-       (a -> Inf InfIO) ->
-       InfIO
+  Do : IO a -> (a -> Inf InfIO) -> InfIO
 
 -- sugar me with do-notation
 (>>=) : IO a -> (a -> Inf InfIO) -> InfIO
