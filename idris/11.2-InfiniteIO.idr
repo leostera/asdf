@@ -39,10 +39,10 @@ runTank (More fuel) (Do c f) = do res <- c
 
 data Gas : Type where
   Empty : Gas
-  Some : Lazy Gas -> Gas
+  Some : Gas -> Gas
 
 freeGas : Gas
-freeGas = Some freeGas
+freeGas = Some (Lazy freeGas)
 
 runEngine : Gas -> InfIO -> IO ()
 runEngine Empty y = putStrLn "Out of fuel"
