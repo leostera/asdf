@@ -9,5 +9,7 @@ loopPrint : String -> InfIO
 loopPrint x = Do (putStrLn x)
                  (\_ => loopPrint x)
 
+run : InfIO -> IO ()
+
 main : IO ()
-main = ?run $ loopPrint "hello world"
+main = run $ loopPrint "hello world"
