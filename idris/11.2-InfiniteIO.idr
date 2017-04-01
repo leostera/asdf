@@ -41,6 +41,10 @@ data Gas : Type where
   Empty : Gas
   Some : Lazy Gas -> Gas
 
+data Run : Type where
+  Stop : Run
+  Step : Lazy Run -> Run
+
 total runEngine : Gas -> InfIO -> IO ()
 runEngine Empty y = putStrLn "Out of fuel"
 runEngine (Some x) (Do y f) = y >>= \res => runEngine x (f res)
