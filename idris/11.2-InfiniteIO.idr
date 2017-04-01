@@ -57,6 +57,4 @@ main = runEngine freeGas (loopPrint 0)
 
 -- Lazy without case split
 
-f : Inf Nat -> Nat
-f (Delay Z) = Z
-f (Delay (S k)) = k
+f : Inf Bool -> Bool
