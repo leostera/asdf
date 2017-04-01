@@ -26,3 +26,6 @@ label' = labelWith (countFrom 0)
 
 data InfList' : Type -> Typpe where
   (::) : (value : elem) -> Inf (InfList elem) -> InfList elem
+-- there's no [] constructor because infinite lists just don't end
+
+countFrom' : Integer -> InfList Integer
