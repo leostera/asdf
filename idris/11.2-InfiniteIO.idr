@@ -16,7 +16,7 @@ run : InfIO -> IO ()
 run (Do x f) = do res <- x
                   run (f res)
 
--- Second try, infinite IO with total run
+-- Second try, finine infinite IO with total run
 
 data Fuel : Type where
   Dry : Fuel
@@ -30,6 +30,8 @@ runTank : Fuel -> InfIO -> IO ()
 runTank Dry _ = putStrLn "Out of Fuel"
 runTank (More fuel) (Do c f) = do res <- c
                                   runTank fuel (f res)
+
+-- Third try, Lazy Fuel
 
 main : IO ()
 main = run $ loopPrint "hello world"
