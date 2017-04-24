@@ -32,7 +32,7 @@
 // "  -- balance_count =  2, acc = "(()("
 
 const balance_iter = s => balance_count => acc => {
-  if (s === ")") return acc
+  if (s === "") return acc
 
   const [fst, ...rest] = s
   const is_open_parens = fst === "("
