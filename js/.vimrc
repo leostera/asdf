@@ -1,0 +1,1 @@
+autocmd BufRead *.json :%!jq .
