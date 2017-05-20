@@ -26,6 +26,31 @@ const Success = Type('Success');
 const Error = Type('Error');
 const Request = Type('Request');
 
+/*
+ * Instead of writing
+ *
+ * {
+ *  type: 'ListAlerts',
+ *  payload: {
+ *    type: 'Request'
+ *  }
+ * }
+ */
 console.log(ListAlerts(Request()))
+
+
+/*
+ * Instead of writing
+ *
+ * {
+ *  type: 'ListAlerts',
+ *  payload: {
+ *    type: 'Success',
+ *    value: {
+ *      object: { id: 1234 },
+ *    },
+ *  },
+ * }
+ */
 console.log(ListAlerts(Success({ object: { id: 123 }})))
 console.log(GetAlerts(Error({ object: { id: 123 }})))
