@@ -72,7 +72,7 @@ const state = {
   profile: {
     name: '',
     email: '',
-  }
+  },
 };
 
 const validator = validate(testErrorLens)(testRules);
