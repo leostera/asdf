@@ -1,32 +1,3 @@
-import {
-  compose,
-  over,
-  set,
-  view,
-} from 'ramda';
-
-const stringify = value => {
-  if(!value) return ""
-  if(value.inspect && typeof value.inspect == 'function') return value.inspect()
-  if(Array.isArray(value)) return `[${value.map(stringify).join(', ')}]`
-  return JSON.stringify(value)
-}
-
-const inspect = type => value => () => `${type}(${stringify(value)})`
-
-const Type = type => value => Object.freeze({
-  type,
-  value,
-  inspect: inspect(type)(value),
-});
-
-const unwrap = ({value}) => value
-const is = name => ({type}) => type === name
-
-const Right = Type('Right')
-const Left = Type('Left')
-const isLeft = is('Left')
-
 // rule : (a -> Bool) -> String -> Lens -> a -> Either ErrorString ()
 const runRule = predicate => error => viewer => input =>
   predicate(view(viewer)(input)) === true ? Right(input) : Left(error);
