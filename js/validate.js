@@ -54,3 +54,6 @@ const validate = errorLens => rules => input =>
       }
       return output;
     }, Right(set(errorLens, {}, input)));
+
+
+// sample
