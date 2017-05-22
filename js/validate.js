@@ -46,9 +46,9 @@ const state = {
   },
 };
 
-const validator = validate(errorLens)(rules);
+const runValidation = validate(errorLens)(rules);
 
-const result = validator(state);
+const result = runValidation(state);
 
 /*
 
