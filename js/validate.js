@@ -57,27 +57,41 @@ const validate = errorLens => rules => input =>
 
 
 // sample
-      const errorLens = lensProp('__errors');
-      const testPredicate = () => false;
-      const testRules = [
-        [lensProp('arbitrary-key-1'), 'arbitrary-message-1', testPredicate],
-        [lensProp('arbitrary-key-1'), 'arbitrary-message-4', testPredicate],
-        [lensProp('arbitrary-key-2'), 'arbitrary-message-2', () => true],
-        [lensProp('arbitrary-key-3'), 'arbitrary-message-3', testPredicate],
-      ];
-      const testInput = {
-        'arbitrary-key-1': 'arbitrary-value-1',
-        'arbitrary-key-2': 'arbitrary-value-2',
-        'arbitrary-key-3': 'arbitrary-value-3',
-      };
-      const validator = validate(testErrorLens)(testRules);
+const errorLens = lensProp('__errors');
 
-      const result = validator(testInput);
+const notEmpty = ['validation.errors.empty', compose(not, empty)];
+const validEmail = ['validation.errors.invalidEmail', validEmailPredicate];
 
-      const expectedOutput = {
-        ...testInput,
-        'arbitrary-errors-key': {
-          'arbitrary-key-1': ['arbitrary-message-1', 'arbitrary-message-4'],
-          'arbitrary-key-3': ['arbitrary-message-3'],
-        },
-      };
+const rules = [
+  [lensPath(['profile', 'name']), ...notEmpty],
+  [lensPath(['profile', 'email']), ...notEmpty],
+  [lensPath(['profile', 'email']), ...validEmail],
+];
+
+const state = {
+  profile: {
+    name: '',
+    email: '',
+  } 
+};
+
+const validator = validate(testErrorLens)(testRules);
+
+const result = validator(testInput);
+
+/*
+
+state : {
+  profile: {
+    name: '',
+    email: '',
+  },
+  __errors: {
+    profile: {
+      name: ['validation.errors.empty'],
+      email: ['validation.errors.empty', 'validation.errors.invalidEmail'],
+    },
+  },
+}
+
+*/
