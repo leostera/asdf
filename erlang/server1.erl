@@ -17,7 +17,7 @@ rpc(Name, Request) ->
 loop(Name, Mod, State) ->
   receive
     {From, Request} ->
-  asdf    {Response, State1} = Mod:handle(Request, State),
+      {Response, State1} = Mod:handle(Request, State),
       From ! {Name, Response},
       loop(Name, Mod, State1)
   end.
