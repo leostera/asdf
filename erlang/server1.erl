@@ -1,7 +1,7 @@
 -module(server1).
 -export([
-        start/2,
-        rpc/2
+         start/2,
+         rpc/2
         ]).
 
 %% start an erlang process and register it under a name
