@@ -1,5 +1,9 @@
 open Format
 
+(*----------------------------------------------------------------------------
+ * Types
+ *----------------------------------------------------------------------------*)
+
 (* filepath, line number, column number *)
 type info = FI of string * int * int | UNKNOWN
 
@@ -7,7 +11,7 @@ type binding = NameBind
 type context = (string * binding) list
 
 type term =
-  (* de Bruijn indexes: current and current index *)
+  (* de Bruijn indexes: variable index and current index *)
     TmVar of info * int * int
 
   (* abstraction with function name and body *)
@@ -15,6 +19,10 @@ type term =
 
   (* function application *)
   | TmApp of info * term * term
+
+(*----------------------------------------------------------------------------
+ * Printing
+ *----------------------------------------------------------------------------*)
 
 (* the length of a context is the amount of elements it has *)
 let ctxLength = List.length
@@ -51,13 +59,44 @@ let rec printTerm' (ctx : context) (t : term) : string = match t with
       if ctxLength ctx = consistencyCheck then
         match (nameFromIndex fi ctx current) with
             Some(name) -> Printf.sprintf "%s" name
-          | None -> Printf.sprintf "Variable lookup failed: offset(%d), ctx size(%d)" current (ctxLength ctx)
+          | None -> Printf.sprintf
+              "Variable lookup failed: offset(%d), ctx size(%d)"
+              current (ctxLength ctx)
       else
         Printf.sprintf
           "[bad idea! Context(%s) Current(%d) Consistency(%d)]"
           (printCtx ctx) current consistencyCheck
 
 let printTerm ctx t = Printf.printf "%s" (printTerm' ctx t)
+
+(*----------------------------------------------------------------------------
+ * Shifting & Substitution
+ *----------------------------------------------------------------------------*)
+
+let mapTerm onvar shift term =
+  let rec walk c t = match t with
+      TmVar(fi, n, m) -> onvar shift c fi n m
+    | TmAbs(fi, n, t') -> TmAbs(fi, n, walk (c+1) t')
+    | TmApp(fi, t1, t2) -> TmApp(fi, walk (c+1) t1, walk (c+1) t2)
+  in walk 0 term
+
+let termShift' shift cutoff fi current check =
+  if current >= cutoff then TmVar(fi, current+shift, check+shift)
+  else TmVar(fi, current, check+shift)
+let termShift = mapTerm termShift'
+
+let termSubst' j s shift cutoff fi current check =
+  if current=j+cutoff then termShift cutoff s
+  else TmVar(fi, current, check)
+let termSubst j s = mapTerm (termSubst' j s)
+
+(*----------------------------------------------------------------------------
+ * Evaluation
+ *----------------------------------------------------------------------------*)
+
+(*----------------------------------------------------------------------------
+ * Sample Terms
+ *----------------------------------------------------------------------------*)
 
 let sampleCtx = []
 
