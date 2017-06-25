@@ -88,11 +88,34 @@ let termShift = mapTerm termShift'
 let termSubst' j s shift cutoff fi current check =
   if current=j+cutoff then termShift cutoff s
   else TmVar(fi, current, check)
-let termSubst j s = mapTerm (termSubst' j s)
+let termSubst j s = mapTerm (termSubst' j s) s
+
+let termSubstTop s t = termShift (-1) (termSubst 0 (termShift 1 s) t)
 
 (*----------------------------------------------------------------------------
  * Evaluation
  *----------------------------------------------------------------------------*)
+
+exception NoRuleApplies
+
+let isval ctx t = match t with
+    TmAbs(_,_,_) -> true
+  | _ -> false
+
+let rec eval' ctx t = match t with
+    TmApp(fi, TmAbs(_, name, body), value) when isval ctx value ->
+      termSubstTop value body
+  | TmApp(fi, value, t2) when isval ctx value ->
+      let t2' = eval' ctx t2
+      in TmApp(fi, value, t2')
+  | TmApp(fi, t1, t2) ->
+      let t1' = eval' ctx t1
+      in TmApp(fi, t1', t2)
+  | _ -> raise NoRuleApplies
+
+let rec eval ctx t =
+  try let t' = eval' ctx t in eval ctx t'
+  with NoRuleApplies -> t
 
 (*----------------------------------------------------------------------------
  * Sample Terms
