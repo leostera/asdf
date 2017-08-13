@@ -21,12 +21,12 @@ inRange (MkRange min max) x = Dec (x > min = x < max)
 -}
 
 data Year : Type where
-  MkYear : (year : Nat) -> Year
+  MkYear : (year : Integer) -> Year
 
 %name Year y,y1,y2,y3
 
 isLeap : Year -> Bool
-isLeap (MkYear year) = (modNatNZ year 4 SIsNotZ) == 0
+isLeap (MkYear year) = (modNatNZ (toNat year) 4 SIsNotZ) == 0
 
 data Month : Type where
   January   : Month
@@ -44,7 +44,7 @@ data Month : Type where
 
 %name Month m,m1,m2,m3
 
-monthOrder : Month -> Nat 
+monthOrder : Month -> Nat
 monthOrder January   = 1
 monthOrder February  = 2
 monthOrder March     = 3
@@ -85,22 +85,6 @@ previousMonth September = August
 previousMonth October   = September
 previousMonth November  = October
 previousMonth December  = November
-
-months : Vect 12 Month
-months = [
-  January   ,
-  February  ,
-  March     ,
-  April     ,
-  May       ,
-  June      ,
-  July      ,
-  August    ,
-  September ,
-  October   ,
-  November  ,
-  December
-]
 
 data Day : Type where
   MkDay : (day : Nat) -> Day
@@ -162,14 +146,16 @@ beginIsBeforeEnd begin end = case compare begin end of
                                   _ => Not (begin = end)
 
 daysToMonth : Year -> Month -> Integer
-daysToMonth year month = foldl (+) 0 $
-                         map (monthDays year) $
-                         Data.Vect.take (monthOrder $ previousMonth month) months
+daysToMonth year month = count (previousMonth month) (monthOrder $ previousMonth month)
+  where
+    count : Month -> Nat -> Integer
+    count m Z = 0
+    count m (S k) = (monthDays year m) + count (previousMonth m) k
 
 daysInDate : Date -> Integer
 daysInDate (MkDate (MkDay days) month year@(MkYear y)) =
   let
-    yearDays = ((toIntegerNat y) - 1) * 365
+    yearDays = (y - 1) * 365
     monthDays = daysToMonth year month
   in
     yearDays + monthDays + (toIntegerNat days)
@@ -178,7 +164,7 @@ daysInDate (MkDate (MkDay days) month year@(MkYear y)) =
 distanceBetweenDates : (begin : Date) ->
                        (end : Date) ->
                        { auto prf : (beginIsBeforeEnd begin end) } -> Integer
-distanceBetweenDates d d' = daysInDate d - daysInDate d'
+distanceBetweenDates a b = daysInDate b - daysInDate a
 
 data DateRange : Type where
   MkDateRange : (begin : Date) ->
@@ -188,8 +174,18 @@ data DateRange : Type where
 
 %name DateRange dr,dr1,dr2,dr3
 
--- date_one : Date
--- date_one = MkDate (MkDay 28) September (MkYear 1991)
--- 
--- date_two : Date
--- date_two = MkDate (MkDay 29) February (MkYear 2008)
+distanceInRange : DateRange -> Integer
+distanceInRange (MkDateRange begin end) = distanceBetweenDates begin end
+
+{-
+  Sample Dates
+-}
+
+date_one : Date
+date_one = MkDate (MkDay 28) September (MkYear 1991)
+
+date_two : Date
+date_two = MkDate (MkDay 29) February (MkYear 2008)
+
+date_three : Date
+date_three = MkDate (MkDay 30) September (MkYear 1992)
