@@ -123,9 +123,16 @@ let rec eval ctx t =
 
 let sampleCtx = []
 
-let sampleExpr =
+let kCombinator =
   TmAbs(UNKNOWN, "x",
     TmAbs(UNKNOWN, "x",
       TmApp(UNKNOWN,
         TmVar(UNKNOWN, 2, 2),
         TmVar(UNKNOWN, 1, 2))))
+
+let sampleExpr =
+  TmApp(UNKNOWN,
+    TmApp(UNKNOWN,
+      kCombinator,
+      TmAbs(UNKNOWN, "x", TmVar(FI("First Param", 0, 0), 1, 1))),
+    TmAbs(UNKNOWN, "x", TmVar(FI("Second Param", 0, 0), 1, 1)))
