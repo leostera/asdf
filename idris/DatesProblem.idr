@@ -189,3 +189,7 @@ date_two = MkDate (MkDay 29) February (MkYear 2008)
 
 date_three : Date
 date_three = MkDate (MkDay 30) September (MkYear 1992)
+
+{-
+  Ranges Logic
+-}
