@@ -1,10 +1,11 @@
 module Main
 
+total
 T : Type -> Type
-T ty = () -> ty
+T a = a -> a
 
-f : { ty : Type } -> { auto prf : ty } -> ty -> ty
-f { ty } v = v
+f : String -> { ty : Type } -> { auto prf : ty } -> ty
+f n a = a
 
 g : { ty : Type } -> T ty
-g { ty } = f { ty }
+g { ty } = f "what" { ty = (T ty) } 
