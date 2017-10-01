@@ -4,6 +4,7 @@ open In_channel
 
 open Utils
 open Shift_and
+open Shift_or
 
 let match_line algo pattern i line =
   match (algo pattern line) with
@@ -28,6 +29,7 @@ let run algo pattern files = List.iter ~f:(run_one algo pattern) files
 
 let pick_algorithm = function
 	| Some("sand") -> Some shift_and
+	| Some("sor") -> Some shift_or
 	| Some(_) -> None
 	| None -> Some shift_and
 

@@ -10,11 +10,14 @@ OCAMLBUILD = ocamlbuild \
 						 -lflags $(FLAGS) \
 						 -use-ocamlfind
 
+BENCH_PATTERN ?= "hello"
+BENCH_FILE ?= ./fixtures/hello-one-line.txt
+
 bench:
-	time rg "hello" ./fixtures/hello.txt > /dev/null
-	time grep "hello" ./fixtures/hello.txt > /dev/null
-	time ./pry.byte -a "sand" "hello" ./fixtures/hello.txt > /dev/null
-	time ./pry.native -a "sand" "hello" ./fixtures/hello.txt > /dev/null
+	time rg $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
+	time grep $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
+	time ./pry.byte -a "sand" $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
+	time ./pry.native -a "sand" $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
 
 build:
 		$(OCAMLBUILD) $(NATIVE_FILES)

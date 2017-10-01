@@ -54,3 +54,9 @@ let bitmask_for_char i r c =
 
 let bitmask = List.foldi ~init:[] ~f:bitmask_for_char
 let bitmask_from_string (s : string) = String.to_list s |> bitmask
+
+let find_mask c = List.find ~f:(fun (m, c') -> c == c')
+
+let complement_mask size (m, c) =
+  let mask = (Int.pow 2 size) - 1
+  in (m lxor mask, c)
