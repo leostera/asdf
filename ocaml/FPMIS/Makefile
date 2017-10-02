@@ -4,14 +4,14 @@ ML_FILES 		   = $(shell find . -type f -maxdepth 1 -name "*.ml")
 BYTECODE_FILES = $(ML_FILES:%.ml=%.byte)
 NATIVE_FILES   = $(ML_FILES:%.ml=%.native)
 
-FLAGS = -g,-thread
+FLAGS 		 = -g,-thread
 OCAMLBUILD = ocamlbuild \
 						 -cflags $(FLAGS) \
 						 -lflags $(FLAGS) \
 						 -use-ocamlfind
 
 BENCH_PATTERN ?= "hello"
-BENCH_FILE ?= ./fixtures/hello-one-line.txt
+BENCH_FILE    ?= ./fixtures/hello-one-line.txt
 
 bench:
 	time rg $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
