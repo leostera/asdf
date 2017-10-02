@@ -57,6 +57,5 @@ let bitmask_from_string (s : string) = String.to_list s |> bitmask
 
 let find_mask c = List.find ~f:(fun (m, c') -> c == c')
 
-let complement_mask size (m, c) =
-  let mask = (Int.pow 2 size) - 1
-  in (m lxor mask, c)
+let complement_mask size m = let mask = (Int.pow 2 size) - 1 in m lxor mask
+let complement_mask_pair size (m, c) = let m' = complement_mask size m in (m', c)
