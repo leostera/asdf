@@ -7,13 +7,13 @@ open Shift_and
 open Shift_or
 
 let match_line algo pattern i line =
-  match (algo pattern line) with
+  match (algo line) with
   | Hit(_, _, Position(_, column)) -> Hit(pattern, line, Position(i, column))
   | Miss(_,_) -> Miss(pattern, line)
 
 let match_file algo pattern path =
   In_channel.read_lines path
-  |> List.mapi ~f:(match_line algo pattern)
+  |> List.mapi ~f:(match_line (algo pattern) pattern)
 
 let print_matches file m =
   match m with

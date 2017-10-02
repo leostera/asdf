@@ -18,6 +18,8 @@ bench:
 	time grep $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
 	time ./pry.byte -a "sand" $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
 	time ./pry.native -a "sand" $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
+	time ./pry.byte -a "sor" $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
+	time ./pry.native -a "sor" $(BENCH_PATTERN) $(BENCH_FILE) > /dev/null
 
 build:
 		$(OCAMLBUILD) $(NATIVE_FILES)

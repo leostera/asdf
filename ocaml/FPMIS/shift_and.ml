@@ -11,7 +11,7 @@ let shift_and (pattern : string) (text : string) =
   let m = List.length b in
   let end_mask = (lsl) 1 m in
 
-  let rec shift_and' text' d p =
+  let rec shift_and' d p text' =
     match List.nth text' 0 with
       | None -> Miss(pattern, text)
       | Some(c) ->
@@ -20,13 +20,12 @@ let shift_and (pattern : string) (text : string) =
         | Some((mask, _)) ->
             let d' = ((d lsl 1) lor 1) in
             let d'' = d' land mask in
-            let d''' = (d'' land end_mask) in
-            let is_hit = d''' != 0 in
+            let is_hit = (d'' land end_mask) != 0 in
             if is_hit then Hit(pattern, text, Position(0, p))
             else
               let p' = if d == 0 then p+1 else p in
-              shift_and' text'' d'' p'
-        | None -> shift_and' text'' 0 (p+1)
+              shift_and' d'' p' text''
+        | None -> shift_and' 0 (p+1) text''
   in
 
-  shift_and' t 0 0
+  shift_and' 0 0 t

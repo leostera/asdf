@@ -22,8 +22,7 @@ let shift_or (pattern : string) (text : string) =
         | Some((mask, _)) ->
             let d' = (d lsl 1) in
             let d'' = d' lor mask in
-            let d''' = (d'' land end_mask) in
-            let is_hit = d''' == 0 in
+            let is_hit = (d'' land end_mask) == 0 in
             if is_hit then Hit(pattern, text, Position(0, p))
             else
               let p' = if d == 0 then p+1 else p in
