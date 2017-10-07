@@ -1,4 +1,5 @@
 open Core
+open Pervasives
 open Option.Monad_infix
 open In_channel
 
@@ -27,15 +28,13 @@ let read_cases (count : int) =
   in
   read_cases' count []
 
-let max_price (x, i) (y, j) = max x y
-
 let trade last_step price = match last_step with
   | Step(_, _, Day(day), Count(shares), Worth(net_worth), (max_price::rest)) ->
     if price < max_price then
       Step(
         Buy,
         Price(price),
-        Day(day + 1),
+        Day(succ day),
         Count(succ shares),
         Worth(net_worth - price),
         (max_price::rest))
@@ -50,27 +49,27 @@ let trade last_step price = match last_step with
   | _ -> last_step
 
 let process_case case =
+  (* helper functions *)
+  let max_price (x, i) (y, j) = compare y x in
+  let prices_from = List.map ~f:fst in
+
   let sorted = List.sort ~cmp:max_price case in
-  let no_price_raise =
-    match (List.hd sorted >>| snd >>| phys_same 0) with
+  let sorted_prices = prices_from sorted in
+  let no_price_raise = match (List.hd sorted >>| snd >>| phys_same 0) with
     | Some x -> x
     | None -> false
   in
-  let prices = List.map ~f:fst in
-  let sorted_prices = prices sorted in
+
   if no_price_raise
   then Step(Hold, Price(0), Day(0), Count(0), Worth(0), sorted_prices)
-  else
-    prices case
-    |> List.fold_left
+  else List.fold_left
       ~f:trade
       ~init:(Step(Init, Price(0), Day(0), Count(0), Worth(0), sorted_prices))
-
-let get_worth = function Step(_, _, _, _, Worth(w), _) -> w
+      (prices_from case)
 
 let print_results (steps : step list) =
   steps
-  |> List.map ~f:get_worth
+  |> List.map ~f:(function Step(_, _, _, _, Worth(w), _) -> w)
   |> List.iter ~f:(Printf.printf "%d\n")
 
 let gather_inputs () =
