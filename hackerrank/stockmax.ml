@@ -14,7 +14,7 @@ type step = Step of kind * price * day * shares * net_worth * int list
 let read_cases (count : int) =
   let rec read_cases' n acc =
     match n with
-    | 0 -> if List.length acc > 0 then Some(acc) else None
+    | 0 -> Some(acc)
     | n ->
       let __days = input_line In_channel.stdin in
       input_line ~fix_win_eol:true In_channel.stdin
@@ -29,29 +29,25 @@ let read_cases (count : int) =
 
 let max_price (x, i) (y, j) = if x > y then -1 else 1
 
-let trade acc price : step list = match (List.last acc) with
-  | None -> []
-  | Some x -> match x with
-    | Step(_, _, Day(day), Count(shares), Worth(net_worth), (max_price::rest)) ->
-      List.append acc [
-        if price < max_price then
-          Step(
-            Buy,
-            Price(price),
-            Day(day + 1),
-            Count(succ shares),
-            Worth(net_worth - price),
-            (max_price::rest))
-        else
-          Step(
-            Sell,
-            Price(price),
-            Day(succ day),
-            Count(0),
-            Worth(net_worth + (shares * max_price)),
-            rest)
-      ]
-    | _ -> acc
+let trade last_step price = match last_step with
+  | Step(_, _, Day(day), Count(shares), Worth(net_worth), (max_price::rest)) ->
+    if price < max_price then
+      Step(
+        Buy,
+        Price(price),
+        Day(day + 1),
+        Count(succ shares),
+        Worth(net_worth - price),
+        (max_price::rest))
+    else
+      Step(
+        Sell,
+        Price(price),
+        Day(succ day),
+        Count(0),
+        Worth(net_worth + (shares * max_price)),
+        rest)
+  | _ -> last_step
 
 let process_case case =
   let sorted = List.sort ~cmp:max_price case in
@@ -62,29 +58,27 @@ let process_case case =
   in
   let prices = List.map ~f:fst in
   if no_price_raise
-  then [Step(Hold, Price(0), Day(0), Count(0), Worth(0), (prices sorted))]
+  then Step(Hold, Price(0), Day(0), Count(0), Worth(0), (prices sorted))
   else
     prices case
     |> List.fold_left
       ~f:trade
-      ~init:[Step(Init, Price(0), Day(0), Count(0), Worth(0), (prices sorted))]
+      ~init:(Step(Init, Price(0), Day(0), Count(0), Worth(0), (prices sorted)))
 
 let get_worth = function Step(_, _, _, _, Worth(w), _) -> w
 
-let print_results (steps : step list list) =
+let print_results (steps : step list) =
   steps
-  |> List.map ~f:(List.last)
-  |> List.map ~f:(fun x -> match x with
-      | Some x -> get_worth x
-      | None -> 0)
+  |> List.map ~f:get_worth
   |> List.iter ~f:(Printf.printf "%d\n")
 
-let res =
+let gather_inputs () =
   input_line ~fix_win_eol:true In_channel.stdin
   >>| Int.of_string
   >>= read_cases
-  >>| List.map ~f:process_case
 
-let () = match res with
+let res () = gather_inputs () >>| List.map ~f:process_case
+
+let () = match (res ()) with
   | Some x -> print_results x
   | None -> Printf.printf "No results available"

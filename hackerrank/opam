@@ -1,0 +1,18 @@
+opam-version: "1.2"
+name: "asdf"
+version: "~unknown"
+maintainer: "Leandro Ostera <leandro@ostera.io>"
+authors: "Leandro Ostera <leandro@ostera.io>"
+homepage: "https://github.com/oster/asdf"
+bug-reports: "https://github.com/oster/asdf/issues"
+license: "BSD-3"
+dev-repo: "https://github.com/oster/asdf"
+build: [
+  ["./configure" "--prefix=%{prefix}%"]
+  [make]
+]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "asdf"]
+depends: [
+  "ocamlfind" {build}
+]
