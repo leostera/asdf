@@ -27,7 +27,7 @@ let read_cases (count : int) =
   in
   read_cases' count []
 
-let max_price (x, i) (y, j) = if x > y then -1 else 1
+let max_price (x, i) (y, j) = max x y
 
 let trade last_step price = match last_step with
   | Step(_, _, Day(day), Count(shares), Worth(net_worth), (max_price::rest)) ->
@@ -57,13 +57,14 @@ let process_case case =
     | None -> false
   in
   let prices = List.map ~f:fst in
+  let sorted_prices = prices sorted in
   if no_price_raise
-  then Step(Hold, Price(0), Day(0), Count(0), Worth(0), (prices sorted))
+  then Step(Hold, Price(0), Day(0), Count(0), Worth(0), sorted_prices)
   else
     prices case
     |> List.fold_left
       ~f:trade
-      ~init:(Step(Init, Price(0), Day(0), Count(0), Worth(0), (prices sorted)))
+      ~init:(Step(Init, Price(0), Day(0), Count(0), Worth(0), sorted_prices))
 
 let get_worth = function Step(_, _, _, _, Worth(w), _) -> w
 
