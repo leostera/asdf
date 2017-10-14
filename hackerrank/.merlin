@@ -1,3 +1,4 @@
 S ./*
 B ./*
-PKG core core_kernel core_bench
+PKG core core_kernel core_bench core_quickcheck
+EXT camlp4
