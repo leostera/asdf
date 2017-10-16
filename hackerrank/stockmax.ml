@@ -8,7 +8,7 @@ type day = Day of int
 type net_worth = Worth of int
 type price = Price of int
 
-type kind = Buy | Sell | Hold | Init
+type kind = Buy | Sell | Hold | Open | Close
 
 type step = Step of kind * price * day * shares * net_worth * int list
 
@@ -30,6 +30,7 @@ let read_cases (count : int) =
 
 let trade last_step price = match last_step with
   | Step(_, _, Day(day), Count(shares), Worth(net_worth), (max_price::rest)) ->
+    let () = Printf.printf "Max: %d – Price: %d – Worth: %d\n" max_price price net_worth in
     if price < max_price then
       Step(
         Buy,
@@ -46,7 +47,8 @@ let trade last_step price = match last_step with
         Count(0),
         Worth(net_worth + (shares * max_price)),
         rest)
-  | _ -> last_step
+  | Step(s, Price(p), Day(day), Count(shares), Worth(net_worth), []) ->
+    Step(Close, Price(p), Day(day+1), Count(0), Worth(net_worth + (shares * p)), [])
 
 let process_case case =
   (* helper functions *)
@@ -64,7 +66,7 @@ let process_case case =
   then Step(Hold, Price(0), Day(0), Count(0), Worth(0), sorted_prices)
   else List.fold_left
       ~f:trade
-      ~init:(Step(Init, Price(0), Day(0), Count(0), Worth(0), sorted_prices))
+      ~init:(Step(Open, Price(0), Day(0), Count(0), Worth(0), sorted_prices))
       (prices_from case)
 
 let print_results (steps : step list) =
