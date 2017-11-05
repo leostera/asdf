@@ -1,5 +1,9 @@
-open Micro
+open Express
 
-let server = micro (fun _ -> fun _ -> "Hello world!")
+let handle_get str _ r = send ~res:r str
 
-let () = listen server 2112
+let () =
+  express ()
+  |> get ~path:"/" ~cb:(handle_get "root!")
+  |> get ~path:"/what" ~cb:(handle_get "some other path")
+  |> listen ~port:2112
