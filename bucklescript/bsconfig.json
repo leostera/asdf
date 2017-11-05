@@ -2,7 +2,8 @@
   "name": "buckle-tests",
   "version": "0.1.0",
   "sources": [
-    "src/"
+    "src",
+    "src/FFI"
   ],
   "package-specs": {
     "module": "commonjs",

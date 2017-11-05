@@ -1,4 +1,5 @@
+open Micro
 
-let server = Ffi_micro.micro (fun _ -> fun _ -> "Hello world!")
+let server = micro (fun _ -> fun _ -> "Hello world!")
 
-let () = Ffi_micro.listen server 2112
+let () = listen server 2112
