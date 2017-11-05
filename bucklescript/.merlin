@@ -1,0 +1,7 @@
+####{BSB GENERATED: NO EDIT
+FLG -ppx /usr/local/lib/node_modules/bs-platform/bin/bsppx.exe
+S /Users/ostera/repos/github.com/ostera/asdf/bucklescript/node_modules/bs-platform/lib/ocaml
+B /Users/ostera/repos/github.com/ostera/asdf/bucklescript/node_modules/bs-platform/lib/ocaml
+FLG -nostdlib -no-alias-deps -color always
+FLG -w -30-40+6+7+27+32..39+44+45+101
+####BSB GENERATED: NO EDIT}
