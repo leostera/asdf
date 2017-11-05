@@ -2,7 +2,7 @@
   "name": "buckle-tests",
   "version": "0.1.0",
   "sources": [
-    "src"
+    "src/"
   ],
   "package-specs": {
     "module": "commonjs",

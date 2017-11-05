@@ -12,5 +12,8 @@
   "license": "MIT",
   "devDependencies": {
     "bs-platform": "2.0.0"
+  },
+  "dependencies": {
+    "micro": "^9.0.1"
   }
 }
