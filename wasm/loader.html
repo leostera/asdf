@@ -1,0 +1,24 @@
+<script>
+fetch("./checkers.wasm")
+  .then(r => r.arrayBuffer())
+  .then(bytes => WebAssembly.instantiate(bytes, {
+    events: {
+      invalidMove: function (x0,y0,x1,y1) {
+        console.log(`Invalid move (${x0}, ${y0}) => (${x1}, ${y1})`)
+      },
+      pieceMoved: function (x0,y0,x1,y1) {
+        console.log(`Move (${x0}, ${y0}) => (${x1}, ${y1})`)
+      },
+      pieceCrowned: function (x, y) {
+        console.log(`Piece crowned at (${x}, ${y})`)
+      }
+    }
+  }))
+  .then(wasm => {
+    const mod = wasm.instance.exports
+    window.mod = mod
+
+    mod.init_board()
+  })
+  .catch(console.error)
+</script>
