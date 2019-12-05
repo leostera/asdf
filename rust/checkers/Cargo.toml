@@ -1,0 +1,9 @@
+[package]
+name = "checkers"
+version = "0.1.0"
+authors = ["Leandro Ostera <leandro@ostera.io>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]

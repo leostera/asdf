@@ -1,0 +1,1 @@
+/home/ostera/repos/github.com/ostera/asdf/rust/checkers/target/wasm32-unknown-unknown/release/checkers.wasm: /home/ostera/repos/github.com/ostera/asdf/rust/checkers/src/board.rs /home/ostera/repos/github.com/ostera/asdf/rust/checkers/src/game.rs /home/ostera/repos/github.com/ostera/asdf/rust/checkers/src/lib.rs

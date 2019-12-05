@@ -1,0 +1,17 @@
+[package]
+name = "abstract-machine"
+version = "0.1.0"
+authors = ["Leandro Ostera <leandro@ostera.io>"]
+
+[profile.release]
+lto = true
+opt-level = 'z'
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+mut_static = "5.0.0"
+lazy_static = "1.0.2"
+
+

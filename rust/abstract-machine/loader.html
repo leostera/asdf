@@ -1,0 +1,10 @@
+<script>
+fetch("./target/wasm32-unknown-unknown/release/abstract_machine.wasm")
+  .then(r => r.arrayBuffer())
+  .then(bytes => WebAssembly.instantiate(bytes))
+  .then(wasm => {
+    const mod = wasm.instance.exports
+    window.mod = mod
+  })
+  .catch(console.error)
+</script>

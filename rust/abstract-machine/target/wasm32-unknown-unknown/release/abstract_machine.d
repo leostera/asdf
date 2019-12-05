@@ -1,0 +1,1 @@
+/home/ostera/repos/github.com/ostera/asdf/rust/abstract-machine/target/wasm32-unknown-unknown/release/abstract_machine.wasm: /home/ostera/repos/github.com/ostera/asdf/rust/abstract-machine/src/am.rs /home/ostera/repos/github.com/ostera/asdf/rust/abstract-machine/src/lib.rs

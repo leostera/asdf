@@ -1,0 +1,1 @@
+/home/ostera/repos/github.com/ostera/asdf/rust/stack-machine/target/wasm32-unknown-unknown/release/stack_machine.wasm: /home/ostera/repos/github.com/ostera/asdf/rust/stack-machine/src/am.rs /home/ostera/repos/github.com/ostera/asdf/rust/stack-machine/src/lib.rs
